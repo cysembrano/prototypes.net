@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <!-- Change title, description and keywords -->
+  <title>Blog Layout - Outlooker - Responsive HTML5/CSS3 Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- HTML5 Support for IE -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shim.js"></script>
+  <![endif]-->
+		
+  <!-- Google Web Font -->
+  <link href='http://fonts.googleapis.com/css?family=Dosis:200,400,600' rel='stylesheet' type='text/css'>
+  
+  <!-- Stylesheets -->
+  <link href="style/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="style/font-awesome.css">
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="style/font-awesome-ie7.css">
+  <![endif]-->		
+
+  <link href="style/ddlevelsmenu-base.css" rel="stylesheet">
+  <link href="style/ddlevelsmenu-topbar.css" rel="stylesheet">
+  <link href="style/style.css" rel="stylesheet">
+  <!-- Change the template color below. Supported colors blue,red and green. -->
+  <link href="style/blue.css" rel="stylesheet">
+  <link href="style/bootstrap-responsive.css" rel="stylesheet">
+  <link href="style/flexslider.css" rel="stylesheet">
+  <link href="style/prettyPhoto.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/favicon/favicon.png">
+</head>
+
+<body>
+
+<!-- Sliding share panel. Click "Share it" to see. -->
+
+<div class="sharepanel">
+  <div class="container">
+    <div class="row">
+      <div class="span8">
+        <div class="padd spara"> 
+          <!-- Small para -->
+          <p>Nulla facilisi. Sed justo dui, scelerisque ut consectetur vel. </p>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="padd">
+          <div class="social">
+            <!-- Social media icons. Repalce # with your profile links -->
+            <a href="#"><img src="img/facebook.png" alt="" width="40"/></a>
+            <a href="#"><img src="img/twitter.png" alt="" width="40"/></a>
+            <a href="#"><img src="img/linkedin.png" alt="" width="40"/></a>
+            <a href="#"><img src="img/googleplus.png" alt="" width="40"/></a>
+            <a href="#"><img src="img/rss.png" alt="" width="40"/></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<!-- Header -->
+
+<div class="fixedbar">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="logo">
+          <div class="pull-left">
+            <!-- Logo with font awesome icon (icon-camera-retro). Replace it with your logo. Replace # with your site link -->
+            <h1><a href="#"><i class="icon-camera-retro"></i> Outlooker</a></h1>
+          </div>
+          <div class="navi">
+            <!-- Navigation Starts Here -->
+            <div class="pull-left">
+            <div id="ddtopmenubar" class="mattblackmenu">
+            <!-- Main navigation -->
+            <ul>
+              <!-- Add rel="ddsubmenu{count}" to main menu -->
+              <li><a href="index.html" rel="ddsubmenu1">Home</a>
+                <!-- Sub navigation, A -->
+                <!-- Add id "ddsubmenu{count} and class "ddsubmenustyle" -->
+                <ul id="ddsubmenu1" class="ddsubmenustyle">
+                  <li><a href="index-slider.html">With Slider</a></li>
+                  <li><a href="full-width.html">Full Width</a></li>
+                </ul>
+              </li>
+              <!-- Main navigation -->
+              <li><a href="blog.html" rel="ddsubmenu2">Blog</a>
+                  <!-- Sub Navigation -->
+                  <ul id="ddsubmenu2" class="ddsubmenustyle">
+                     <li><a href="blog-single.html">Blog Single</a></li>
+                  </ul>
+              </li>
+              <li><a href="portfolio.html" rel="ddsubmenu2">Portfolio</a>
+                <!-- Sub navigation -->
+                <ul id="ddsubmenu2" class="ddsubmenustyle">
+                  <li><a href="portfolio-big.html">Portfolio #2</a></li>
+                </ul>
+              </li>
+              <li><a href="about-us.html">About Us</a></li>
+              <li><a href="contact-us.html">Contact Us</a></li>
+              <li><a href="#" rel="ddsubmenu3">Nav Level #1</a>
+                <!-- Sub navigation -->
+                <ul id="ddsubmenu3" class="ddsubmenustyle">
+                  <li><a href="#">Nav Level #2</a>
+                    <ul>
+                      <li><a href="#">Nav Level #3</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+            </div>
+            <!-- Navigation Ends Here -->
+          </div>
+        </div>
+        <div class="share">
+          <div class="pull-right">
+            <!-- Share it link for slider -->
+            <p><a href="#" class="open"><span class="hidden-phone">Share it</span> <i class="icon-share"></i></a></p>
+          </div>
+        </div>  
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="span12 hidden-desktop">
+          <div class="padd"><div class="navis"></div></div>
+      </div>
+      <div class="visible-desktop">
+      <div class="span3 sidey">
+        <!-- Sidebar Starts Here -->
+        <div class="padd sidebar">
+          <!-- Each sidebar should be enclosed inside "widget class" -->
+          <!-- 1st widget -->
+          <div class="widget">
+            <!-- Sidebar heading enclosed inside h3. Don't forget to add the class "matopen". -->
+            <h3 class="matopen">Search</h3>
+            <!-- Sidebar content should be enclosed inside div with the class "matter". -->
+            <div class="matter">
+              <!-- Search form -->
+              <form class="form-search">
+                <input type="text" class="input-medium search-query" placeholder="Type to Search..."> 
+              </form>
+            </div>
+          </div>
+          <!-- 2nd widget -->
+          <div class="widget">
+            <h3 class="matopen">Categories</h3>
+            <div class="matter">
+             <ul>
+              <li><a href="#">Condimentum</a></li>
+              <li><a href="#">Etiam at</a></li>
+              <li><a href="#">Fusce vel</a></li>
+              <li><a href="#">Vivamus</a></li>
+              <li><a href="#">Pellentesque</a></li>
+             </ul>
+            </div>
+          </div>
+          <!-- 3rd widget -->
+          <div class="widget">
+            <h3 class="matopen">Recent Posts</h3>
+            <div class="matter">
+              <ul>
+                <li><a href="#">Sed eu leo orci, condimentum gravida metus</a></li>
+                <li><a href="#">Etiam at nulla ipsum, in rhoncus purus</a></li>
+                <li><a href="#">Fusce vel magna faucibus felis dapibus facilisis</a></li>
+                <li><a href="#">Vivamus scelerisque dui in massa</a></li>
+                <li><a href="#">Pellentesque eget adipiscing dui semper</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Sidebar Ends Here -->
+      </div>
+      </div>
+      <div class="span9">
+        <div class="padd whity content">
+          <!-- Main Content Starts Here -->
+          <!-- Content should be encloased inside div with the class "posts" -->
+          <div class="posts">
+               <!-- Breadcrumbs -->
+                <ul class="breadcrumb">
+                   <li>You are here : </li>
+                   <li>
+                     <!-- First link with divider -->
+                     <a href="#">Home</a> <span class="divider">/</span>
+                   </li>
+                   <li>
+                     <!-- 2nd link -->
+                     <a href="#">Library</a> <span class="divider">/</span>
+                   </li>
+                   <li class="active">Data</li>
+                </ul>
+            <!-- Each entry should be enclosed inside div with the class "entry" -->
+            <div class="entry">
+              <!-- Entry title -->
+              <h2><a href="#">Etiam adipiscing posuere justo, nec iaculis</a></h2>
+              <!-- Entry meta information. Calender, User, Category, Tags. Font awesome icons used -->
+              <p class="meta"><i class="icon-calendar"></i>&nbsp; 12/08/2012 - <i class="icon-user"></i>&nbsp; Ashok - <i class="icon-folder-close"></i>&nbsp; <a href="#">Diam</a>, <a href="#">Bestibulum</a> - <i class="icon-tags"></i>&nbsp; <a href="#">Iam</a>, <a href="#">Bulum</a></p>
+              <!-- Thumbnail here -->
+              <p class="thumbnail"><img src="img/photos/s2.jpg" alt="" /></p>
+              <!-- Entry para -->
+              <p>Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing. <a href="#">Morbi dictum nibh gravida</a> mi pretium dapibus. Nullam in est urna. In vitae adipiscing enim. Curabitur rhoncus condimentum lorem, non convallis dolor faucibus eget. In ut nulla est. Sed a interdum mauris. Duis eget risus ac orci vulputate vestibulum sit amet id orci. Etiam ac ante at lorem ultrices elementum. Vestibulum quis elit odio, id hendrerit ipsum. Fusce consequat leo vitae velit interdum at laoreet justo ullamcorper.</p>
+            </div>
+            <!-- 2nd entry -->
+             <div class="entry">
+              <h2>Adipiscing posuere etiam justo, posuere justo</h2>
+              <p class="meta"><i class="icon-calendar"></i>&nbsp; 12/08/2012 - <i class="icon-user"></i>&nbsp; Ashok - <i class="icon-folder-close"></i>&nbsp; <a href="#">Diam</a>, <a href="#">Bestibulum</a> - <i class="icon-tags"></i>&nbsp; <a href="#">Iam</a>, <a href="#">Bulum</a></p>
+              <!-- Thumbnail here -->
+              <p class="thumbnail"><img src="img/photos/s8.jpg" alt="" /></p>
+              <p>Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing. <a href="#">Morbi dictum nibh gravida</a> mi pretium dapibus. Nullam in est urna. In vitae adipiscing enim. Curabitur rhoncus condimentum lorem, non convallis dolor faucibus eget. In ut nulla est. Sed a interdum mauris. Duis eget risus ac orci vulputate vestibulum sit amet id orci. Etiam ac ante at lorem ultrices elementum. Vestibulum quis elit odio, id hendrerit ipsum. Fusce consequat leo vitae velit interdum at laoreet justo ullamcorper.
+              </p>
+            </div>
+            <!-- Navigation links -->
+            <ul class="pager">
+                <li class="previous">
+                <a href="#">&larr; Previous Entries</a>
+                </li>
+                <li class="next">
+                <a href="#">New Entries &rarr;</a>
+                </li>
+             </ul>
+          </div>
+          <!-- Main Content Ends Here -->
+        </div>
+      </div>
+      
+      <div class="mobily hidden-desktop">
+      
+      </div>
+    </div>
+  </div>
+</div> 
+
+<!-- Foot -->
+
+<!-- Three column footer -->
+
+<div class="foot">
+  <div class="container">
+    <div class="row">
+      <div class="span4">
+        <div class="padd">
+          <!-- Add class "widget" -->
+          <div class="widget">
+             <!-- Title -->
+             <h3>Morbi dictum nibh gravida</h3>
+             <!-- Content -->
+             <!-- Below is the blockquote -->
+             <blockquote>
+               <p>Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. </p>
+               <!-- Author information -->
+               <small>Ashok</small>
+             </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="padd">
+          <div class="widget">
+          <h3>Sed a interdum mauris</h3>
+          <ul>
+            <li><a href="#">Sed eu leo orci, condimentum gravida metus</a></li>
+            <li><a href="#">Etiam at nulla ipsum, in rhoncus purus</a></li>
+            <li><a href="#">Fusce vel magna faucibus felis dapibus facilisis</a></li>
+            <li><a href="#">Vivamus scelerisque dui in massa</a></li>
+            <li><a href="#">Pellentesque eget adipiscing dui semper</a></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="padd">
+          <div class="widget">
+            <h3>Service</h3>
+            <ul>
+              <li><a href="#">Sed eu leo gravida metus</a></li>
+              <li><a href="#">Etiam at rhoncus purus</a></li>
+              <li><a href="#">Fusce vel dapibus facilisis</a></li>
+              <li><a href="#">Vivamus scelerisque dui in massa</a></li>
+              <li><a href="#">Pellentesque eget  dui semper</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <!-- Copyright information -->
+        <div class="fpadd">Copyright &copy; 2012 - <a href="#">Your Site</a> / <a href="#">Disclaimer</a> / <a href="#">Privacy Policy</a></div>
+      </div>
+    </div>
+  <div class="clearfix"></div>
+  </div>
+</footer>		
+
+<!-- JS -->
+<script src="js/jquery.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/ddlevelsmenu.js"></script>
+<script type="text/javascript" src="js/flexslider.js"></script>
+<script type="text/javascript" src="js/isotype.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+</html>
