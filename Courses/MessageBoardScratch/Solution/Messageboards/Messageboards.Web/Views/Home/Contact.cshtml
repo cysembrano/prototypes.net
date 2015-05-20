@@ -36,7 +36,7 @@
                                         <div class="control-group">
                                             <label class="control-label" for="email">Email</label>
                                             <div class="controls">
-                                                <input type="text" class="input-medium" id="email" name="email" data-val="true" data-val-required="*">
+                                                <input type="text" class="input-medium" id="email" name="email" data-val="true" data-val-required="*" data-val-email="Not A Valid Email">
                                                 <span class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
                                             </div>
                                         </div>
@@ -56,9 +56,14 @@
                                         </div>
                                         <div class="form-actions">
                                             <button type="submit" class="btn">Send</button>
+                                            @if (ViewBag.MailSent != null && ViewBag.MailSent)
+                                            {
+                                                <div>Mail Sent!</div>
+                                            }
                                         </div>
                                     </fieldset>
                                 </form>
+
                             </div>
                         </div>
                     </div>
