@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messageboards.Web", "Messageboards.Web\Messageboards.Web.csproj", "{9CE872CC-CF78-4D64-BC43-31B4299C77F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messageboards.Tests", "Messageboards.Tests\Messageboards.Tests.csproj", "{B648F190-EA45-40CC-8001-3F90E1075DF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9CE872CC-CF78-4D64-BC43-31B4299C77F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CE872CC-CF78-4D64-BC43-31B4299C77F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CE872CC-CF78-4D64-BC43-31B4299C77F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B648F190-EA45-40CC-8001-3F90E1075DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B648F190-EA45-40CC-8001-3F90E1075DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B648F190-EA45-40CC-8001-3F90E1075DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B648F190-EA45-40CC-8001-3F90E1075DF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
