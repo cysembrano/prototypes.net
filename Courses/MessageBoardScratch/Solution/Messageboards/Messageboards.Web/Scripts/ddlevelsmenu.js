@@ -374,8 +374,10 @@ init:function(mainmenuid, dir){
 			var dropul=document.getElementById(menuitem.getAttribute('rel'))
 			var shelldiv=document.createElement("div") // create DIV which will contain the UL
 			shelldiv.className="ddsubmenustyle"
-			dropul.removeAttribute("class")
-			shelldiv.appendChild(dropul)
+			
+		        dropul.removeAttribute("class")
+		        shelldiv.appendChild(dropul)
+
 			document.body.appendChild(shelldiv) //move main DIVs to end of document
 			shelldiv.style.zIndex=2000 //give drop down menus a high z-index
 			shelldiv._master=mainmenuid  //Indicate which main menu this main DIV is associated with

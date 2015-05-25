@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="@ViewBag.InitModule">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -31,7 +31,7 @@
     <link href="~/Content/template/style/bootstrap-responsive.css" rel="stylesheet">
     <link href="~/Content/template/style/flexslider.css" rel="stylesheet">
     <link href="~/Content/template/style/prettyPhoto.css" rel="stylesheet">
-
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <!-- Favicon -->
     <link rel="shortcut icon" href="~/Content/template/img/favicon/favicon.png">
 </head>
@@ -75,7 +75,7 @@
                     <div class="logo">
                         <div class="pull-left">
                             <!-- Logo with font awesome icon (icon-camera-retro). Replace it with your logo. Replace # with your site link -->
-                            <h1><a href="#"><i class="icon-camera-retro"></i> Outlooker</a></h1>
+                            <h1><a href="#"><i class="icon-camera-retro"></i> Messageboard</a></h1>
                         </div>
                         <div class="navi">
                             <!-- Navigation Starts Here -->
@@ -84,16 +84,21 @@
                                     <!-- Main navigation -->
                                     <ul>
                                         <li>
-                                            @Html.ActionLink("Home","Index","Home")
+                                            <a href="@Url.Action("Index", "Home")" rel="ddsubmenu1">Home</a>
+                                            <ul id="ddsubmenu1" class="ddsubmenustyle"></ul>
                                         </li>
                                         <li>
-                                           @Html.ActionLink("Contact", "Contact", "Home")                   
+                                            <a href="@Url.Action("Contact", "Home")" rel="ddsubmenu2">Contact</a>
+                                            <ul id="ddsubmenu2" class="ddsubmenustyle"></ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="@Url.Action("About", "Home")" rel="ddsubmenu3">About</a>
+                                            <ul id="ddsubmenu3" class="ddsubmenustyle"></ul>
                                         </li>
                                         <li>
-                                            @Html.ActionLink("About", "About", "Home")
-                                        </li>
-                                        <li>
-                                            @Html.ActionLink("My Messages", "MyMessages", "Home")
+                                            <a href="@Url.Action("MyMessages", "Home")" rel="ddsubmenu4">My Messages</a>
+                                            <ul id="ddsubmenu4" class="ddsubmenustyle"></ul>
                                         </li>
                                     </ul>
                                 </div>
@@ -118,6 +123,9 @@
     <div class="main">
         <div class="container">
             <div class="row">
+                <div class="span12 hidden-desktop">
+                    <div class="padd"><div class="navis"></div></div>
+                </div>
                 @RenderBody()
             </div>
         </div>
@@ -192,12 +200,15 @@
 
     <!-- JS -->
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
     <script src="~/Scripts/easing.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script type="text/javascript" src="~/Scripts/ddlevelsmenu.js"></script>
     <script type="text/javascript" src="~/Scripts/flexslider.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.prettyPhoto.js"></script>
     <script type="text/javascript" src="~/Scripts/custom.js"></script>
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>

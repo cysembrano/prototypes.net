@@ -1,1 +1,1 @@
-﻿.foo{width:100px;color:gray}.bar{background:gray}
+﻿@charset "utf-8";.message.row{border:1px solid #aaa;margin-bottom:5px;padding:5px;border-radius:5px;background:none repeat scroll 0 0 #eaeaea;margin-left:0;margin-right:-20px}.message.row .title{font-size:20px;font-weight:bold;text-shadow:2px 2px 4px #aaa}.message.row .reply{border-top:1px solid #aaa;margin-left:15px;margin-top:5px}.message.row .reply .created{font-size:9px;margin-left:10px;text-shadow:2px 2px 3px #aaa}.servReplies{border:1px solid #aaa;background-color:#0026ff;color:#fff}

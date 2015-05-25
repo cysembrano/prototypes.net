@@ -1,8 +1,31 @@
-﻿.foo {
-  width: 100px;
-  color: #808080;
+﻿@charset "utf-8";
+.message.row {
+  border: 1px solid #aaaaaa;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: none repeat scroll 0 0 #eaeaea;
+  margin-left: 0;
+  margin-right: -20px;
 }
-.bar {
-  background: #808080;
+.message.row .title {
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #aaaaaa;
+}
+.message.row .reply {
+  border-top: 1px solid #aaaaaa;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+.message.row .reply .created {
+  font-size: 9px;
+  margin-left: 10px;
+  text-shadow: 2px 2px 3px #aaaaaa;
+}
+.servReplies {
+  border: 1px solid #aaaaaa;
+  background-color: #0026ff;
+  color: #fff;
 }
 /*# sourceMappingURL=Site.css.map */

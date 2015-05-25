@@ -1,4 +1,5 @@
-﻿using Messageboards.Web.Models;
+﻿using Messageboards.Web.Data;
+using Messageboards.Web.Models;
 using Messageboards.Web.Services;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,22 @@ namespace Messageboards.Web.Controllers
     public class HomeController : Controller
     {
         private IMailService _mail;
-        public HomeController(IMailService mail)
+        private IMessageBoardRepository _repo;
+        public HomeController(IMailService mail, IMessageBoardRepository repo)
         {
             _mail = mail;
+            _repo = repo;
         }
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
-            return View();
+            var topics = _repo.GetTopics()
+                .OrderByDescending(t => t.Created)
+                .Take(25)
+                .ToList();
+
+            return View(topics);
         }
 
         public ActionResult About()
