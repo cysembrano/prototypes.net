@@ -1184,6 +1184,7 @@
     <Content Include="js\home-index.min.js.map">
       <DependentUpon>home-index.min.js</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\cymessageboard.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
