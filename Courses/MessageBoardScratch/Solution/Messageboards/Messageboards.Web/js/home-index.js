@@ -1,7 +1,7 @@
 ﻿//home-index.js
-var module = angular.module('homeIndex', ['ngRoute']);
+var homeIndexModule = angular.module('homeIndex', ['ngRoute']);
 
-module.config(["$routeProvider", function ($routeProvider) {
+homeIndexModule.config(["$routeProvider", function ($routeProvider) {
     $routeProvider.when("/", {
         controller: "topicsController",
         templateUrl: "/templates/topicsView.html"
@@ -17,7 +17,7 @@ module.config(["$routeProvider", function ($routeProvider) {
     $routeProvider.otherwise({redirectTo: "/"});
 }]);
 
-module.factory("dataService", ["$http", "$q",function ($http, $q) {
+homeIndexModule.factory("dataService", ["$http", "$q", function ($http, $q) {
 
     var _topics = [];
     var _isInit = false;
@@ -125,7 +125,7 @@ module.factory("dataService", ["$http", "$q",function ($http, $q) {
     };
 }]);
 
-module.controller('topicsController', ["$scope", "$http", "dataService", function ($scope, $http, dataService) {
+homeIndexModule.controller('topicsController', ["$scope", "$http", "dataService", function ($scope, $http, dataService) {
     $scope.data = dataService;
     $scope.isBusy = false;
 
@@ -144,7 +144,7 @@ module.controller('topicsController', ["$scope", "$http", "dataService", functio
     }
 }]);
 
-module.controller("newTopicController", ["$scope", "$http", "$window", "dataService",function ($scope, $http, $window, dataService) {
+homeIndexModule.controller("newTopicController", ["$scope", "$http", "$window", "dataService", function ($scope, $http, $window, dataService) {
     $scope.newTopic = {};
     $scope.save = function () {
         dataService.addTopic($scope.newTopic)
@@ -159,7 +159,7 @@ module.controller("newTopicController", ["$scope", "$http", "$window", "dataServ
     }
 }]);
 
-module.controller('singleTopicController', ["$scope", "dataService", "$window", "$routeParams",function ($scope, dataService, $window, $routeParams) {
+homeIndexModule.controller('singleTopicController', ["$scope", "dataService", "$window", "$routeParams", function ($scope, dataService, $window, $routeParams) {
     $scope.topic = null;
     $scope.newReply = {};
 
