@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IOCforMVC.Web.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,6 +24,10 @@ namespace IOCforMVC.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            var factory = new CustomControllerFactory();
+
+            ControllerBuilder.Current.SetControllerFactory(factory);
         }
     }
 }
