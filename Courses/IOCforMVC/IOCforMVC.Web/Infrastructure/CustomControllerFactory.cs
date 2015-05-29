@@ -14,9 +14,9 @@ namespace IOCforMVC.Web.Infrastructure
     {
         public IController CreateController(RequestContext requestContext, string controllerName)
         {
-            if(String.Compare(controllerName.ToLower(),"proteintracker")==0)
+            if (String.Compare(controllerName.ToLower(), "proteintracker") == 0)
             {
-                var repo = new ProteinRepository();
+                var repo = new ProteinRepository("abc123");
                 var srv = new ProteinTrackingService(repo);
                 var ctrl = new ProteinTrackerController(srv);
                 return ctrl;
@@ -37,5 +37,6 @@ namespace IOCforMVC.Web.Infrastructure
             if (disposable != null)
                 disposable.Dispose();
         }
+
     }
 }

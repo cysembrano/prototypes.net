@@ -17,6 +17,9 @@ namespace IOCforMVC.Web
     {
         protected void Application_Start()
         {
+
+            Bootstrapper.Initialise();
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
@@ -25,9 +28,12 @@ namespace IOCforMVC.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
-            var factory = new CustomControllerFactory();
+            
 
-            ControllerBuilder.Current.SetControllerFactory(factory);
+            ////Resolve your own factory
+            //var factory = new CustomControllerFactory();
+            //ControllerBuilder.Current.SetControllerFactory(factory);
+            
         }
     }
 }

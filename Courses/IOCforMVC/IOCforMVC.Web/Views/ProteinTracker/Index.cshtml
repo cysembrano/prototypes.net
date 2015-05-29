@@ -1,18 +1,22 @@
-﻿@model IOCforMVC.Web.Models.ProteinTrackingService
+﻿@inherits IOCforMVC.Web.Pages.ProteinTrackerBasePage
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Protein Tracker";
+    Layout = "../Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-<span>
-    @Html.LabelFor(model => model.Total) : @ViewBag.Total
-</span>
+@AnalyticsService.Code
+<h2>Protein Tracker</h2>
+Total: @ViewBag.Total
+Goal: @ViewBag.Goal
 
-<span>
-    @Html.LabelFor(model => model.Goal) : @ViewBag.Goal
-</span>
+@using(Html.BeginForm("AddProtein","ProteinTracker"))
+{
+    <input type="text" name="amount" />
+    <input type="submit" value="Add" />
+}
+
 
 
 

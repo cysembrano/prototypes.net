@@ -8,6 +8,13 @@ namespace IOCforMVC.Web.Models
     public class ProteinRepository : IOCforMVC.Web.Models.IProteinRepository
     {
 
+        private readonly string _dataSource;
+
+        public ProteinRepository(string dataSource)
+        {
+            this._dataSource = dataSource;
+        }
+
         private static ProteinData _proteinData = new ProteinData();
         public ProteinData GetData(DateTime date)
         {
