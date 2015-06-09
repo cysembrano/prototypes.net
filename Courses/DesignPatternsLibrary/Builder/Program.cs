@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Builder
 {
-    class Program
+    class Client
     {
         static void Main(string[] args)
         {
