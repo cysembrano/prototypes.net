@@ -17,9 +17,15 @@ namespace Builder
     {
         static void Main(string[] args)
         {
-            var director = new Director(new MyBuilder());
-            director.Build();
-            director.GetProduct().Display();
+            var mydirector = new Director(new MyBuilder());
+            mydirector.Build();
+            Console.WriteLine(mydirector.GetProduct().Display());
+            Console.WriteLine();
+
+            var hisdirector = new Director(new HisBuilder());
+            hisdirector.Build();
+            Console.WriteLine(hisdirector.GetProduct().Display());
+            Console.WriteLine();
         }
     }
 
@@ -54,7 +60,7 @@ namespace Builder
     /// </summary>
     public abstract class BuilderBase
     {
-        private Product _product;
+        protected Product _product;
         public Product GetProduct()
         {
             return _product;
@@ -81,17 +87,18 @@ namespace Builder
         
         public override void BuildStepOne()
         {
-            throw new NotImplementedException();
+
+            _product.PropertyOne = "MY StepOne";
         }
 
         public override void BuildStepTwo()
         {
-            throw new NotImplementedException();
+            _product.PropertyTwo = "MY StepTwo";
         }
 
         public override void BuildStepThree()
         {
-            throw new NotImplementedException();
+            _product.PropertyThree = "MY StepThree";
         }
     }
 
@@ -102,26 +109,28 @@ namespace Builder
     {
         public override void BuildStepOne()
         {
-            throw new NotImplementedException();
+            _product.PropertyOne = "HIS StepOne";
         }
 
         public override void BuildStepTwo()
         {
-            throw new NotImplementedException();
+            _product.PropertyTwo = "HIS StepTwo";
         }
 
         public override void BuildStepThree()
         {
-            throw new NotImplementedException();
+            _product.PropertyThree = "HIS StepThree";
         }
     }
 
     public class Product
     {
-        public int MyProperty { get; set; }
+        public string PropertyOne { get; set; }
+        public string PropertyTwo { get; set; }
+        public string PropertyThree { get; set; }
         public string Display()
         {
-            return "Test";
+            return string.Format("1:{0}, 2:{1}, 3:{2}", PropertyOne, PropertyTwo, PropertyThree);
         }
     }
 
