@@ -60,15 +60,12 @@ namespace Builder
             _product = new Product();
         }
 
-        public abstract void BuildStepOne()
-        {
-        }
-        public abstract void BuildStepTwo()
-        {
-        }
-        public abstract void BuildStepThree()
-        {
-        }
+        public abstract void BuildStepOne();
+
+        public abstract void BuildStepTwo();
+
+        public abstract void BuildStepThree();
+
     }
 
     /// <summary>
@@ -77,11 +74,6 @@ namespace Builder
     public class MyBuilder : BuilderBase
     {
         
-        public override void MethodOne()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void BuildStepOne()
         {
             throw new NotImplementedException();
@@ -103,12 +95,6 @@ namespace Builder
     /// </summary>
     public class HisBuilder : BuilderBase
     {
-
-        public override void MethodOne()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void BuildStepOne()
         {
             throw new NotImplementedException();
