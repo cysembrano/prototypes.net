@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * From Wikipedia
+ * The bridge pattern is a design pattern used in software engineering which is meant to "decouple an abstraction from its implementation so that the two can vary independently".[1] 
+ * The bridge uses encapsulation, aggregation, and can use inheritance to separate responsibilities into different classes.
+ **/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +19,7 @@ namespace Bridge
             someBridge1.CallMethod1();
             someBridge1.CallMethod2();
 
-            var someBridge2 = new SomeBridge(new Bridge2());
+            var someBridge2 = new SomeBridge(new ReverseBridge());
             someBridge2.CallMethod1();
             someBridge2.CallMethod2();
         }
@@ -46,7 +51,7 @@ namespace Bridge
         #endregion
     }
  
-    public class Bridge2 : IBridge
+    public class ReverseBridge : IBridge
     {
         #region IBridge Members
  
