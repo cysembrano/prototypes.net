@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfResponsibility", "Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command", "Command\Command.csproj", "{DACD3D1A-A0F1-4846-8DC8-D01EB1BC1F98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Composite", "Composite\Composite.csproj", "{BC9D8E4C-F66D-403F-84D9-D043CDB37B1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DACD3D1A-A0F1-4846-8DC8-D01EB1BC1F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DACD3D1A-A0F1-4846-8DC8-D01EB1BC1F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DACD3D1A-A0F1-4846-8DC8-D01EB1BC1F98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC9D8E4C-F66D-403F-84D9-D043CDB37B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC9D8E4C-F66D-403F-84D9-D043CDB37B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC9D8E4C-F66D-403F-84D9-D043CDB37B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC9D8E4C-F66D-403F-84D9-D043CDB37B1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
