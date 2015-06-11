@@ -1,0 +1,22 @@
+﻿<Window xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+        x:Class="TraditionalEventing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TraditionalEventing"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid x:Name="LayoutRoot" Background="Gray">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="New" Width="40">New</Button>
+                <Button x:Name="Save" Width="40">Save</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="500">
+                <local:OrderListView x:Name="OrderListView"></local:OrderListView>
+                
+            </StackPanel>            
+        </StackPanel>        
+    </Grid>
+</Window>

@@ -17,7 +17,7 @@ namespace StrongReference
             order.Product.Order = order;
 
             order = null; //order is dead.
-            Console.WriteLine(product.Order.Name); //but order in product is still alive.  this is strong reference.          
+            Console.WriteLine(product.Order.Name); //but order in product is still alive.  garbage collector can not kill the order object yet.
         }
     }
 
