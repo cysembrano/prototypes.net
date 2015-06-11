@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Decorator
 {
-    class Program
+    class Client
     {
         static void Main(string[] args)
         {
