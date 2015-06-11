@@ -3,6 +3,9 @@
  * From Wikipedia
  * The bridge pattern is a design pattern used in software engineering which is meant to "decouple an abstraction from its implementation so that the two can vary independently".[1] 
  * The bridge uses encapsulation, aggregation, and can use inheritance to separate responsibilities into different classes.
+ * 
+ * USES:
+ * Formatting texts.
  **/
 using System;
 using System.Collections.Generic;

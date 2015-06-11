@@ -4,6 +4,8 @@
  * In software engineering, the adapter pattern is a software design pattern that allows the interface of an existing class to be used from another interface.[1] 
  * It is often used to make existing classes work with others without modifying their source code.
  * 
+ * USES:
+ * Inter operability.
  **/
 using System;
 using System.Collections.Generic;

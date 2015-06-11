@@ -4,6 +4,8 @@
  * The intent of the Builder design pattern is to separate the construction of a complex object from its representation. 
  * By doing so the same construction process can create different representations. [1]
  * 
+ * USES:
+ * Constructing objects with different property values.
  **/
 using System;
 using System.Collections.Generic;
