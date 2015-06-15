@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongReference", "StrongRe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraditionalEventing", "TraditionalEventing\TraditionalEventing.csproj", "{BD19AF09-4424-4F22-A893-E1348DEA71ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavmanPublishedInterfaces", "NavmanPublishedInterfaces\NavmanPublishedInterfaces.csproj", "{697F4D99-0599-45ED-B5F9-C0A0A80B21AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BD19AF09-4424-4F22-A893-E1348DEA71ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD19AF09-4424-4F22-A893-E1348DEA71ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD19AF09-4424-4F22-A893-E1348DEA71ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{697F4D99-0599-45ED-B5F9-C0A0A80B21AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{697F4D99-0599-45ED-B5F9-C0A0A80B21AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{697F4D99-0599-45ED-B5F9-C0A0A80B21AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{697F4D99-0599-45ED-B5F9-C0A0A80B21AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

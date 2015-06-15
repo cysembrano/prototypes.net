@@ -7,11 +7,14 @@
         xmlns:local="clr-namespace:TraditionalEventing"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid x:Name="LayoutRoot" Background="Gray">
+    <Grid x:Name="LayoutRoot" Background="White">
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="New" Width="40">New</Button>
                 <Button x:Name="Save" Width="40">Save</Button>
+                <TextBox x:Name="txtBMessage" Width="100" BorderBrush="Black">
+                    
+                </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="500">
                 <local:OrderListView x:Name="OrderListView"></local:OrderListView>
