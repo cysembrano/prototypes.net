@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Factories.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AutoFactoryMethod" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Factories.FactoryMethod.HondaFactory</Value>
+    </Setting>
+    <Setting Name="AutoAbstractFactory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Factories.AbstractFactory.MitsubishiFactory</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
