@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvanceTopics", "WebApplication1\AdvanceTopics.csproj", "{983DB89D-A5F1-4422-814B-B5E01771D187}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvanceTopicsLib", "AdvanceTopicsLib\AdvanceTopicsLib.csproj", "{B81DCB52-9369-421C-9526-0CC760F794FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{983DB89D-A5F1-4422-814B-B5E01771D187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{983DB89D-A5F1-4422-814B-B5E01771D187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{983DB89D-A5F1-4422-814B-B5E01771D187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{983DB89D-A5F1-4422-814B-B5E01771D187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B81DCB52-9369-421C-9526-0CC760F794FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B81DCB52-9369-421C-9526-0CC760F794FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B81DCB52-9369-421C-9526-0CC760F794FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B81DCB52-9369-421C-9526-0CC760F794FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
