@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvanceTopics", "WebApplica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvanceTopicsLib", "AdvanceTopicsLib\AdvanceTopicsLib.csproj", "{B81DCB52-9369-421C-9526-0CC760F794FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedTopicsMVC", "AdvancedTopicsMVC\AdvancedTopicsMVC.csproj", "{726DFB0D-D58F-49D4-BFC7-B2571FCCE469}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{B81DCB52-9369-421C-9526-0CC760F794FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B81DCB52-9369-421C-9526-0CC760F794FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B81DCB52-9369-421C-9526-0CC760F794FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{726DFB0D-D58F-49D4-BFC7-B2571FCCE469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{726DFB0D-D58F-49D4-BFC7-B2571FCCE469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{726DFB0D-D58F-49D4-BFC7-B2571FCCE469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{726DFB0D-D58F-49D4-BFC7-B2571FCCE469}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
