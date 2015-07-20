@@ -8,10 +8,18 @@ using System.Text;
 namespace CompanyService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "CompanyService" in both code and config file together.
-    public class CompanyService : ICompanyService
+    public class CompanyService : ICompanyPublicService, ICompanyConfidentialService
     {
-        public void DoWork()
+        public string GetPublicInformation()
         {
+            return "This is public info and available over HTTP to all general public outside the Fw";
         }
+
+        public string GetConfidentialInformation()
+        {
+            return "This is confidential info and only available over TCP behind the company Firewall";
+        }
+
+
     }
 }
