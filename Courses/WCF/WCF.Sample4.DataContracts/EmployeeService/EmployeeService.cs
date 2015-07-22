@@ -38,7 +38,44 @@ namespace EmployeeService
 
         public void SaveEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                var cmd = new SqlCommand("spSaveEmployee", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter parameterId = new SqlParameter
+                {
+                    ParameterName = "@Id",
+                    Value = employee.Id
+                };
+                cmd.Parameters.Add(parameterId);
+
+                SqlParameter parameterName = new SqlParameter
+                {
+                    ParameterName = "@Name",
+                    Value = employee.Name
+                };
+                cmd.Parameters.Add(parameterName);
+
+                SqlParameter parameterGender = new SqlParameter
+                {
+                    ParameterName = "@Gender",
+                    Value = employee.Gender
+                };
+                cmd.Parameters.Add(parameterGender);
+
+                SqlParameter parameterDOB = new SqlParameter
+                {
+                    ParameterName = "@DateOfBirth",
+                    Value = employee.DateOfBirth
+                };
+                cmd.Parameters.Add(parameterDOB);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+            }
         }
     }
 }
