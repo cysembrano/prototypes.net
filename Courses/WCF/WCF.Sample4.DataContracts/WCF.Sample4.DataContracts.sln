@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeService", "Employee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeServiceHost", "EmployeeServiceHost\EmployeeServiceHost.csproj", "{31DD4283-BA00-480C-BFDF-9BFFEA894C30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeServiceWeb", "EmployeeServiceWeb\EmployeeServiceWeb.csproj", "{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{31DD4283-BA00-480C-BFDF-9BFFEA894C30}.Release|Mixed Platforms.Build.0 = Release|x86
 		{31DD4283-BA00-480C-BFDF-9BFFEA894C30}.Release|x86.ActiveCfg = Release|x86
 		{31DD4283-BA00-480C-BFDF-9BFFEA894C30}.Release|x86.Build.0 = Release|x86
+		{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A4EC0DC2-B5AF-4314-A88F-4CB44E7ACAB8}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
