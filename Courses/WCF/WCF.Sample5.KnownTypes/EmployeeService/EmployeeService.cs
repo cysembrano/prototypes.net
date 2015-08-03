@@ -15,11 +15,11 @@ namespace EmployeeService
 
         public Employee GetEmployee(int Id)
         {
-            Employee employee = new Employee();
+            Employee employee = null;
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
-                SqlCommand cmd = new SqlCommand("spGetEmployee", con);
+                SqlCommand cmd = new SqlCommand("spGetEmployee2", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 SqlParameter parameterId = new SqlParameter("@Id", Id);
                 cmd.Parameters.Add(parameterId);
@@ -27,13 +27,34 @@ namespace EmployeeService
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    employee.Id = Convert.ToInt32(reader["Id"]);
-                    employee.Name = reader["Name"].ToString();
-                    employee.Gender = reader["Gender"].ToString();
-                    employee.DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]);
+                    if ((EmployeeType)reader["EmployeeType"] == EmployeeType.FullTimeEmployee)
+                    {
+                        employee = new FullTimeEmployee()
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Name = reader["Name"].ToString(),
+                            Gender = reader["Gender"].ToString(),
+                            DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
+                            Type = EmployeeType.FullTimeEmployee,
+                            AnnualSalary = Convert.ToInt32(reader["AnnualSalary"])
+                        };
+                    }
+                    else
+                    {
+                        employee = new PartTimeEmployee()
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Name = reader["Name"].ToString(),
+                            Gender = reader["Gender"].ToString(),
+                            DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
+                            Type = EmployeeType.PartTimeEmployee,
+                            HourlyPay = Convert.ToInt32(reader["HourlyPay"]),
+                            HoursWorked = Convert.ToInt32(reader["HoursWorked"])
+                        };
+                    }
                 }
+                return employee;
             }
-            return employee;
         }
 
         public void SaveEmployee(Employee employee)
@@ -41,40 +62,24 @@ namespace EmployeeService
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
-                var cmd = new SqlCommand("spSaveEmployee", con);
+                var cmd = new SqlCommand("spSaveEmployee2", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                SqlParameter parameterId = new SqlParameter
+                cmd.Parameters.Add(new SqlParameter("@Id",employee.Id));
+                cmd.Parameters.Add(new SqlParameter("@Name", employee.Name));
+                cmd.Parameters.Add(new SqlParameter("@Gender", employee.Gender));
+                cmd.Parameters.Add(new SqlParameter("@DateOfBirth", employee.DateOfBirth));
+                cmd.Parameters.Add(new SqlParameter("@EmployeeType", employee.Type));
+                if (employee.GetType() == typeof(FullTimeEmployee))
                 {
-                    ParameterName = "@Id",
-                    Value = employee.Id
-                };
-                cmd.Parameters.Add(parameterId);
-
-                SqlParameter parameterName = new SqlParameter
+                    cmd.Parameters.Add(new SqlParameter("@AnnualSalary", ((FullTimeEmployee)employee).AnnualSalary));
+                }
+                else
                 {
-                    ParameterName = "@Name",
-                    Value = employee.Name
-                };
-                cmd.Parameters.Add(parameterName);
-
-                SqlParameter parameterGender = new SqlParameter
-                {
-                    ParameterName = "@Gender",
-                    Value = employee.Gender
-                };
-                cmd.Parameters.Add(parameterGender);
-
-                SqlParameter parameterDOB = new SqlParameter
-                {
-                    ParameterName = "@DateOfBirth",
-                    Value = employee.DateOfBirth
-                };
-                cmd.Parameters.Add(parameterDOB);
-
+                    cmd.Parameters.Add(new SqlParameter("@HourlyPay", ((PartTimeEmployee)employee).HourlyPay));
+                    cmd.Parameters.Add(new SqlParameter("@HoursWorked", ((PartTimeEmployee)employee).HoursWorked));
+                }
                 con.Open();
                 cmd.ExecuteNonQuery();
-
             }
         }
     }

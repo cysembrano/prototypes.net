@@ -43,15 +43,54 @@
             </tr>
             <tr>
                 <td>
+                    <b>Employee Type</b>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlEmployeeType" runat="server" OnSelectedIndexChanged="ddlEmployeeType_SelectedIndexChanged"
+                        AutoPostBack="true">
+                        <asp:ListItem Text="Select Employee Type" Value="-1" />
+                        <asp:ListItem Text="Full Time" Value="1" />
+                        <asp:ListItem Text="Part Time" Value="2" />
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr id="trAnnual" runat="server" visible="false">
+                <td>
+                    <b>Annual Salary</b>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtAnnualSalary" runat="server" />
+                </td>
+            </tr>
+            <tr id="trHourlyPay" runat="server" visible="false">
+                <td>
+                    <b>Hourly Pay</b>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtHourlyPay" runat="server" />
+                </td>
+            </tr>
+            <tr id="trHourWorked" runat="server" visible="false">
+                <td>
+                    <b>Hours Worked</b>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtHoursWorked" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <asp:Button ID="btnGet" Text="Get Employee" runat="server" OnClick="btnGet_Click" />
                 </td>
                 <td>
                     <asp:Button ID="btnSave" Text="Save Employee" runat="server" OnClick="btnSave_Click" />
                 </td>
             </tr>
-            <td colspan="2">
-                <asp:Label ID="lblMessage" runat="server" />
-            </td>
+            <tr>
+                <td colspan="2">
+                    <asp:Label ID="lblMessage" runat="server" />
+                </td>
+            </tr>
         </table>
     </div>
     </form>

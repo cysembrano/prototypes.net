@@ -15,24 +15,29 @@ namespace EmployeeServiceWeb.EmployeeService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/EmployeeService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://cymessageboards.com/2015/10/06/Employee")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(EmployeeServiceWeb.EmployeeService.PartTimeEmployee))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(EmployeeServiceWeb.EmployeeService.FullTimeEmployee))]
     public partial class Employee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime DateOfBirthField;
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string GenderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
+        private System.DateTime DateOfBirthField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
+        private EmployeeServiceWeb.EmployeeService.EmployeeType TypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -45,40 +50,14 @@ namespace EmployeeServiceWeb.EmployeeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DateOfBirth {
+        public int ID {
             get {
-                return this.DateOfBirthField;
+                return this.IDField;
             }
             set {
-                if ((this.DateOfBirthField.Equals(value) != true)) {
-                    this.DateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Gender {
-            get {
-                return this.GenderField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.GenderField, value) != true)) {
-                    this.GenderField = value;
-                    this.RaisePropertyChanged("Gender");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
                 }
             }
         }
@@ -96,6 +75,45 @@ namespace EmployeeServiceWeb.EmployeeService {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string Gender {
+            get {
+                return this.GenderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GenderField, value) != true)) {
+                    this.GenderField = value;
+                    this.RaisePropertyChanged("Gender");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.DateTime DateOfBirth {
+            get {
+                return this.DateOfBirthField;
+            }
+            set {
+                if ((this.DateOfBirthField.Equals(value) != true)) {
+                    this.DateOfBirthField = value;
+                    this.RaisePropertyChanged("DateOfBirth");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public EmployeeServiceWeb.EmployeeService.EmployeeType Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -104,6 +122,79 @@ namespace EmployeeServiceWeb.EmployeeService {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PartTimeEmployee", Namespace="http://cymessageboards.com/2015/10/06/PartTimeEmployee")]
+    [System.SerializableAttribute()]
+    public partial class PartTimeEmployee : EmployeeServiceWeb.EmployeeService.Employee {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HourlyPayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HoursWorkedField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int HourlyPay {
+            get {
+                return this.HourlyPayField;
+            }
+            set {
+                if ((this.HourlyPayField.Equals(value) != true)) {
+                    this.HourlyPayField = value;
+                    this.RaisePropertyChanged("HourlyPay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int HoursWorked {
+            get {
+                return this.HoursWorkedField;
+            }
+            set {
+                if ((this.HoursWorkedField.Equals(value) != true)) {
+                    this.HoursWorkedField = value;
+                    this.RaisePropertyChanged("HoursWorked");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FullTimeEmployee", Namespace="http://cymessageboards.com/2015/10/06/FullTimeEmployee")]
+    [System.SerializableAttribute()]
+    public partial class FullTimeEmployee : EmployeeServiceWeb.EmployeeService.Employee {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AnnualSalaryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AnnualSalary {
+            get {
+                return this.AnnualSalaryField;
+            }
+            set {
+                if ((this.AnnualSalaryField.Equals(value) != true)) {
+                    this.AnnualSalaryField = value;
+                    this.RaisePropertyChanged("AnnualSalary");
+                }
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmployeeType", Namespace="http://schemas.datacontract.org/2004/07/EmployeeService")]
+    public enum EmployeeType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FullTimeEmployee = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PartTimeEmployee = 2,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

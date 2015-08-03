@@ -61,6 +61,15 @@
     <None Include="Service References\EmployeeService\item.disco" />
     <None Include="Service References\EmployeeService\configuration91.svcinfo" />
     <None Include="Service References\EmployeeService\configuration.svcinfo" />
+    <None Include="Service References\EmployeeService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmployeeService\item31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmployeeService\item32.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\EmployeeService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

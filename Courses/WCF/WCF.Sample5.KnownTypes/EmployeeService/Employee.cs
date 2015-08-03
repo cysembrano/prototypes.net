@@ -6,6 +6,12 @@ using System.Runtime.Serialization;
 
 namespace EmployeeService
 {
+
+    public enum EmployeeType
+    {
+        FullTimeEmployee = 1, 
+        PartTimeEmployee = 2
+    }
     /// <summary>
     /// http://localhost:8080/?xsd=xsd2
     /// You'll find the serialization on the above url.  All marked with DataMember will be serialized on this complex type.
@@ -17,6 +23,8 @@ namespace EmployeeService
     /// 
     /// You can also use [Serializable] but this has less control as it will also serialize your private fields.
     /// </summary>
+    [KnownType(typeof(PartTimeEmployee))]
+    [KnownType(typeof(FullTimeEmployee))]
     [DataContract(Namespace="http://cymessageboards.com/2015/10/06/Employee")]
     public class Employee
     {
@@ -24,6 +32,7 @@ namespace EmployeeService
         private string _name;
         private string _gender;
         private DateTime _dateOfBirth;
+        
         
         [DataMember(Name="ID", Order=1)]
         public int Id 
@@ -52,6 +61,9 @@ namespace EmployeeService
             get { return _dateOfBirth; }
             set { _dateOfBirth = value; } 
         }
+
+        [DataMember(Order=5)]
+        public EmployeeType Type { get; set; }
 
     }
 }
