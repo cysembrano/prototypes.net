@@ -23,8 +23,8 @@ namespace EmployeeService
     /// 
     /// You can also use [Serializable] but this has less control as it will also serialize your private fields.
     /// </summary>
-    [KnownType(typeof(PartTimeEmployee))]
-    [KnownType(typeof(FullTimeEmployee))]
+    //[KnownType(typeof(PartTimeEmployee))]
+    //[KnownType(typeof(FullTimeEmployee))]
     [DataContract(Namespace="http://cymessageboards.com/2015/10/06/Employee")]
     public class Employee
     {

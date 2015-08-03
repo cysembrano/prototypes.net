@@ -11,9 +11,14 @@ namespace EmployeeService
     [ServiceContract]
     public interface IEmployeeService
     {
+        //[ServiceKnownType(typeof(FullTimeEmployee))]
+        //[ServiceKnownType(typeof(PartTimeEmployee))]
         [OperationContract]
         Employee GetEmployee(int Id);
 
+
+        //This will error since it will be serializing a child of the employee.
+        //Need to add ServiceKnownType here too
         [OperationContract]
         void SaveEmployee(Employee employee);
     }
