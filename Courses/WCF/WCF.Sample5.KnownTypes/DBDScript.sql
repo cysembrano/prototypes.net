@@ -35,6 +35,7 @@ INSERT INTO WCF_tblEmployee VALUES (1, 'Mark', 'Male', '1980-10-11', 1, 60000,NU
 INSERT INTO WCF_tblEmployee VALUES (2, 'Mary', 'Female', '1981-08-20', 2, NULL, 250, 40)
 INSERT INTO WCF_tblEmployee VALUES (3, 'John', 'Male', '1983-06-04',3, NULL, 300, 40)
 
+
 IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE ([object_id] = OBJECT_ID('spGetEmployee')) AND ([type] in (N'P', N'PC')))
 BEGIN
 	PRINT 'Dropping Procedure [dbo].[spGetEmployee]';
@@ -42,11 +43,22 @@ BEGIN
 END;
 GO
 
+PRINT 'Creating Procedure [dbo].[spGetEmployee]'
 Create procedure [dbo].[spGetEmployee]
 @Id int
 as
 Begin
-	Select Id, Name, Gender, DateOfBirth from WCF_tblEmployee where ID = @id
+	Select 
+		Id, 
+		Name, 
+		Gender, 
+		DateOfBirth,
+		EmployeeType,
+		AnnualSalary,
+		HourlyPay,
+		HoursWorked
+	from WCF_tblEmployee 
+	where ID = @id
 End
 GO
 
@@ -58,6 +70,7 @@ BEGIN
 END;
 GO
 
+PRINT 'Create Procedure [dbo].[spSaveEmployee]'
 Create procedure [dbo].[spSaveEmployee]
 @id int, 
 @name nvarchar(50),
