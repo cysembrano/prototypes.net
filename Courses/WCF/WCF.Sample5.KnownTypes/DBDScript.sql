@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[WCF_tblEmployee]    Script Date: 07/22/2015 09:27:27 ******/
+/****** Object:  Table [dbo].[WCF_tblEmployee2]    Script Date: 07/22/2015 09:27:27 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -12,12 +12,12 @@ IF NOT EXISTS (
 	FROM
 		SYS.TABLES T
 	WHERE
-		(T.[name] = 'WCF_tblEmployee')
+		(T.[name] = 'WCF_tblEmployee2')
 	)
 BEGIN
-	PRINT 'Creating Table [WCF_tblEmployee]';
+	PRINT 'Creating Table [WCF_tblEmployee2]';
 	
-	CREATE TABLE [WCF_tblEmployee]
+	CREATE TABLE [WCF_tblEmployee2]
 	(
 		 	 [Id] 				[int] NULL
 			,[Name] 			[nvarchar](50) NULL
@@ -31,20 +31,20 @@ BEGIN
 END
 GO
 
-INSERT INTO WCF_tblEmployee VALUES (1, 'Mark', 'Male', '1980-10-11', 1, 60000,NULL,NULL)
-INSERT INTO WCF_tblEmployee VALUES (2, 'Mary', 'Female', '1981-08-20', 2, NULL, 250, 40)
-INSERT INTO WCF_tblEmployee VALUES (3, 'John', 'Male', '1983-06-04',3, NULL, 300, 40)
+INSERT INTO WCF_tblEmployee2 VALUES (1, 'Mark', 'Male', '1980-10-11', 1, 60000,NULL,NULL)
+INSERT INTO WCF_tblEmployee2 VALUES (2, 'Mary', 'Female', '1981-08-20', 2, NULL, 250, 40)
+INSERT INTO WCF_tblEmployee2 VALUES (3, 'John', 'Male', '1983-06-04',3, NULL, 300, 40)
 
 
-IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE ([object_id] = OBJECT_ID('spGetEmployee')) AND ([type] in (N'P', N'PC')))
+IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE ([object_id] = OBJECT_ID('spGetEmployee2')) AND ([type] in (N'P', N'PC')))
 BEGIN
-	PRINT 'Dropping Procedure [dbo].[spGetEmployee]';
-	DROP PROCEDURE [dbo].[spGetEmployee];
+	PRINT 'Dropping Procedure [dbo].[spGetEmployee2]';
+	DROP PROCEDURE [dbo].[spGetEmployee2];
 END;
 GO
 
-PRINT 'Creating Procedure [dbo].[spGetEmployee]'
-Create procedure [dbo].[spGetEmployee]
+PRINT 'Creating Procedure [dbo].[spGetEmployee2]'
+Create procedure [dbo].[spGetEmployee2]
 @Id int
 as
 Begin
@@ -57,21 +57,21 @@ Begin
 		AnnualSalary,
 		HourlyPay,
 		HoursWorked
-	from WCF_tblEmployee 
+	from WCF_tblEmployee2 
 	where ID = @id
 End
 GO
 
 
-IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE ([object_id] = OBJECT_ID('spSaveEmployee')) AND ([type] in (N'P', N'PC')))
+IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE ([object_id] = OBJECT_ID('spSaveEmployee2')) AND ([type] in (N'P', N'PC')))
 BEGIN
-	PRINT 'Dropping Procedure [dbo].[spSaveEmployee]';
-	DROP PROCEDURE [dbo].[spSaveEmployee];
+	PRINT 'Dropping Procedure [dbo].[spSaveEmployee2]';
+	DROP PROCEDURE [dbo].[spSaveEmployee2];
 END;
 GO
 
-PRINT 'Create Procedure [dbo].[spSaveEmployee]'
-Create procedure [dbo].[spSaveEmployee]
+PRINT 'Create Procedure [dbo].[spSaveEmployee2]'
+Create procedure [dbo].[spSaveEmployee2]
 @id int, 
 @name nvarchar(50),
 @gender nvarchar(50),
@@ -82,7 +82,7 @@ Create procedure [dbo].[spSaveEmployee]
 @HoursWorked int
 as
 Begin
-	Insert into Wcf_tblEmployee
+	Insert into WCF_tblEmployee2
 	values (@id, @name, @gender, @DateOfBirth, @Employeetype, @AnnualSalary, @HourlyPay, @HoursWorked)
 End
 GO
