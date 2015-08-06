@@ -8,7 +8,7 @@
 }
 .assembly extern Message
 {
-  .ver 1:0:0:0
+  .ver 1:0:0:0   <--- doesnt matter for weak named assemblies.
 }
  * **/
 
