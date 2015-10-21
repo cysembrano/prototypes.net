@@ -1,1 +1,0 @@
-Creates an aspx web service and a .net remoting service to illustrate the different technology.
