@@ -1,0 +1,80 @@
+﻿@model Convergys.Assist.WebUI.Models.HomeModel
+@{
+    ViewBag.Title = "Assist Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1>Convergys Assist</h1>
+            <p>Welcome to our simple tracker. (Formerly Stream Assist)</p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="~/Callback/Create">Callbacks</a>&nbsp;
+            </p>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <i class="fa fa-phone fa-5x"></i>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <p class="announcement-heading">@Model.CallbackCount</p>
+                        <p class="announcement-text">Future Callbacks!</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer announcement-bottom">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            @Html.ActionLink("View","Search","Callback", new { page = 1, 
+                                                                               sTo = Model.ToDate, 
+                                                                               sFr = Model.FromDate, 
+                                                                               stat = 1,
+                                                                               tm = Model.Team, 
+                                                                               emp = Model.EmpId }, null)
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    @*<div class="col-lg-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <p class="announcement-heading">3</p>
+                        <p class="announcement-text">Open Offline Activities!</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer announcement-bottom">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            View
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>*@
+</div>
+<!-- /.row -->
