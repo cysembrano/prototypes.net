@@ -1,0 +1,1 @@
+﻿SELECT STRM_TICKETS_SEQ.currval doc_id FROM dual

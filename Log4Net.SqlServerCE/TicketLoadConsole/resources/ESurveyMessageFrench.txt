@@ -1,0 +1,62 @@
+<html> 
+	<head> 
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1"> 
+			<title>Untitled</title> 
+			<style> 
+body.page{ 
+font-family : Arial, Helvetica, sans-serif; 
+font-size : 10pt; 
+} 
+div.divBody{ 
+font-family : Arial, Helvetica, sans-serif; 
+font-size : 8pt; 
+} 
+table.body{ 
+font-family : Arial, Helvetica, sans-serif; 
+font-size : 9pt; 
+} 
+			</style> 
+		</head> 
+		<body text="#000000" bgcolor="#FFFFFF" leftmargin=10 topmargin=0 marginheight="0" marginwidth="0" class="page" style="font-family: Arial, Helvetica, sans-serif;"> 
+			<div align="left" class="divBody"> 
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" class="body"> 
+					<tr> 
+						<td> 
+							<br> 
+								<p>{CURRENTDATE}</p>
+								<br> 
+									<p>Chère Madame, Monsieur,</p> 
+									<p>Nous vous remercions d’avoir pris contact avec notre assistance technique Speedtouch, le  {EMAILDATE}  à propos de votre '<strong> {PRODUCTCODE} </strong>' (Numéro de référence  {CASEID} ).</p> 
+									<p>Nous sommes toujours à la recherche de l’amélioration de la qualité de notre assistance et service. De plus, vos commentaires nous aident à mieux répondre à vos besoins.</p> 
+									<p>Nous vous serions reconnaissant de prendre le temps de répondre à notre enquête en ligne afin de nous faire parvenir vos commentaires sur nos services. Vos réponses resteront confidentielles.</p> 
+									<p>Pour répondre à l’enquête:</p> 
+								</td> 
+							</tr> 
+							<tr> 
+								<td>1.&nbsp;Cliquer sur le lien ci-dessous afin d’ouvrir le questionnaire. Vous pouvez aussi copier et coller ce lien dans la barre d’adresse de votre browser internet.</td> 
+							</tr> 
+							<tr> 
+								<td>2.&nbsp;Compléter l’enquête en ligne.</td> 
+							</tr>
+							<tr> 
+								<td>3.&nbsp;Cliquer sur le bouton 'SOUMETTRE'.</td> 
+							</tr> 
+							<tr> 
+								<td>
+									<br> 
+										<p>Vos commentaires et suggestions sont importants pour nous.</p> 
+
+										<p>Adresse pour ouvrir le questionnaire:  <a href="{URL}{URLAPP}?id={DOCID}&em={CUSTEMAIL5}">{URL}{URLAPP}?id={DOCID}&em={CUSTEMAIL5}</a>
+											<br> 
+ Adresse pour ouvrir le questionnaire (version anglaise):   <a href="{URL}{URLAPP}?id={DOCID}&em={CUSTEMAIL5}&ln=ENG">{URL}{URLAPP}?id={DOCID}&em={CUSTEMAIL5}&ln=ENG</a>
+											</p> 
+
+
+											<p>Veuillez, s’il vous plait, ne pas répondre à ce courriel, car ce courriel est generé automatiquement par nos systèmes.</p> 
+											<p>Département Qualité – Thomson/Speedtouch</p> 		
+										</td> 
+									</tr> 
+								</table> 
+							</div> 
+						</body> 
+					</html>		

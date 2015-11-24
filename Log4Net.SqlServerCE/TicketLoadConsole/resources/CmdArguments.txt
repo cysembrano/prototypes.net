@@ -1,0 +1,12 @@
+﻿TicketLoad Command Line Arguments
+---------------------------------
+
+/mode:[TEST,DEF]     -mode
+                       TEST:  
+                           Will put dates on Webtracker
+                           Ticket Query guaranteed results.  
+                           For dev only
+                       DEF:
+                           Will let the process run using 
+                           default settings.
+                           use app.config.

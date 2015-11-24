@@ -1,0 +1,60 @@
+<html> 
+	<head> 
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1"> 
+			<title>Untitled</title> 
+			<style> 
+				body.page{ 
+				font-family : Arial, Helvetica, sans-serif; 
+				font-size : 10pt; 
+				} 
+				div.divBody{ 
+				font-family : Arial, Helvetica, sans-serif; 
+				font-size : 8pt; 
+				} 
+				table.body{ 
+				font-family : Arial, Helvetica, sans-serif; 
+				font-size : 9pt; 
+				} 
+			</style> 
+		</head> 
+		<body text="#000000" bgcolor="#FFFFFF" leftmargin=10 topmargin=0 marginheight="0" marginwidth="0" class="page" style="font-family: Arial, Helvetica, sans-serif;"> 
+			<div align="left" class="divBody"> 
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" class="body"> 
+					<tr> 
+						<td> 
+							<br> 
+								<p>{CURRENTDATE}</p> 
+								<br> 
+									<p>Beste {CUSTFNAME} {CUSTLNAME} ,</p> 
+									<p>Bedankt voor het contact opnemen met Thomson/Speedtouch’s Helpdesk op {EMAILDATE} betreffende uw<strong> ' {PRODUCTCODE} ' </strong> product. (Call ID# {CASEID}).</p> 
+									<p>Wij streven er naar u continu te voorzien van ondersteuning en service van uitstekende kwaliteit. Uw aanmerkingen en suggesties zullen ons in staat stellen om onze service te verbeteren.</p> 
+									<p>Wij vragen een moment van uw tijd om ons te laten weten wat uw ervaringen zijn met onze helpdesk door het invullen van het on-line klanttevredenheidsonderzoek. Uw respons zal vertrouwelijk worden behandeld.</p> 
+									<p>Indien u aan het onderzoek wilt deelnemen:</p> 
+								</td> 
+							</tr> 
+							<tr> 
+								<td>1.&nbsp;Om te beginnen, klik op de link onderaan deze email, of knip-en-plak de URL in uw web browser.</td> 
+							</tr> 
+							<tr> 
+								<td>2.&nbsp;Voltooi nu het on-line klanttevredenheidsonderzoek</td> 
+							</tr>
+							<tr> 
+								<td>3.&nbsp;Druk op de 'VERZENDEN' knop</td> 
+							</tr> 
+							<tr> 
+								<td>
+									<br> 
+										<p>Uw medewerking wordt zeer op prijs gesteld.</p> 
+<p>URL voor on-line klanttevredenheidsonderzoek:   <a href="{URL}{URLAPP}?id={DOCID}&em={CUSTEMAIL5}">{URL}{URLAPP}?id={DOCID}&em={CUSTEMAIL5}</a>
+											<br> 
+	URL for Web Survey (English version):   <a href="{URL}{URLAPP}?id={DOCID}&em={CUSTEMAIL5}&ln=ENG">{URL}{URLAPP}?id={DOCID}&em={CUSTEMAIL5}&ln=ENG</a>
+											</p> 
+											<p>Reageert u alstublieft niet op deze mail, deze is automatisch verstuurd.</p> 
+											<p>Het Thomson/Speedtouch Kwaliteit en Service Management team</p> 
+										</td> 
+									</tr> 
+								</table> 
+							</div> 
+						</body> 
+					</html>
+					
