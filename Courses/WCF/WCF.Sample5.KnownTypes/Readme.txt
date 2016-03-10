@@ -1,1 +1,0 @@
-KnownType attributes decorates parent/base classes so that WCF includes them in serialization.
