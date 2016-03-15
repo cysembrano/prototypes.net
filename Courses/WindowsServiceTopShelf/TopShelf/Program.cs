@@ -27,12 +27,16 @@ namespace TopShelfProject
                 {
                     
                     serviceInstance.ConstructUsing(() => new ConverterService());
-
                     serviceInstance.WhenStarted(execute => execute.Start());
-
-                    serviceInstance.WhenStopped(execute => execute.Stop());
+                    serviceInstance.WhenStopped(execute => execute.Stop());                    
 
                 });
+
+                serviceConfig.SetServiceName("AwesomeFileConverter");
+                serviceConfig.SetDisplayName("Awesome File Converter");
+                serviceConfig.SetDescription("A Topshelf demo service");
+                serviceConfig.StartAutomatically();
+
             });
         }
     }
