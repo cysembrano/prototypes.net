@@ -1,0 +1,13 @@
+﻿Go to the /bin/Debug folder
+
+Project Name is assumed to be "TopShelfProejct.exe"
+Service Name is assumed to be "AwesomeFileConverter"
+
+//Installs the service
+TopShelfProject.exe install
+
+//Uninstall the service
+TopShelfProject.exe uninstall
+
+//Custom Commands (send a 200 command.  should be from 128 to 255)
+sc control AwesomeFileConverter 200
