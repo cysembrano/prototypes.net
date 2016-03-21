@@ -27,12 +27,12 @@ namespace Shopify.ConsoleApp
         static void GetRequestOne()
         {
                         // Create a request for the URL.         
-            //WebRequest request = WebRequest.Create("https://dev-hobbs-global.myshopify.com/admin/oauth/access_token");
+            //WebRequest request = WebRequest.Create("https://kookai-development.myshopify.com/admin/oauth/access_token");
 
-            var _apiKey = "87f3086a74c3bb60ea7b9dbf5eff5a8a";
-            var _password = "a268ac5e175fdef73f8b6a7462c0b003";
+            var _apiKey = "6b0aed07b8bb9db209adf623e951fef5";
+            var _password = "ff990804efd31b85b18613036aab772d";
 
-            WebRequest request = WebRequest.Create("https://dev-hobbs-global.myshopify.com/admin/orders.xml");
+            WebRequest request = WebRequest.Create("https://kookai-development.myshopify.com/admin/orders.xml");
             // Set the credentials.
 
             request.Credentials = new NetworkCredential(_apiKey, _password);
