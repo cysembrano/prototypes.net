@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b22e3f483cd846af8031eb6b45c94fcf" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAEmployee" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CASite" Width="1.5" PointX="5.5" PointY="0.5" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CATeam" Width="1.5" PointX="5.625" PointY="4" />
+        <AssociationConnector Association="ProdStreamAssistModel.CAEmployeeCASite" />
+        <AssociationConnector Association="ProdStreamAssistModel.CASiteCATeam" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAEmployeeView" Width="1.5" PointX="7.375" PointY="0.5" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAPassword" Width="1.5" PointX="0.875" PointY="0.5" />
+        <AssociationConnector Association="ProdStreamAssistModel.CAEmployeeCAPassword" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CACallbackEmpBackup" Width="1.5" PointX="0.875" PointY="3.125" FillColor="0, 192, 0" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CACallbackEvents" Width="1.5" PointX="0.875" PointY="12.75" FillColor="0, 192, 0" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CACallbackLogHistory" Width="1.5" PointX="3.125" PointY="6.125" FillColor="0, 192, 0" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CACallbackLogs" Width="1.5" PointX="0.625" PointY="5.625" FillColor="0, 192, 0" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CACallbackReasonType" Width="2.125" PointX="2.75" PointY="9.125" FillColor="0, 192, 0" />
+        <AssociationConnector Association="ProdStreamAssistModel.CACallbackLogsCACallbackLogHistory" />
+        <AssociationConnector Association="ProdStreamAssistModel.CACallbackLogsCACallbackEvents" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CACallbackLogsSearchView" Width="1.5" PointX="3.25" PointY="11.875" FillColor="0, 192, 0" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAListEmpTeams" Width="1.5" PointX="5.5" PointY="8.875" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CATimezone" Width="1.5" PointX="7.375" PointY="5.75" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAPreferences" Width="1.5" PointX="5.5" PointY="6" FillColor="0, 122, 204" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAPermission" Width="1.5" PointX="5.625" PointY="11.375" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAOfflineActivityType" Width="2.25" PointX="10.25" PointY="7.75" FillColor="Red" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAOfflineContactType" Width="2" PointX="7.375" PointY="7.75" FillColor="Red" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAOfflineEvents" Width="1.5" PointX="10.25" PointY="10.5" FillColor="Red" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAOfflineLogs" Width="2.125" PointX="7.75" PointY="10.25" FillColor="Red" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CAOfflineLogsLookup" Width="2.375" PointX="10.125" PointY="13.25" FillColor="Red" />
+        <EntityTypeShape EntityType="ProdStreamAssistModel.CATeamConfig" Width="2.125" PointX="9.25" PointY="0.5" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

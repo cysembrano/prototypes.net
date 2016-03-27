@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessInvalid_Alert_Index_LoginLink" xml:space="preserve">
+    <value>here.</value>
+    <comment>Text</comment>
+  </data>
+  <data name="AccessInvalid_Alert_Message" xml:space="preserve">
+    <value>You have no access to view this url.  To go back home click </value>
+    <comment>Text</comment>
+  </data>
+  <data name="AccessInvalid_Alert_Strong" xml:space="preserve">
+    <value>Sorry.</value>
+    <comment>Text</comment>
+  </data>
+  <data name="AccessInvalid_Header1" xml:space="preserve">
+    <value>No Access</value>
+    <comment>Text</comment>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Assist_EmailBody_NewPassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assist_EmailBody_NewPassword.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Callback_Search_Bread1" xml:space="preserve">
+    <value>Home</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Callback_Search_Bread2" xml:space="preserve">
+    <value>Callback Search</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Callback_Search_ButtonClear" xml:space="preserve">
+    <value>Clear</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Callback_Search_ButtonReset" xml:space="preserve">
+    <value>Reset</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Callback_Search_ButtonSearch" xml:space="preserve">
+    <value>Search</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Callback_Search_DeleteConfirm" xml:space="preserve">
+    <value>Are you sure you want to delete this callback?</value>
+    <comment>Message</comment>
+  </data>
+  <data name="Callback_Search_FilterPanelTitle" xml:space="preserve">
+    <value>Search Filters</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Callback_Search_FilterSchedFLabel" xml:space="preserve">
+    <value>Scheduled From</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Search_FilterSchedKeyLabel" xml:space="preserve">
+    <value>Keyword</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Search_FilterSchedTLabel" xml:space="preserve">
+    <value>Scheduled To</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Search_FilterStatusLabel" xml:space="preserve">
+    <value>Status</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Search_Header1" xml:space="preserve">
+    <value>Search</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Callback_Search_Header1Small" xml:space="preserve">
+    <value>Callback Logs</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Callback_Settings_Header1" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Callback_Settings_Header1small" xml:space="preserve">
+    <value>for Callback</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Callback_Settings_PanelReason" xml:space="preserve">
+    <value>Callback Reason</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Callback_Show_AgentTimeStartComp" xml:space="preserve">
+    <value>Agent Start Time</value>
+  </data>
+  <data name="Callback_Show_AgentTimeZone" xml:space="preserve">
+    <value>Agent Time Zone</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_AssignToAgent" xml:space="preserve">
+    <value>Assigned Agent</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_AssignToSchedEnforce" xml:space="preserve">
+    <value>Enforce schedule?</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Callback_Show_AssignToTeam" xml:space="preserve">
+    <value>Assigned Team</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_CallRefNum" xml:space="preserve">
+    <value>Reference Number</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_CallRefNumP" xml:space="preserve">
+    <value>Example: External Host ID</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Callback_Show_Comments" xml:space="preserve">
+    <value>Comments</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_Contact1" xml:space="preserve">
+    <value>Contact 1</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_Contact1P" xml:space="preserve">
+    <value>Example: Mobile</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Callback_Show_Contact2" xml:space="preserve">
+    <value>Contact 2</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_Contact2P" xml:space="preserve">
+    <value>Example: Home</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Callback_Show_CustName" xml:space="preserve">
+    <value>Customer Name</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_CustTimeStartComp" xml:space="preserve">
+    <value>Customer Start Time</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_CustTimeZone" xml:space="preserve">
+    <value>Customer Time Zone</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_DateComp" xml:space="preserve">
+    <value>Date</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_Header1" xml:space="preserve">
+    <value>Callback</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Callback_Show_Header1Small" xml:space="preserve">
+    <value>Scheduler</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Callback_Show_Reason" xml:space="preserve">
+    <value>Reason</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_StatusLabel" xml:space="preserve">
+    <value>Status</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_Team" xml:space="preserve">
+    <value>Team</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Callback_Show_TimeEndComp" xml:space="preserve">
+    <value>End Time</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Error_Index_Alert_Strong" xml:space="preserve">
+    <value>Oh snap!  Something went wrong...</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Error_Index_Header1" xml:space="preserve">
+    <value>Error</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Error_Index_LoginLink" xml:space="preserve">
+    <value>here.</value>
+    <comment>Link Text</comment>
+  </data>
+  <data name="Error_Index_Message" xml:space="preserve">
+    <value>Start over again </value>
+    <comment>Text</comment>
+  </data>
+  <data name="Profile_Index_ConfrimPwd" xml:space="preserve">
+    <value>Confirm New Password</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_EmailAddress" xml:space="preserve">
+    <value>Email Address</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_EmpNumber" xml:space="preserve">
+    <value>Employee Number</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_Header1" xml:space="preserve">
+    <value>Profile</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Profile_Index_IsDSTLabel" xml:space="preserve">
+    <value>Daylight Saving Time?</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_JobTitle" xml:space="preserve">
+    <value>Job Title</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_Manager" xml:space="preserve">
+    <value>Manager</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_NewPwd" xml:space="preserve">
+    <value>New Password</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_OldPwd" xml:space="preserve">
+    <value>Current Password</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_PanelHChangePwd" xml:space="preserve">
+    <value>Change Password</value>
+    <comment>Panel Header</comment>
+  </data>
+  <data name="Profile_Index_PanelHChangeTZ" xml:space="preserve">
+    <value>Change Default Timezone</value>
+    <comment>Panel Header</comment>
+  </data>
+  <data name="Profile_Index_PasswordSaveFailed" xml:space="preserve">
+    <value>Password save failed.</value>
+    <comment>Message</comment>
+  </data>
+  <data name="Profile_Index_PasswordSaveSuccess" xml:space="preserve">
+    <value>Password saved successfully.</value>
+    <comment>Message</comment>
+  </data>
+  <data name="Profile_Index_Role" xml:space="preserve">
+    <value>Role</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_Site" xml:space="preserve">
+    <value>Site</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_Team" xml:space="preserve">
+    <value>Team</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Profile_Index_TZSaveFailed" xml:space="preserve">
+    <value>Timezone save failed.</value>
+    <comment>Message</comment>
+  </data>
+  <data name="Profile_Index_TZSaveSuccess" xml:space="preserve">
+    <value>Timezone saved successfully.</value>
+    <comment>Message</comment>
+  </data>
+  <data name="Public_Login_ButtonLogin" xml:space="preserve">
+    <value>Login</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Public_Login_ButtonSendPassword" xml:space="preserve">
+    <value>Send Password</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Public_Login_CheckBoxRememberMe" xml:space="preserve">
+    <value>Remember me</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Public_Login_Header1" xml:space="preserve">
+    <value>Login</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Public_Login_Message_Par2" xml:space="preserve">
+    <value>If this is your first time to Convergys Assist and you're part of the company please use the Send Password feature below.</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Public_Login_TexboxEmailAddress" xml:space="preserve">
+    <value>Email Address</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Public_Login_TextboxPassword" xml:space="preserve">
+    <value>Password</value>
+    <comment>Placeholder</comment>
+  </data>
+  <data name="Setup_Index_Header1" xml:space="preserve">
+    <value>General Setup</value>
+    <comment>Header</comment>
+  </data>
+  <data name="Setup_Index_PanelHChangeRole" xml:space="preserve">
+    <value>Change User Role</value>
+    <comment>Panel Header</comment>
+  </data>
+  <data name="Setup_Index_RoleSaveFailed" xml:space="preserve">
+    <value>Role save failed.</value>
+    <comment>Message</comment>
+  </data>
+  <data name="Setup_Index_RoleSaveSuccess" xml:space="preserve">
+    <value>Role saved successfull.</value>
+    <comment>Message</comment>
+  </data>
+  <data name="Setup_Index_Team" xml:space="preserve">
+    <value>Team</value>
+    <comment>Label</comment>
+  </data>
+  <data name="_WidgetLeftMenu_ddCallback" xml:space="preserve">
+    <value>Callback</value>
+    <comment>Left Menu Drop Down</comment>
+  </data>
+  <data name="_WidgetLeftMenu_ddReports" xml:space="preserve">
+    <value>Reports</value>
+    <comment>Left Menu Drop Down</comment>
+  </data>
+  <data name="_WidgetLeftMenu_lnkCallbackCreate" xml:space="preserve">
+    <value>Create</value>
+    <comment>Left Menu Link</comment>
+  </data>
+  <data name="_WidgetLeftMenu_lnkCallbackNew" xml:space="preserve">
+    <value>New Callback</value>
+    <comment>Left Menu Link</comment>
+  </data>
+  <data name="_WidgetLeftMenu_lnkCallbackSearch" xml:space="preserve">
+    <value>Search</value>
+    <comment>Left Menu Link</comment>
+  </data>
+  <data name="_WidgetLeftMenu_lnkCallbackSettings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Left Menu Link</comment>
+  </data>
+  <data name="_WidgetLeftMenu_lnkReportsCallback" xml:space="preserve">
+    <value>Callback Reports</value>
+    <comment>Left Menu Link</comment>
+  </data>
+  <data name="Offline_Search_Bread1" xml:space="preserve">
+    <value>Home</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Offline_Search_Bread2" xml:space="preserve">
+    <value>Callback Search</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Offline_Search_ButtonClear" xml:space="preserve">
+    <value>Clear</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Offline_Search_ButtonReset" xml:space="preserve">
+    <value>Reset</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Offline_Search_ButtonSearch" xml:space="preserve">
+    <value>Search</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Offline_Search_DeleteConfirm" xml:space="preserve">
+    <value>Are you sure you want to delete this offline activity?</value>
+    <comment>Message</comment>
+  </data>
+  <data name="Offline_Search_FilterPanelTitle" xml:space="preserve">
+    <value>Search Filters</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Offline_Search_FilterSchedFLabel" xml:space="preserve">
+    <value>From</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Search_FilterSchedKeyLabel" xml:space="preserve">
+    <value>Keyword</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Search_FilterSchedTLabel" xml:space="preserve">
+    <value>To</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Search_FilterStatusLabel" xml:space="preserve">
+    <value>Status</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Search_Header1" xml:space="preserve">
+    <value>Offline</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Offline_Search_Header1Small" xml:space="preserve">
+    <value>Activities</value>
+    <comment>Value</comment>
+  </data>
+  <data name="_WidgetLeftMenu_ddOffline" xml:space="preserve">
+    <value>Offline Activity</value>
+    <comment>Left Menu Drop Down</comment>
+  </data>
+  <data name="_WidgetLeftMenu_lnkOfflineCreate" xml:space="preserve">
+    <value>Create</value>
+    <comment>Left Menu Link</comment>
+  </data>
+  <data name="_WidgetLeftMenu_lnkOfflineNew" xml:space="preserve">
+    <value>New Offline Activity</value>
+    <comment>Left Menu Link</comment>
+  </data>
+  <data name="_WidgetLeftMenu_lnkOfflineSearch" xml:space="preserve">
+    <value>Search</value>
+    <comment>Left Menu Link</comment>
+  </data>
+  <data name="_WidgetLeftMenu_lnkOfflineSettings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Left Menu Link</comment>
+  </data>
+  <data name="_WidgetLeftMenu_lnkReportsOffline" xml:space="preserve">
+    <value>Offline Reports</value>
+    <comment>Left Menu Link</comment>
+  </data>
+  <data name="Callback_Show_Reason1" xml:space="preserve">
+    <value>Reason</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Show_ActivityType" xml:space="preserve">
+    <value>Activity Type</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Show_AssignToAgent" xml:space="preserve">
+    <value>Assigned Agent</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Show_AssignToTeam" xml:space="preserve">
+    <value>Assigned Team</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Show_CaseIdentity" xml:space="preserve">
+    <value>Case Identity</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Show_Comments" xml:space="preserve">
+    <value>Comments</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Show_ContactType" xml:space="preserve">
+    <value>Contact Type</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Show_Header1" xml:space="preserve">
+    <value>Offline</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Offline_Show_Header1Small" xml:space="preserve">
+    <value>Activity</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Offline_Show_StatusLabel" xml:space="preserve">
+    <value>Status</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Show_EventComments" xml:space="preserve">
+    <value>Event Comment</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Offline_Show_EventTableLabel" xml:space="preserve">
+    <value>Offline Events</value>
+    <comment>Header Label</comment>
+  </data>
+  <data name="Offline_Settings_Header1" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Offline_Settings_Header1small" xml:space="preserve">
+    <value>for Offline</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Offline_Settings_PanelActivity" xml:space="preserve">
+    <value>Activity Types</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Offline_Settings_PanelContact" xml:space="preserve">
+    <value>Contact Types</value>
+    <comment>Text</comment>
+  </data>
+</root>

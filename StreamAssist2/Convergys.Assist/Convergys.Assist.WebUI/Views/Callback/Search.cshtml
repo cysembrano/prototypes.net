@@ -1,0 +1,223 @@
+﻿@using Convergys.Assist.Repository.Enums
+@using PagedList.Mvc
+@model Convergys.Assist.WebUI.Models.CallbackSearchModel
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts
+{
+    <script src="~/SBAdmin/js/tablesorter/jquery.metadata.js"></script>
+    <script src="~/SBAdmin/js/tablesorter/jquery.tablesorter.min.js"></script>
+    <script src="~/SBAdmin/js/tablesorter/tables.js"></script>
+}
+@section scriptscustom
+{
+    <script src="~/Scripts/Custom/Shared.js"></script>
+    <script src="~/Scripts/Custom/CallbackSearch.js"></script>
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1>@Resources.Content.Callback_Search_Header1&nbsp;<small>@Resources.Content.Callback_Search_Header1Small</small></h1>
+    </div>
+</div>
+<!-- /.row -->
+@using (Html.BeginForm("Search", "Callback", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body" id="pnlSearchFilterBody">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>@Resources.Content.Callback_Search_FilterSchedKeyLabel</label>
+                            <div class="form-group">
+                                <div class="input-group date">
+                                    @Html.TextBoxFor(model => model.SearchFilter.Keyword, new { id = "txtFilterKeywords", @class = "form-control", maxlength = "20" })
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-key"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>@Resources.Content.Callback_Search_FilterStatusLabel</label>
+                            <div class="form-group">
+                                <div class="input-group date">
+                                    @Html.DropDownListFor(n => n.SearchFilter.Status,
+                                      new SelectList(Model.CallbackStatusOptions, "Key", "Value", Model.CallbackStatusOptions.First(t => t.Value == "Open").Key),
+                                      new { id = "ddFilterStatus", @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-star-half-full"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>@Resources.Content.Callback_Search_FilterSchedFLabel</label>
+                            <div class="form-group">
+                                <div class="input-group date" id="dtpFrom">
+                                    @Html.TextBoxFor(model => model.SearchFilter.From, new { id = "dtpFilterScheduledFrom", @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>@Resources.Content.Callback_Search_FilterSchedTLabel</label>
+                            <div class="form-group">
+                                <div class="input-group date" id="dtpTo">
+                                    @Html.TextBoxFor(model => model.SearchFilter.To, new { id = "dtpFilterScheduledTo", @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="input-group date">
+                                    @if (Model.LoggedOnEmployee.RoleId.GetValueOrDefault() >= Enum_Roles.TeamManager.GetHashCode())
+                                    { 
+                                        @Html.DropDownList("ddTeamList", new SelectList(Model.TeamList, "TeamId", "TeamName", Model.SearchFilter.TeamId), "Any Team", new { id = "ddTeamList", @class = "form-control" })
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-users"></span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <label>Team: @Model.LoggedOnEmployee.Team</label> 
+                                    }
+                                    @Html.HiddenFor(t => t.SearchFilter.TeamId, new { id = "hdnTeamIdSelected" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="input-group date">
+                                    <select class="form-control" id="ddEmpList" name="ddEmpList">
+                                    </select>
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-user"></span>
+                                    </span>
+                                    @Html.HiddenFor(t => t.SearchFilter.EmpId, new { id = "hdnEmpIdSelected" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="btn-group btn-group-justified">
+                                <a href="#" class="btn btn-primary btn-default" onclick="$(this).closest('form').submit(); return false;">@Resources.Content.Callback_Search_ButtonSearch</a>
+                                <a href="#" class="btn btn-info btn-default" id="btnClear">@Resources.Content.Callback_Search_ButtonClear</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.PagedListPager(Model.SearchResults, page => Url.Action("Search", "Callback", new
+       {
+           page,
+           key = Model.SearchFilter.Keyword,
+           stat = Model.SearchFilter.Status,
+           sTo = Model.SearchFilter.To,
+           sFr = Model.SearchFilter.From,
+           tm = Model.SearchFilter.TeamId,
+           emp = Model.SearchFilter.EmpId
+       }))
+        </div>
+    </div>
+    <!-- /.row -->
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped tablesorter">
+                <thead>
+                    <tr>
+                        <th class="header">Status <i class="fa fa-sort"></i></th>
+                        <th class="header">Scheduled Date <i class="fa fa-sort"></i></th>
+                        <th class="header">Assigned To <i class="fa fa-sort"></i></th>
+                        <th class="header">Team <i class="fa fa-sort"></i></th>
+                        <th class="header">Customer <i class="fa fa-sort"></i></th>
+                        <th class="header">Contact 1 <i class="fa fa-sort"></i></th>
+                        <th class="header">Reason <i class="fa fa-sort"></i></th>
+                        <th class="header" data-sorter="false">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var result in Model.SearchResults)
+                    {
+                        <tr>
+                            <td>@result.CallbackStatus.ToString()</td>
+                            <td>@result.AgentCallbackTimeStart.Value</td>
+                            <td>@result.AssignedToName</td>
+                            <td>@result.TeamName</td>
+                            <td>@result.CustomerName</td>
+                            <td>@result.Contact1Phone</td>
+                            <td>@result.CallbackReasonDescription</td>
+                            <td>
+                                <div class="btn-group">
+                                    <small>@Html.ActionLink("View", "View", new { id = result.CallbackLogId })</small>
+                                    <small>@Html.ActionLink("Edit", "Edit", new { id = result.CallbackLogId })</small>
+                                </div>
+                                <div class="btn-group">
+                                    @if (result.CallbackStatus == Enum_CallbackStatus.Open)
+                                    {
+                                        <small>@Html.ActionLink("Close", "ChangeCallbackStatus", new
+                                          {
+                                              id = result.CallbackLogId,
+                                              status = Enum_CallbackStatus.Closed,
+                                              page = Model.CurrentPage,
+                                              key = Model.SearchFilter.Keyword,
+                                              stat = Model.SearchFilter.Status,
+                                              sTo = Model.SearchFilter.To,
+                                              sFr = Model.SearchFilter.From,
+                                              tm = Model.SearchFilter.TeamId,
+                                              emp = Model.SearchFilter.EmpId
+                                          })</small>
+                                    }
+                                    else if (result.CallbackStatus == Enum_CallbackStatus.Closed)
+                                    {
+                                        <small>@Html.ActionLink("Open", "ChangeCallbackStatus", new
+                                          {
+                                              id = result.CallbackLogId,
+                                              status = Enum_CallbackStatus.Open,
+                                              page = Model.CurrentPage,
+                                              key = Model.SearchFilter.Keyword,
+                                              stat = Model.SearchFilter.Status,
+                                              sTo = Model.SearchFilter.To,
+                                              sFr = Model.SearchFilter.From,
+                                              tm = Model.SearchFilter.TeamId,
+                                              emp = Model.SearchFilter.EmpId
+                                          })</small>
+                                    }
+                                    <small>@Html.ActionLink("Delete", "DeleteCallbackFromSearch", new
+                                          {
+                                              id = result.CallbackLogId,
+                                              status = Enum_CallbackStatus.Open,
+                                              page = Model.CurrentPage,
+                                              key = Model.SearchFilter.Keyword,
+                                              stat = Model.SearchFilter.Status,
+                                              sTo = Model.SearchFilter.To,
+                                              sFr = Model.SearchFilter.From,
+                                              tm = Model.SearchFilter.TeamId,
+                                              emp = Model.SearchFilter.EmpId
+                                          },
+                                          new { onclick = String.Format("return confirm('{0}')", Resources.Content.Callback_Search_DeleteConfirm) })</small>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /.row -->

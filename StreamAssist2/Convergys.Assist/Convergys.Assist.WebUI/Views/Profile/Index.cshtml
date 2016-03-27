@@ -1,0 +1,126 @@
+﻿@model Convergys.Assist.WebUI.Models.ProfileModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts
+{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+}
+@section scriptscustom
+{
+    <script src="~/Scripts/Custom/Shared.js"></script>
+    <script src="~/Scripts/Custom/Profile.js"></script>
+}
+
+<div class="row">
+    <div class="col-lg-8">
+        <h1>@Resources.Content.Profile_Index_Header1 &nbsp;<small>@Model.LoggedOnEmployee.FirstName</small></h1>
+    </div>
+    <div class="col-lg-4">
+        <div id="errorContainer"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>@Resources.Content.Profile_Index_EmailAddress</label>
+                    <p class="form-control-static">@Model.LoggedOnEmployee.EmailAddress</p>
+                </div>
+                <div class="form-group">
+                    <label>@Resources.Content.Profile_Index_EmpNumber</label>
+                    <p class="form-control-static">@Model.LoggedOnEmployee.EmpNumber</p>
+                </div>
+                <div class="form-group">
+                    <label>@Resources.Content.Profile_Index_JobTitle</label>
+                    <p class="form-control-static">@Model.LoggedOnEmployee.JobTitle</p>
+                </div>
+                <div class="form-group">
+                    <label>@Resources.Content.Profile_Index_Role</label>
+                    <p class="form-control-static">@Model.LoggedOnEmployee.Role</p>
+                </div>
+                <div class="form-group">
+                    <label>@Resources.Content.Profile_Index_Manager</label>
+                    <p class="form-control-static">@Model.LoggedOnEmployee.ManagerName</p>
+                </div>
+                <div class="form-group">
+                    <label>@Resources.Content.Profile_Index_Site</label>
+                    <p class="form-control-static">@Model.LoggedOnEmployee.SiteName</p>
+                </div>
+                <div class="form-group">
+                    <label>@Resources.Content.Profile_Index_Team</label>
+                    <p class="form-control-static">@Model.LoggedOnEmployee.Team</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm("SavePassword", "Profile", FormMethod.Post, new { id = "savePwdForm" }))
+    {
+        <div class="col-lg-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@Resources.Content.Profile_Index_PanelHChangePwd</h3>
+                    @if (Model.PwdChangeOccured)
+                    {
+                        if (Model.PwdChangeSuccess)
+                        {                                                   
+                        <small class="text-success">@Resources.Content.Profile_Index_PasswordSaveSuccess)</small>
+                        }
+                        else
+                        {                                            
+                        <small class="text-danger">@Resources.Content.Profile_Index_PasswordSaveFailed</small>
+                        }
+                    }
+                </div>
+                <div class="panel-body">
+                    <div id="#savePwdFormErrContainer"></div>
+                    <div class="form-group input-group">
+                        <label>@Resources.Content.Profile_Index_OldPwd</label>
+                        @Html.PasswordFor(g => g.OldPwd, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group input-group">
+                        <label>@Resources.Content.Profile_Index_NewPwd</label>
+                        @Html.PasswordFor(g => g.NewPwd, new { @class = "form-control" })
+                    </div>
+                    <a href="#" class="btn btn-primary btn-default btn-xs" onclick="$(this).closest('form').submit(); return false;">Save</a>
+                </div>
+            </div>
+        </div>
+    }
+    @using (Html.BeginForm("SaveTimezone", "Profile", FormMethod.Post, new { role = "form" }))
+    {
+        <div class="col-lg-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@Resources.Content.Profile_Index_PanelHChangeTZ</h3>
+                    @if (Model.TZChangeOccured)
+                    {
+                        if (Model.TZChangeSuccess)
+                        {
+                        <small class="text-success">@Resources.Content.Profile_Index_TZSaveSuccess</small>
+                        }
+                        else
+                        {
+                        <small class="text-danger">@Resources.Content.Profile_Index_TZSaveFailed</small> 
+                        }
+                    }
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.HiddenFor(t => t.SelectedTimezone, new { id = "hdnSelectedTimeZone" })
+                        @Html.DropDownListFor(model => model.SelectedTimezone, Model.ChangeTimeZoneCollection,
+                                        new { id = "ddProfileChangeTimezone", @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>@Resources.Content.Profile_Index_IsDSTLabel</label>
+                        @Html.CheckBoxFor(b => b.IsDst)
+                    </div>
+                    <a href="#" class="btn btn-primary btn-default btn-xs" onclick="$(this).closest('form').submit(); return false;">Save</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
