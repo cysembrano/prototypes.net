@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,18 @@ namespace TimerConsole
 
         public bool Start()
         {
-            _timer = new Timer(10000);
+            _timer = new Timer();
+            var strElapsed = ConfigurationManager.AppSettings["ApplicationElapsedTime"];
+            double dblElapsed;
+            if (Double.TryParse(strElapsed, out dblElapsed))
+                _timer.Interval = dblElapsed;
+            else
+                _timer.Interval = 10000;
+
             _timer.Elapsed += _timer_Elapsed;  
             _timer.Enabled = true;
             _timer.Start();
-            _log.InfoFormat("Convergys Assist Reporter STARTED at {0}", DateTime.Now.ToLongDateString());
+            _log.InfoFormat("Convergys Assist Reporter STARTED at {0}", DateTime.Now.ToLongTimeString());
             return true;
         }
 
@@ -33,7 +41,7 @@ namespace TimerConsole
         {
             
             _timer.Stop();
-            _log.InfoFormat("Convergys Assist Reporter STOPPED at {0}", DateTime.Now.ToLongDateString());
+            _log.InfoFormat("Convergys Assist Reporter STOPPED at {0}", DateTime.Now.ToLongTimeString());
             _timer.Enabled = false;
             _timer.Dispose();
             return true;
@@ -41,7 +49,7 @@ namespace TimerConsole
 
         private void ProcessReports()
         {
-            _log.InfoFormat("Convergys Assist Reporter RAN at {0}", DateTime.Now.ToLongDateString());
+            _log.InfoFormat("Convergys Assist Reporter RAN at {0}", DateTime.Now.ToLongTimeString());
 
         }
     }
