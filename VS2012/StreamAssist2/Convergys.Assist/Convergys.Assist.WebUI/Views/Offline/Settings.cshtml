@@ -1,0 +1,102 @@
+﻿@using Convergys.Assist.Repository.Enums
+@model Convergys.Assist.WebUI.Models.OfflineSettingsModel
+
+@{
+    ViewBag.Title = "Offline Activity Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scriptscustom
+{
+    <script src="~/Scripts/Custom/Shared.js"></script>
+    <script src="~/Scripts/Custom/OfflineSettings.js"></script>
+}
+<div class="row">
+    <div class="col-lg-7">
+        <h1>@Resources.Content.Offline_Settings_Header1&nbsp;<small>@Resources.Content.Offline_Settings_Header1small</small></h1>
+    </div>
+    <div class="col-lg-5">
+        <div id="errorContainer"></div>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="input-group date">
+                    @Html.HiddenFor(t => t.TeamSelectedId, new { id = "hdnTeamId" })
+                    @if (Model.LoggedOnEmployee.RoleId.GetValueOrDefault() >= Enum_Roles.TeamManager.GetHashCode())
+                    { 
+                        @Html.DropDownList("ddTeamList", new SelectList(Model.TeamList, "TeamId", "TeamName", Model.TeamSelectedId), new { id = "ddTeamList", @class = "form-control" })
+                        <span class="input-group-addon">
+                            <span class="fa fa-users"></span>
+                        </span>
+                    }
+                    else
+                    {
+                        <label>Team: @Model.LoggedOnEmployee.Team</label> 
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Resources.Content.Offline_Settings_PanelContact</h3>
+                <input type="hidden" id="hdnContactTypeId" />
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <input class="form-control" type="text" id="txtAddContactType" maxlength="50" />
+                        <small id="smlSelectedContactTypeText"></small>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/Offline/AddContactType/" class="btn btn-primary" id="btnContactTypeAdd">Add</a>
+                        <a href="/Offline/SaveContactType/" class="btn btn-primary" id="btnContactTypeSave">Save</a>
+                        <a href="/Offline/DeleteContactType/" class="btn btn-primary" id="btnContactTypeDelete">Delete</a>
+                    </div>
+                </div>
+                <br />
+                <div id="divContactTypeList">
+                    <select size="5" class="form-control" id="selContactType" onclick="javascript:typeListChange('Contact');">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Resources.Content.Offline_Settings_PanelActivity</h3>
+                <input type="hidden" id="hdnActivityTypeId" />
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <input class="form-control" type="text" id="txtAddActivityType" maxlength="50" />
+                        <small id="smlSelectedActivityTypeText"></small>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/Offline/AddActivityType/" class="btn btn-primary" id="btnActivityTypeAdd">Add</a>
+                        <a href="/Offline/SaveActivityType/" class="btn btn-primary" id="btnActivityTypeSave">Save</a>
+                        <a href="/Offline/DeleteActivityType/" class="btn btn-primary" id="btnActivityTypeDelete">Delete</a>
+                    </div>
+                </div>
+                <br />
+                <div id="divActivityTypeList">
+                    <select size="5" class="form-control" id="selActivityType" onclick="javascript:typeListChange('Activity');">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

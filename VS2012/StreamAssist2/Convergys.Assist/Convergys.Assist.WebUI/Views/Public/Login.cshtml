@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+@section scripts
+{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+}
+@section scriptscustom
+{
+    <script src="~/Scripts/Custom/Login.js"></script>
+}
+
+<h1>@Resources.Content.Public_Login_Header1</h1>
+<div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    Welcome to Convergys Assist.
+    <br />
+    Supports Tracking:  Offline Activities and Callback Schedules.
+    <br /><br />
+    @Resources.Content.Public_Login_Message_Par2
+</div>
+@using (Html.BeginForm("Login", "Public", FormMethod.Post, new Dictionary<string, object> {
+                                                                                            { "id", "loginForm" } 
+                                                                                          }))
+{
+    <div class="form-group input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        @Html.TextBox("EmailAddress", null, new Dictionary<string, object>{
+                                                                            {"class", "form-control"},
+                                                                            {"placeholder", @Resources.Content.Public_Login_TexboxEmailAddress }
+                                                                          })
+            
+    </div>
+    <div class="form-group input-group">
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        @Html.Password("Password", null, new Dictionary<string, object>{
+                                                                            {"class", "form-control"},
+                                                                            {"placeholder", @Resources.Content.Public_Login_TextboxPassword }
+                                                                          })
+            
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBox("RememberMe")
+            @Resources.Content.Public_Login_CheckBoxRememberMe
+        </label>
+    </div>
+    <div id="errorContainer">
+        @if (ViewBag.Message != null)
+        {
+            if (ViewBag.Error)
+            {
+                <label id="EmailAddress-error" class="error">@ViewBag.Message</label>
+            }
+            else
+            {
+                <label id="EmailAddress-sent" class="text-success">@ViewBag.Message</label>
+            }
+        }
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary btn-lg" id="btnLogin" name="action:Login">@Resources.Content.Public_Login_ButtonLogin</button>
+        <button type="submit" class="btn btn-primary btn-lg" id="btnSendPassword" name="action:SendPassword">@Resources.Content.Public_Login_ButtonSendPassword</button>
+    </div>
+    @Html.Hidden("ReturnUrl",(string)ViewBag.ReturnUrl)
+}

@@ -1,0 +1,14 @@
+﻿@using Convergys.Assist.Repository.Enums
+@model Convergys.Assist.WebUI.Models.BaseModel
+<li class="dropdown user-dropdown" title="@Model.LoggedOnEmployee.EmailAddress">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Model.LoggedOnEmployee.FirstName <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="~/Profile/Index"><i class="fa fa-user"></i>&nbsp;Profile</a></li>
+        @if (Model.LoggedOnEmployee.RoleId >= Enum_Roles.TeamAdmin.GetHashCode())
+        {
+            <li><a href="~/Setup/Index"><i class="fa fa-gear"></i>&nbsp; Setup</a></li>
+        }
+        <li class="divider"></li>
+        <li><a href="~/Public/LogOff"><i class="fa fa-power-off"></i>&nbsp;Log Out</a></li>
+    </ul>
+</li>
