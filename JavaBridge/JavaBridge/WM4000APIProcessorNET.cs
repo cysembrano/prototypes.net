@@ -17,15 +17,16 @@ namespace JavaBridge
     {
         WM4000APIProcessor _processor;
 
-        public void Init()
+        public string Init()
         {
             try
             {
                 _processor = new WM4000APIProcessor();
+                return "SUCCESS";
             }
             catch (Exception e)
             {
-                MessageBox.Show("Init() Error: " + e.Message);
+                return String.Format("ERROR: JavaBridge Instantiation. ({0})." , e.Message);
             }
             
         }
@@ -39,7 +40,8 @@ namespace JavaBridge
             }
             catch (Exception e)
             {
-                MessageBox.Show(String.Format("Parameters [ caller: {0} | msgtype: {1}  | action: {2} | msg: {3} ] Process() Error: " , callerIdentity, typeofMessage, action, xmlFormattedMessage, e.Message));
+                var msg = e.Message == null ? string.Empty : e.Message;
+                return String.Format("ERROR: JavaBridge Process Method. ({0}).", msg);
             }
             return returnString;
             

@@ -13,7 +13,7 @@ namespace JavaBridge
     public interface IWM4000APIProcessorNET
     {
         [DispId(1)]
-        void Init();
+        string Init();
         [DispId(2)]
         string Process(string callerIdentity, string typeofMessage, string action, string xmlFormattedMessage);
 
