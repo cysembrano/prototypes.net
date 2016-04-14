@@ -36,12 +36,12 @@ namespace JavaBridge
             string returnString = string.Empty;
             try
             {
-                returnString =  _processor.process(callerIdentity, typeofMessage, action, xmlFormattedMessage);
+                returnString =  WM4000APIProcessor.sProcess(callerIdentity, typeofMessage, action, xmlFormattedMessage);
             }
             catch (Exception e)
             {
-                var msg = e.Message == null ? string.Empty : e.Message;
-                return String.Format("ERROR: JavaBridge Process Method. ({0}).", msg);
+                               
+                return String.Format("ERROR: JavaBridge Process Method. ({0}).", "test");
             }
             return returnString;
             

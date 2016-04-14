@@ -125,7 +125,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="WM4000APIProcessor, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\scratch\Projects Flow\Fliway\JavaProject\wm9-app\com\ssaglobal\scm\wms\api\WM4000APIProcessor.dll</HintPath>
+      <HintPath>..\..\..\..\..\scratch\Projects Flow\Fliway\JavaProject\todotnet\WM4000APIProcessor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
