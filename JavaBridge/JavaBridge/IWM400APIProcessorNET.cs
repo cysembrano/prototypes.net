@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-
 namespace JavaBridge
 {
     [Guid("03AE2678-E685-4050-B73C-019A17D5A22F")]
@@ -16,6 +15,7 @@ namespace JavaBridge
         string Init();
         [DispId(2)]
         string Process(string callerIdentity, string typeofMessage, string action, string xmlFormattedMessage);
+
 
     }
 

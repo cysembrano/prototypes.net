@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="FliwayJava, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\scratch\Projects Flow\Fliway\JavaProject\sctst\FliwayJava.dll</HintPath>
+      <HintPath>..\..\..\..\..\scratch\Projects Flow\Fliway\JavaProject\todotnet\FliwayJAVA\FliwayJava.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.AWT.WinForms">
       <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.AWT.WinForms.dll</HintPath>
@@ -134,6 +134,7 @@
     <Compile Include="WM4000APIProcessorNET.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
