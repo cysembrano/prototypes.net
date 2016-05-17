@@ -1,0 +1,44 @@
+﻿@model FlowFB.Web.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+@section pagestyle
+{
+    <link href="~/Templates/css/pages/signin.css" rel="stylesheet">
+}
+
+<div class="account-container">
+    <div class="content clearfix">
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <h1>Member Login</h1>
+    <div class="login-fields">
+        <p>Please provide your details</p>
+        <div class="field">
+            @Html.LabelFor(m => m.UserName, htmlAttributes: new { @for = "username" })
+            @Html.TextBoxFor(m => m.UserName, htmlAttributes: new { placeholder = "Username", @class = "login username-field" })
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div> <!-- /field -->
+        <div class="field">
+            @Html.LabelFor(m => m.Password, htmlAttributes: new { @for = "username" })
+            @Html.PasswordFor(m => m.Password, htmlAttributes: new { placeholder = "Password", @class = "login password-field" })
+            @Html.ValidationMessageFor(m => m.Password)
+        </div> <!-- /password -->
+    </div> <!-- /login-fields -->
+        <div class="field">
+            <label>Remember Me? @Html.CheckBoxFor(m => m.RememberMe)</label>
+
+            <input type="submit" class="button btn btn-success btn-large" value="Sign In">
+        </div> <!-- .actions -->
+        }
+    </div> <!-- /content -->
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

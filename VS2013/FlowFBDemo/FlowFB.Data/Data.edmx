@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FlowFBAccountingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FFBA_Projects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="50" />
+          <Property Name="PageNumbers" Type="bit" Nullable="false" />
+          <Property Name="Boxes" Type="bit" />
+          <Property Name="LabelManager" Type="int" />
+          <Property Name="LabelCheckInterval" Type="int" />
+          <Property Name="LabelAlertMin" Type="int" />
+          <Property Name="FullText" Type="bit" />
+          <Property Name="ShowChangeDate" Type="bit" />
+          <Property Name="DividerSecurity" Type="int" />
+          <Property Name="Imaging" Type="bit" />
+          <Property Name="CAR" Type="bit" />
+          <Property Name="ForceBox" Type="bit" />
+          <Property Name="ImportNewToLabelManager" Type="bit" />
+          <Property Name="SecurityField" Type="int" />
+          <Property Name="MultiKey" Type="bit" />
+          <Property Name="TaskManager" Type="bit" />
+          <Property Name="LabelManagerFolder" Type="varchar" MaxLength="250" />
+          <Property Name="MultiLevel" Type="bit" />
+          <Property Name="PageSize" Type="int" />
+          <Property Name="NumRevisions" Type="int" />
+          <Property Name="Revisions" Type="int" />
+          <Property Name="NewDocRoute" Type="int" />
+          <Property Name="AllowFileCreateOnBatch" Type="int" />
+          <Property Name="FileRoomEmails" Type="varchar" MaxLength="250" />
+          <Property Name="Locking" Type="int" />
+          <Property Name="KeepBox" Type="int" />
+          <Property Name="NewDocRouteAction" Type="int" />
+          <Property Name="IndexDividers" Type="int" />
+          <Property Name="IndexSeparators" Type="int" />
+          <Property Name="ScanEmails" Type="varchar" MaxLength="250" />
+          <Property Name="Reminders" Type="int" />
+          <Property Name="FieldSecurity" Type="int" />
+          <Property Name="FileTracking" Type="bit" />
+          <Property Name="ArchiveEmail" Type="bit" />
+          <Property Name="NoPaper" Type="bit" />
+          <Property Name="ServerID" Type="int" />
+          <Property Name="ReportView" Type="int" />
+          <Property Name="LockSep" Type="int" />
+          <Property Name="LockDiv" Type="int" />
+          <Property Name="SepLabel" Type="varchar" MaxLength="50" />
+          <Property Name="DivLabel" Type="varchar" MaxLength="50" />
+          <Property Name="SeparatorSecurity" Type="int" />
+          <Property Name="SepSortDescending" Type="int" />
+          <Property Name="DivSortDescending" Type="int" />
+          <Property Name="QueueSelect" Type="int" />
+          <Property Name="SaveStyle" Type="int" />
+          <Property Name="Hidden" Type="int" />
+          <Property Name="AllowUnsign" Type="int" Nullable="false" />
+          <Property Name="RemoteID" Type="int" />
+          <Property Name="InteractiveRevisions" Type="int" Nullable="false" />
+          <Property Name="RenditionPerformed" Type="int" Nullable="false" />
+          <Property Name="RenditionAction" Type="int" Nullable="false" />
+          <Property Name="RenditionMaximumDimension" Type="int" Nullable="false" />
+          <Property Name="ServerOCRType" Type="int" Nullable="false" />
+          <Property Name="ServerOCRSkipExtensions" Type="varchar" MaxLength="2000" />
+          <Property Name="FBDrive" Type="bit" />
+          <Property Name="DocuSignEnabled" Type="bit" Nullable="false" />
+          <Property Name="AllowManualDeclaration" Type="int" Nullable="false" />
+          <Property Name="NativePDF" Type="bit" />
+          <Property Name="SearchPortalSecurityMode" Type="int" Nullable="false" />
+          <Property Name="ProjectType" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="40" />
+          <Property Name="SearchPortal" Type="bit" Nullable="false" />
+          <Property Name="IncludeLineItemSearch" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="FlowFBAccountingModelStoreContainer">
+          <EntitySet Name="FFBA_Projects" EntityType="Self.FFBA_Projects" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FlowFBAccountingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FlowFBEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="FFBA_Projects" EntityType="FlowFBAccountingModel.FFBA_Projects" />
+        </EntityContainer>
+        <EntityType Name="FFBA_Projects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PageNumbers" Type="Boolean" Nullable="false" />
+          <Property Name="Boxes" Type="Boolean" />
+          <Property Name="LabelManager" Type="Int32" />
+          <Property Name="LabelCheckInterval" Type="Int32" />
+          <Property Name="LabelAlertMin" Type="Int32" />
+          <Property Name="FullText" Type="Boolean" />
+          <Property Name="ShowChangeDate" Type="Boolean" />
+          <Property Name="DividerSecurity" Type="Int32" />
+          <Property Name="Imaging" Type="Boolean" />
+          <Property Name="CAR" Type="Boolean" />
+          <Property Name="ForceBox" Type="Boolean" />
+          <Property Name="ImportNewToLabelManager" Type="Boolean" />
+          <Property Name="SecurityField" Type="Int32" />
+          <Property Name="MultiKey" Type="Boolean" />
+          <Property Name="TaskManager" Type="Boolean" />
+          <Property Name="LabelManagerFolder" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MultiLevel" Type="Boolean" />
+          <Property Name="PageSize" Type="Int32" />
+          <Property Name="NumRevisions" Type="Int32" />
+          <Property Name="Revisions" Type="Int32" />
+          <Property Name="NewDocRoute" Type="Int32" />
+          <Property Name="AllowFileCreateOnBatch" Type="Int32" />
+          <Property Name="FileRoomEmails" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Locking" Type="Int32" />
+          <Property Name="KeepBox" Type="Int32" />
+          <Property Name="NewDocRouteAction" Type="Int32" />
+          <Property Name="IndexDividers" Type="Int32" />
+          <Property Name="IndexSeparators" Type="Int32" />
+          <Property Name="ScanEmails" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Reminders" Type="Int32" />
+          <Property Name="FieldSecurity" Type="Int32" />
+          <Property Name="FileTracking" Type="Boolean" />
+          <Property Name="ArchiveEmail" Type="Boolean" />
+          <Property Name="NoPaper" Type="Boolean" />
+          <Property Name="ServerID" Type="Int32" />
+          <Property Name="ReportView" Type="Int32" />
+          <Property Name="LockSep" Type="Int32" />
+          <Property Name="LockDiv" Type="Int32" />
+          <Property Name="SepLabel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DivLabel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeparatorSecurity" Type="Int32" />
+          <Property Name="SepSortDescending" Type="Int32" />
+          <Property Name="DivSortDescending" Type="Int32" />
+          <Property Name="QueueSelect" Type="Int32" />
+          <Property Name="SaveStyle" Type="Int32" />
+          <Property Name="Hidden" Type="Int32" />
+          <Property Name="AllowUnsign" Type="Int32" Nullable="false" />
+          <Property Name="RemoteID" Type="Int32" />
+          <Property Name="InteractiveRevisions" Type="Int32" Nullable="false" />
+          <Property Name="RenditionPerformed" Type="Int32" Nullable="false" />
+          <Property Name="RenditionAction" Type="Int32" Nullable="false" />
+          <Property Name="RenditionMaximumDimension" Type="Int32" Nullable="false" />
+          <Property Name="ServerOCRType" Type="Int32" Nullable="false" />
+          <Property Name="ServerOCRSkipExtensions" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="FBDrive" Type="Boolean" />
+          <Property Name="DocuSignEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AllowManualDeclaration" Type="Int32" Nullable="false" />
+          <Property Name="NativePDF" Type="Boolean" />
+          <Property Name="SearchPortalSecurityMode" Type="Int32" Nullable="false" />
+          <Property Name="ProjectType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SearchPortal" Type="Boolean" Nullable="false" />
+          <Property Name="IncludeLineItemSearch" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FlowFBAccountingModelStoreContainer" CdmEntityContainer="FlowFBEntities" >
+          <EntitySetMapping Name="FFBA_Projects">
+            <EntityTypeMapping TypeName="FlowFBAccountingModel.FFBA_Projects">
+              <MappingFragment StoreEntitySet="FFBA_Projects">
+                <ScalarProperty Name="IncludeLineItemSearch" ColumnName="IncludeLineItemSearch" />
+                <ScalarProperty Name="SearchPortal" ColumnName="SearchPortal" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+                <ScalarProperty Name="SearchPortalSecurityMode" ColumnName="SearchPortalSecurityMode" />
+                <ScalarProperty Name="NativePDF" ColumnName="NativePDF" />
+                <ScalarProperty Name="AllowManualDeclaration" ColumnName="AllowManualDeclaration" />
+                <ScalarProperty Name="DocuSignEnabled" ColumnName="DocuSignEnabled" />
+                <ScalarProperty Name="FBDrive" ColumnName="FBDrive" />
+                <ScalarProperty Name="ServerOCRSkipExtensions" ColumnName="ServerOCRSkipExtensions" />
+                <ScalarProperty Name="ServerOCRType" ColumnName="ServerOCRType" />
+                <ScalarProperty Name="RenditionMaximumDimension" ColumnName="RenditionMaximumDimension" />
+                <ScalarProperty Name="RenditionAction" ColumnName="RenditionAction" />
+                <ScalarProperty Name="RenditionPerformed" ColumnName="RenditionPerformed" />
+                <ScalarProperty Name="InteractiveRevisions" ColumnName="InteractiveRevisions" />
+                <ScalarProperty Name="RemoteID" ColumnName="RemoteID" />
+                <ScalarProperty Name="AllowUnsign" ColumnName="AllowUnsign" />
+                <ScalarProperty Name="Hidden" ColumnName="Hidden" />
+                <ScalarProperty Name="SaveStyle" ColumnName="SaveStyle" />
+                <ScalarProperty Name="QueueSelect" ColumnName="QueueSelect" />
+                <ScalarProperty Name="DivSortDescending" ColumnName="DivSortDescending" />
+                <ScalarProperty Name="SepSortDescending" ColumnName="SepSortDescending" />
+                <ScalarProperty Name="SeparatorSecurity" ColumnName="SeparatorSecurity" />
+                <ScalarProperty Name="DivLabel" ColumnName="DivLabel" />
+                <ScalarProperty Name="SepLabel" ColumnName="SepLabel" />
+                <ScalarProperty Name="LockDiv" ColumnName="LockDiv" />
+                <ScalarProperty Name="LockSep" ColumnName="LockSep" />
+                <ScalarProperty Name="ReportView" ColumnName="ReportView" />
+                <ScalarProperty Name="ServerID" ColumnName="ServerID" />
+                <ScalarProperty Name="NoPaper" ColumnName="NoPaper" />
+                <ScalarProperty Name="ArchiveEmail" ColumnName="ArchiveEmail" />
+                <ScalarProperty Name="FileTracking" ColumnName="FileTracking" />
+                <ScalarProperty Name="FieldSecurity" ColumnName="FieldSecurity" />
+                <ScalarProperty Name="Reminders" ColumnName="Reminders" />
+                <ScalarProperty Name="ScanEmails" ColumnName="ScanEmails" />
+                <ScalarProperty Name="IndexSeparators" ColumnName="IndexSeparators" />
+                <ScalarProperty Name="IndexDividers" ColumnName="IndexDividers" />
+                <ScalarProperty Name="NewDocRouteAction" ColumnName="NewDocRouteAction" />
+                <ScalarProperty Name="KeepBox" ColumnName="KeepBox" />
+                <ScalarProperty Name="Locking" ColumnName="Locking" />
+                <ScalarProperty Name="FileRoomEmails" ColumnName="FileRoomEmails" />
+                <ScalarProperty Name="AllowFileCreateOnBatch" ColumnName="AllowFileCreateOnBatch" />
+                <ScalarProperty Name="NewDocRoute" ColumnName="NewDocRoute" />
+                <ScalarProperty Name="Revisions" ColumnName="Revisions" />
+                <ScalarProperty Name="NumRevisions" ColumnName="NumRevisions" />
+                <ScalarProperty Name="PageSize" ColumnName="PageSize" />
+                <ScalarProperty Name="MultiLevel" ColumnName="MultiLevel" />
+                <ScalarProperty Name="LabelManagerFolder" ColumnName="LabelManagerFolder" />
+                <ScalarProperty Name="TaskManager" ColumnName="TaskManager" />
+                <ScalarProperty Name="MultiKey" ColumnName="MultiKey" />
+                <ScalarProperty Name="SecurityField" ColumnName="SecurityField" />
+                <ScalarProperty Name="ImportNewToLabelManager" ColumnName="ImportNewToLabelManager" />
+                <ScalarProperty Name="ForceBox" ColumnName="ForceBox" />
+                <ScalarProperty Name="CAR" ColumnName="CAR" />
+                <ScalarProperty Name="Imaging" ColumnName="Imaging" />
+                <ScalarProperty Name="DividerSecurity" ColumnName="DividerSecurity" />
+                <ScalarProperty Name="ShowChangeDate" ColumnName="ShowChangeDate" />
+                <ScalarProperty Name="FullText" ColumnName="FullText" />
+                <ScalarProperty Name="LabelAlertMin" ColumnName="LabelAlertMin" />
+                <ScalarProperty Name="LabelCheckInterval" ColumnName="LabelCheckInterval" />
+                <ScalarProperty Name="LabelManager" ColumnName="LabelManager" />
+                <ScalarProperty Name="Boxes" ColumnName="Boxes" />
+                <ScalarProperty Name="PageNumbers" ColumnName="PageNumbers" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

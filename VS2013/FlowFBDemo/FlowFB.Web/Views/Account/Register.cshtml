@@ -1,0 +1,40 @@
+﻿@model FlowFB.Web.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+@section pagestyle
+{
+    <link href="~/Templates/css/pages/signin.css" rel="stylesheet">
+}
+
+
+<div class="account-container register">
+    <div class="content clearfix">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <h1>Signup for Free Account</h1>
+            <div class="login-fields">
+                <p>Create your free account:</p>
+                <div class="field">
+                    @Html.TextBoxFor(m => m.UserName, htmlAttributes: new { placeholder = "User Name", @class = "login" })
+                </div> <!-- /field -->
+                <div class="field">
+                    @Html.PasswordFor(m => m.Password, htmlAttributes: new { @class = "login", placeholder = "Password" })
+                </div> <!-- /field -->
+                <div class="field">
+                    @Html.PasswordFor(m => m.ConfirmPassword, htmlAttributes: new { @class = "login", placeholder = "Confirm Password" })
+                </div> <!-- /field -->
+            </div>
+            <div class="field">
+                <input type="submit" value="Register" class="button btn btn-primary btn-large" />
+            </div>
+        }
+    </div> <!-- /content -->
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
