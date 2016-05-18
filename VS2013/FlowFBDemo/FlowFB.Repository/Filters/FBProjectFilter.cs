@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlowFB.Repository.Filters
 {
-    class FBProjectFilter
+    public class FBProjectFilter
     {
     }
 }

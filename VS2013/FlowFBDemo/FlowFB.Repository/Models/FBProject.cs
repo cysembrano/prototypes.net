@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlowFB.Repository.Models
 {
-    class FBProject
+    public class FBProject
     {
     }
 }
