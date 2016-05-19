@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowFB.Logging", "FlowFB.Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowFB.Repository", "FlowFB.Repository\FlowFB.Repository.csproj", "{9E95811A-2C10-462D-A7A8-183A89CC319A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowFB.BusinessLogic", "FlowFB.BusinessLogic\FlowFB.BusinessLogic.csproj", "{B640F820-487E-4815-905B-F2E5FE937B6E}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -37,6 +39,10 @@ Global
 		{9E95811A-2C10-462D-A7A8-183A89CC319A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E95811A-2C10-462D-A7A8-183A89CC319A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E95811A-2C10-462D-A7A8-183A89CC319A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B640F820-487E-4815-905B-F2E5FE937B6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B640F820-487E-4815-905B-F2E5FE937B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B640F820-487E-4815-905B-F2E5FE937B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B640F820-487E-4815-905B-F2E5FE937B6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

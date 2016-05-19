@@ -1,4 +1,5 @@
 ﻿using FlowFB.Logging;
+using FlowFB.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,13 @@ namespace FlowFB.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IFBProjectRepository _repoProject;
+
+        public HomeController(IFBProjectRepository repoProject)
+        {
+            this._repoProject = repoProject;
+        }
+
         [Authorize]
         public ActionResult Index()
         {
@@ -19,7 +27,14 @@ namespace FlowFB.Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+
+            var result = _repoProject.SearchFBProjects(null);
+            string msg = String.Empty;
+            foreach (var r in result)
+            {
+                msg += "|" + r.ProjectName;
+            }
+            ViewBag.Message = msg;
 
             return View();
         }
