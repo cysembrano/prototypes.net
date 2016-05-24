@@ -15,7 +15,6 @@ namespace FlowFB.BusinessLogic.SQLRepository
     {
         public IEnumerable<FBProject> SearchFBProjects(FBProjectFilter filter)
         {
-
             FBProject[] fbProjects = new FBProject[] { };
             using(FlowFBEntities context = new FlowFBEntities())
             {

@@ -1,0 +1,37 @@
+﻿@model FlowFB.Web.Models.ProjectsModel
+
+@{
+    ViewBag.Title = "Projects";
+}
+
+<h2>Projects</h2>
+@foreach (var result in Model.Projects)
+{
+    <div class="span3">
+        <div class="widget">
+            <div class="widget-content">
+                <h1>
+                    @if (result.ProjectID == 1)
+                    {
+                        @Html.ActionLink(linkText: result.ProjectName,
+                                        actionName: "Purchases",
+                                        controllerName: "Journal",
+                                        routeValues: new { projectId = result.ProjectID },
+                                        htmlAttributes: null)
+                    }
+                    else
+                    {
+                        @result.ProjectName
+                    }
+                </h1>
+
+            <ul>
+                <li>Project Type: @result.ProjectType</li>
+                <li>Last Updated: @result.LastUpdated</li>
+            </ul>
+        </div> <!-- /widget-content -->
+    </div> <!-- /widget -->
+</div>
+}
+
+

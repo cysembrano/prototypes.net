@@ -66,6 +66,15 @@
     <Compile Include="FFBA_Projects.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="FFBA_Purchase.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FFBA_Purchase_History.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FFBA_Purchase_Proof.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

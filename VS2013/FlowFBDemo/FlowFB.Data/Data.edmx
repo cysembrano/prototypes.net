@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="ProjectID" />
           </Key>
-          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ProjectName" Type="varchar" MaxLength="50" />
           <Property Name="PageNumbers" Type="bit" Nullable="false" />
           <Property Name="Boxes" Type="bit" />
@@ -77,8 +77,107 @@
           <Property Name="SearchPortal" Type="bit" Nullable="false" />
           <Property Name="IncludeLineItemSearch" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="FFBA_Purchase">
+          <Key>
+            <PropertyRef Name="PurchaseID" />
+          </Key>
+          <Property Name="PurchaseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Notes" Type="ntext" />
+          <Property Name="DateChanged" Type="smalldatetime" />
+          <Property Name="Destruction" Type="smalldatetime" />
+          <Property Name="PurchaseInvoiceNumber" Type="varchar" MaxLength="255" />
+          <Property Name="PurchaseInvoiceDescription" Type="varchar" MaxLength="255" />
+          <Property Name="PurchaseInvoiceTotal" Type="money" />
+          <Property Name="DateCreated" Type="smalldatetime" />
+          <Property Name="DateStarted" Type="smalldatetime" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="FFBA_Purchase_History">
+          <Key>
+            <PropertyRef Name="PurchaseHistoryID" />
+          </Key>
+          <Property Name="PurchaseHistoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseProofID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="ByUserID" Type="int" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Completed" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="FFBA_Purchase_Proof">
+          <Key>
+            <PropertyRef Name="PurchaseProofID" />
+          </Key>
+          <Property Name="PurchaseProofID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseID" Type="int" />
+          <Property Name="DividerName" Type="varchar" MaxLength="200" />
+          <Property Name="DateFiled" Type="smalldatetime" />
+          <Property Name="UserFiled" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Extension" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="smallint" Nullable="false" />
+          <Property Name="Pages" Type="int" />
+          <Property Name="SortOrder" Type="int" />
+          <Property Name="Contents" Type="text" />
+          <Property Name="Archive" Type="varchar" MaxLength="50" />
+          <Property Name="FileSize" Type="int" />
+          <Property Name="LastView" Type="smalldatetime" />
+        </EntityType>
+        <Association Name="FK_FFBA_Purchase_FFBA_Projects">
+          <End Role="FFBA_Projects" Type="Self.FFBA_Projects" Multiplicity="0..1" />
+          <End Role="FFBA_Purchase" Type="Self.FFBA_Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FFBA_Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="FFBA_Purchase">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FFBA_Purchase_History_FFBA_Purchase_Proof">
+          <End Role="FFBA_Purchase_Proof" Type="Self.FFBA_Purchase_Proof" Multiplicity="0..1" />
+          <End Role="FFBA_Purchase_History" Type="Self.FFBA_Purchase_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FFBA_Purchase_Proof">
+              <PropertyRef Name="PurchaseProofID" />
+            </Principal>
+            <Dependent Role="FFBA_Purchase_History">
+              <PropertyRef Name="PurchaseProofID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FFBA_Purchase_Proof_FFBA_Purchase">
+          <End Role="FFBA_Purchase" Type="Self.FFBA_Purchase" Multiplicity="0..1" />
+          <End Role="FFBA_Purchase_Proof" Type="Self.FFBA_Purchase_Proof" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FFBA_Purchase">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="FFBA_Purchase_Proof">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="FlowFBAccountingModelStoreContainer">
           <EntitySet Name="FFBA_Projects" EntityType="Self.FFBA_Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FFBA_Purchase" EntityType="Self.FFBA_Purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FFBA_Purchase_History" EntityType="Self.FFBA_Purchase_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FFBA_Purchase_Proof" EntityType="Self.FFBA_Purchase_Proof" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_FFBA_Purchase_FFBA_Projects" Association="Self.FK_FFBA_Purchase_FFBA_Projects">
+            <End Role="FFBA_Projects" EntitySet="FFBA_Projects" />
+            <End Role="FFBA_Purchase" EntitySet="FFBA_Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FFBA_Purchase_History_FFBA_Purchase_Proof" Association="Self.FK_FFBA_Purchase_History_FFBA_Purchase_Proof">
+            <End Role="FFBA_Purchase_Proof" EntitySet="FFBA_Purchase_Proof" />
+            <End Role="FFBA_Purchase_History" EntitySet="FFBA_Purchase_History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FFBA_Purchase_Proof_FFBA_Purchase" Association="Self.FK_FFBA_Purchase_Proof_FFBA_Purchase">
+            <End Role="FFBA_Purchase" EntitySet="FFBA_Purchase" />
+            <End Role="FFBA_Purchase_Proof" EntitySet="FFBA_Purchase_Proof" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -86,6 +185,21 @@
       <Schema Namespace="FlowFBAccountingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="FlowFBEntities" annotation:LazyLoadingEnabled="true" >
           <EntitySet Name="FFBA_Projects" EntityType="FlowFBAccountingModel.FFBA_Projects" />
+          <EntitySet Name="FFBA_Purchase" EntityType="FlowFBAccountingModel.FFBA_Purchase" />
+          <AssociationSet Name="FK_FFBA_Purchase_FFBA_Projects" Association="FlowFBAccountingModel.FK_FFBA_Purchase_FFBA_Projects">
+            <End Role="FFBA_Projects" EntitySet="FFBA_Projects" />
+            <End Role="FFBA_Purchase" EntitySet="FFBA_Purchase" />
+          </AssociationSet>
+          <EntitySet Name="FFBA_Purchase_History" EntityType="FlowFBAccountingModel.FFBA_Purchase_History" />
+          <EntitySet Name="FFBA_Purchase_Proof" EntityType="FlowFBAccountingModel.FFBA_Purchase_Proof" />
+          <AssociationSet Name="FK_FFBA_Purchase_Proof_FFBA_Purchase" Association="FlowFBAccountingModel.FK_FFBA_Purchase_Proof_FFBA_Purchase">
+            <End Role="FFBA_Purchase" EntitySet="FFBA_Purchase" />
+            <End Role="FFBA_Purchase_Proof" EntitySet="FFBA_Purchase_Proof" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FFBA_Purchase_History_FFBA_Purchase_Proof" Association="FlowFBAccountingModel.FK_FFBA_Purchase_History_FFBA_Purchase_Proof">
+            <End Role="FFBA_Purchase_Proof" EntitySet="FFBA_Purchase_Proof" />
+            <End Role="FFBA_Purchase_History" EntitySet="FFBA_Purchase_History" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="FFBA_Projects">
           <Key>
@@ -153,12 +267,101 @@
           <Property Name="NativePDF" Type="Boolean" />
           <Property Name="SearchPortalSecurityMode" Type="Int32" Nullable="false" />
           <Property Name="ProjectType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="LastUpdatedBy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="SearchPortal" Type="Boolean" Nullable="false" />
           <Property Name="IncludeLineItemSearch" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FFBA_Purchase" Relationship="FlowFBAccountingModel.FK_FFBA_Purchase_FFBA_Projects" FromRole="FFBA_Projects" ToRole="FFBA_Purchase" />
         </EntityType>
+        <EntityType Name="FFBA_Purchase">
+          <Key>
+            <PropertyRef Name="PurchaseID" />
+          </Key>
+          <Property Name="PurchaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateChanged" Type="DateTime" Precision="0" />
+          <Property Name="Destruction" Type="DateTime" Precision="0" />
+          <Property Name="PurchaseInvoiceNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseInvoiceDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseInvoiceTotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DateCreated" Type="DateTime" Precision="0" />
+          <Property Name="DateStarted" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="FFBA_Projects" Relationship="FlowFBAccountingModel.FK_FFBA_Purchase_FFBA_Projects" FromRole="FFBA_Purchase" ToRole="FFBA_Projects" />
+          <NavigationProperty Name="FFBA_Purchase_Proof" Relationship="FlowFBAccountingModel.FK_FFBA_Purchase_Proof_FFBA_Purchase" FromRole="FFBA_Purchase" ToRole="FFBA_Purchase_Proof" />
+          <Property Name="Comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_FFBA_Purchase_FFBA_Projects">
+          <End Type="FlowFBAccountingModel.FFBA_Projects" Role="FFBA_Projects" Multiplicity="0..1" />
+          <End Type="FlowFBAccountingModel.FFBA_Purchase" Role="FFBA_Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FFBA_Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="FFBA_Purchase">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FFBA_Purchase_History">
+          <Key>
+            <PropertyRef Name="PurchaseHistoryID" />
+          </Key>
+          <Property Name="PurchaseHistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseProofID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="ByUserID" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Completed" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="FFBA_Purchase_Proof" Relationship="FlowFBAccountingModel.FK_FFBA_Purchase_History_FFBA_Purchase_Proof" FromRole="FFBA_Purchase_History" ToRole="FFBA_Purchase_Proof" />
+        </EntityType>
+        <EntityType Name="FFBA_Purchase_Proof">
+          <Key>
+            <PropertyRef Name="PurchaseProofID" />
+          </Key>
+          <Property Name="PurchaseProofID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseID" Type="Int32" />
+          <Property Name="DividerName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DateFiled" Type="DateTime" Precision="0" />
+          <Property Name="UserFiled" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Extension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int16" Nullable="false" />
+          <Property Name="Pages" Type="Int32" />
+          <Property Name="SortOrder" Type="Int32" />
+          <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Archive" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileSize" Type="Int32" />
+          <Property Name="LastView" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="FFBA_Purchase" Relationship="FlowFBAccountingModel.FK_FFBA_Purchase_Proof_FFBA_Purchase" FromRole="FFBA_Purchase_Proof" ToRole="FFBA_Purchase" />
+          <NavigationProperty Name="FFBA_Purchase_History" Relationship="FlowFBAccountingModel.FK_FFBA_Purchase_History_FFBA_Purchase_Proof" FromRole="FFBA_Purchase_Proof" ToRole="FFBA_Purchase_History" />
+        </EntityType>
+        <Association Name="FK_FFBA_Purchase_Proof_FFBA_Purchase">
+          <End Type="FlowFBAccountingModel.FFBA_Purchase" Role="FFBA_Purchase" Multiplicity="0..1" />
+          <End Type="FlowFBAccountingModel.FFBA_Purchase_Proof" Role="FFBA_Purchase_Proof" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FFBA_Purchase">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="FFBA_Purchase_Proof">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FFBA_Purchase_History_FFBA_Purchase_Proof">
+          <End Type="FlowFBAccountingModel.FFBA_Purchase_Proof" Role="FFBA_Purchase_Proof" Multiplicity="0..1" />
+          <End Type="FlowFBAccountingModel.FFBA_Purchase_History" Role="FFBA_Purchase_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FFBA_Purchase_Proof">
+              <PropertyRef Name="PurchaseProofID" />
+            </Principal>
+            <Dependent Role="FFBA_Purchase_History">
+              <PropertyRef Name="PurchaseProofID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -172,7 +375,6 @@
                 <ScalarProperty Name="SearchPortal" ColumnName="SearchPortal" />
                 <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
                 <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
                 <ScalarProperty Name="SearchPortalSecurityMode" ColumnName="SearchPortalSecurityMode" />
                 <ScalarProperty Name="NativePDF" ColumnName="NativePDF" />
@@ -235,6 +437,58 @@
                 <ScalarProperty Name="PageNumbers" ColumnName="PageNumbers" />
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <Condition ColumnName="Status" Value="1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FFBA_Purchase">
+            <EntityTypeMapping TypeName="FlowFBAccountingModel.FFBA_Purchase">
+              <MappingFragment StoreEntitySet="FFBA_Purchase">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="DateStarted" ColumnName="DateStarted" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="PurchaseInvoiceTotal" ColumnName="PurchaseInvoiceTotal" />
+                <ScalarProperty Name="PurchaseInvoiceDescription" ColumnName="PurchaseInvoiceDescription" />
+                <ScalarProperty Name="PurchaseInvoiceNumber" ColumnName="PurchaseInvoiceNumber" />
+                <ScalarProperty Name="Destruction" ColumnName="Destruction" />
+                <ScalarProperty Name="DateChanged" ColumnName="DateChanged" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FFBA_Purchase_History">
+            <EntityTypeMapping TypeName="FlowFBAccountingModel.FFBA_Purchase_History">
+              <MappingFragment StoreEntitySet="FFBA_Purchase_History">
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="ByUserID" ColumnName="ByUserID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PurchaseProofID" ColumnName="PurchaseProofID" />
+                <ScalarProperty Name="PurchaseHistoryID" ColumnName="PurchaseHistoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FFBA_Purchase_Proof">
+            <EntityTypeMapping TypeName="FlowFBAccountingModel.FFBA_Purchase_Proof">
+              <MappingFragment StoreEntitySet="FFBA_Purchase_Proof">
+                <ScalarProperty Name="LastView" ColumnName="LastView" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="Archive" ColumnName="Archive" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Pages" ColumnName="Pages" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UserFiled" ColumnName="UserFiled" />
+                <ScalarProperty Name="DateFiled" ColumnName="DateFiled" />
+                <ScalarProperty Name="DividerName" ColumnName="DividerName" />
+                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+                <ScalarProperty Name="PurchaseProofID" ColumnName="PurchaseProofID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

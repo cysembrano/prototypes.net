@@ -64,6 +64,7 @@ namespace FlowFB.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IFBProjectRepository>().To<FBProjectRepository>();
+            kernel.Bind<IFAPurchaseRepository>().To<FAPurchaseRepository>();
         }        
     }
 }

@@ -84,7 +84,6 @@ namespace FlowFB.BusinessLogic.Extensions
                 ServerOCRSkipExtensions = entity.ServerOCRSkipExtensions,
                 ServerOCRType = entity.ServerOCRType,
                 ShowChangeDate = entity.ShowChangeDate,
-                Status = entity.Status,
                 TaskManager = entity.TaskManager
 
             };

@@ -26,5 +26,8 @@ namespace FlowFB.Data
         }
     
         public virtual DbSet<FFBA_Projects> FFBA_Projects { get; set; }
+        public virtual DbSet<FFBA_Purchase> FFBA_Purchase { get; set; }
+        public virtual DbSet<FFBA_Purchase_History> FFBA_Purchase_History { get; set; }
+        public virtual DbSet<FFBA_Purchase_Proof> FFBA_Purchase_Proof { get; set; }
     }
 }

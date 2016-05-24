@@ -14,6 +14,11 @@ namespace FlowFB.Data
     
     public partial class FFBA_Projects
     {
+        public FFBA_Projects()
+        {
+            this.FFBA_Purchase = new HashSet<FFBA_Purchase>();
+        }
+    
         public int ProjectID { get; set; }
         public string ProjectName { get; set; }
         public bool PageNumbers { get; set; }
@@ -76,10 +81,11 @@ namespace FlowFB.Data
         public Nullable<bool> NativePDF { get; set; }
         public int SearchPortalSecurityMode { get; set; }
         public string ProjectType { get; set; }
-        public int Status { get; set; }
         public System.DateTime LastUpdated { get; set; }
         public string LastUpdatedBy { get; set; }
         public bool SearchPortal { get; set; }
         public bool IncludeLineItemSearch { get; set; }
+    
+        public virtual ICollection<FFBA_Purchase> FFBA_Purchase { get; set; }
     }
 }

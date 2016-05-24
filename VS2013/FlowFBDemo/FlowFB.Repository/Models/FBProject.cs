@@ -70,7 +70,6 @@ namespace FlowFB.Repository.Models
         public Nullable<bool> NativePDF { get; set; }
         public int SearchPortalSecurityMode { get; set; }
         public string ProjectType { get; set; }
-        public int Status { get; set; }
         public System.DateTime LastUpdated { get; set; }
         public string LastUpdatedBy { get; set; }
         public bool SearchPortal { get; set; }

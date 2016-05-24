@@ -34,18 +34,14 @@
     </div>
     @Html.Partial("_SubNavPartial")
 
-    <div class="main">
-        <div class="main-inner">
-            <div class="container">
-                <div class="row">
-                    @RenderBody()
-                </div>
-            </div>
+    <div class="container">
+        <div class="row">
+            @RenderBody()
         </div>
-        <!-- /main-inner -->
     </div>
+
     <!-- /main -->
-    @Html.Partial("_FooterPartial")
+    @*@Html.Partial("_FooterPartial")*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Templates/js/scripts")
     @RenderSection("scripts", required: false)

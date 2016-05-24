@@ -39,8 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filters\FAPurchaseFilter.cs" />
     <Compile Include="Filters\FBProjectFilter.cs" />
+    <Compile Include="IFAPurchaseRepository.cs" />
     <Compile Include="IFBProjectRepository.cs" />
+    <Compile Include="Models\FAPurchase.cs" />
     <Compile Include="Models\FBProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

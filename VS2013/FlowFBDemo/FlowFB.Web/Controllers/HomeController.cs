@@ -1,5 +1,6 @@
 ﻿using FlowFB.Logging;
 using FlowFB.Repository;
+using FlowFB.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace FlowFB.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IFBProjectRepository _repoProject;
 
@@ -20,30 +21,18 @@ namespace FlowFB.Web.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
             return View();
         }
 
-        public ActionResult About()
+        [Authorize]
+        public ActionResult Projects()
         {
-
-            var result = _repoProject.SearchFBProjects(null);
-            string msg = String.Empty;
-            foreach (var r in result)
-            {
-                msg += "|" + r.ProjectName;
-            }
-            ViewBag.Message = msg;
-
-            return View();
+            ProjectsModel model = new ProjectsModel();
+            model.Projects = _repoProject.SearchFBProjects(null);
+            return View(model);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+
     }
 }
