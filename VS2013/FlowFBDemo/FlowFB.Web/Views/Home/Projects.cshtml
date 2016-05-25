@@ -16,7 +16,7 @@
                         @Html.ActionLink(linkText: result.ProjectName,
                                         actionName: "Purchases",
                                         controllerName: "Journal",
-                                        routeValues: new { projectId = result.ProjectID },
+                                        routeValues: new { projectId = result.ProjectID , statusId = 1 },
                                         htmlAttributes: null)
                     }
                     else

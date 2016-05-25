@@ -1,0 +1,59 @@
+﻿@model FlowFB.Web.Models.PurchaseModel
+
+@{
+    ViewBag.Title = "Purchase";
+}
+
+<h2>Invoice No. [@Model.Purchase.PurchaseInvoiceNumber]</h2>
+
+@using (Html.BeginForm("Purchase", "Journal", method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal" }))
+{
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="description">Description</label>
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Purchase.PurchaseInvoiceDescription, htmlAttributes: new { @class = "span6 disabled", id = "description", disabled = "disabled" })
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="datechanged">Date Changed</label>
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Purchase.DateChanged, htmlAttributes: new { @class = "span6 disabled", id = "datechanged", disabled = "disabled" })
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="total">Invoice Total</label>
+            <div class="controls">
+                <div class="input-prepend input-append">
+                    <span class="add-on">$</span>
+                    @Html.TextBoxFor(model => model.Purchase.PurchaseInvoiceTotal, htmlAttributes: new { @class = "span2 disabled", id = "total", disabled = "disabled" })
+                </div>
+            </div>	<!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="notes">Notes</label>
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Purchase.Notes, htmlAttributes: new { @class = "span6 disabled", id = "notes", disabled = "disabled" })
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="comments">Comments</label>
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Purchase.Comments, htmlAttributes: new { @class = "span6", id = "comments" })
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <br />
+        @Html.HiddenFor(model => model.Purchase.PurchaseID,htmlAttributes: null)
+        @Html.HiddenFor(model => model.Purchase.Notes, htmlAttributes: null)
+        @Html.HiddenFor(model => model.Purchase.PurchaseInvoiceNumber, htmlAttributes: null)
+        @Html.HiddenFor(model => model.Purchase.PurchaseInvoiceDescription, htmlAttributes: null)
+        @Html.HiddenFor(model => model.Purchase.PurchaseInvoiceTotal, htmlAttributes: null)
+        @Html.HiddenFor(model => model.Purchase.DateChanged, htmlAttributes: null)
+        <div class="form-actions">
+            <a href="#" class="btn btn-primary" onclick="$(this).closest('form').submit(); return false;">Save</a>
+            <a href="~/Journal/Purchases?projectId=@Model.Purchase.ProjectID" class="btn">Back</a>
+        </div> <!-- /form-actions -->
+        <div class="alert alert-success">@ViewBag.Message</div>
+    </fieldset>
+
+}

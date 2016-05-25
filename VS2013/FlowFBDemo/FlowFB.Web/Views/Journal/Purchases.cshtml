@@ -6,6 +6,41 @@
 
 <h2>Purchases</h2>
 <div class="span12">
+    <div class="control-group">
+        <div class="controls">
+            <div class="btn-group">
+                @{
+                    string StatusId = Request.QueryString["statusId"];
+                    if (StatusId == null)
+                    {
+                        <text>
+                            <a class="btn btn-primary" href="#">Status [All]</a>
+                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                        </text>
+                    }
+                    else if (StatusId == "1")
+                    {
+                        <text>
+                            <a class="btn btn-success" href="#">Status [Active]</a>
+                            <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                        </text>
+                    }
+                    else if (StatusId == "7")
+                    {
+                        <text>
+                            <a class="btn btn-danger" href="#">Status [Deleted]</a>
+                            <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                        </text>
+                    }
+                }
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("All", "Purchases", routeValues: new { projectId = Request.QueryString["projectId"] })</li>
+                    <li>@Html.ActionLink("Active", "Purchases", routeValues: new { projectId = Request.QueryString["projectId"], statusId = 1 })</li>
+                    <li>@Html.ActionLink("Deleted", "Purchases", routeValues: new { projectId = Request.QueryString["projectId"], statusId = 7 })</li>
+                </ul>
+            </div>
+        </div>	<!-- /controls -->
+    </div>
     <div class="widget">
         <div class="widget widget-table action-table">
             <div class="widget-header">
@@ -21,25 +56,42 @@
                             <th> Invoice No</th>
                             <th> Invoice Description</th>
                             <th> Purchase Invoice Total</th>
-                            <th> Status</th>
-                            <th> Comments</th>
+                            <th> Comment</th>
                             <th class="td-actions"> </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var result in Model.Purchases)
                         {
-                            <tr>
-                                <td>@result.DateChanged.GetValueOrDefault().ToShortDateString()</td>
-                                <td>@result.PurchaseInvoiceNumber</td>
-                                <td>@result.PurchaseInvoiceDescription</td>
-                                <td>@result.PurchaseInvoiceTotal.GetValueOrDefault().ToString()</td>
-                                <td>@(result.Status == 7 ? "FB Deleted" : "FB Active")</td>
-                                <td>@result.Comments</td>
-                                <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                            </tr>
+                            if (result.Status == 7)
+                            {
+                                <tr class="alert alert-danger">
+                                    <td>@result.DateChanged.GetValueOrDefault().ToShortDateString()</td>
+                                    <td>@result.PurchaseInvoiceNumber</td>
+                                    <td>@result.PurchaseInvoiceDescription</td>
+                                    <td>@result.PurchaseInvoiceTotal.GetValueOrDefault().ToString("C")</td>
+                                    <td>@result.Comments</td>
+                                    <td class="td-actions">
+                                        <a href="~/Journal/Purchase?purchaseId=@result.PurchaseID" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>@result.DateChanged.GetValueOrDefault().ToShortDateString()</td>
+                                    <td>@result.PurchaseInvoiceNumber</td>
+                                    <td>@result.PurchaseInvoiceDescription</td>
+                                    <td>@result.PurchaseInvoiceTotal.GetValueOrDefault().ToString("C")</td>
+                                    <td>@result.Comments</td>
+                                    <td class="td-actions">
+                                        <a href="~/Journal/Purchase?purchaseId=@result.PurchaseID" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a>
+                                    </td>
+                                </tr>
+                            }
                         }
                     </tbody>
+
                 </table>
             </div> <!-- /widget-content -->
         </div>

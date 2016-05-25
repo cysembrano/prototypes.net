@@ -10,7 +10,7 @@ namespace FlowFB.BusinessLogic.Extensions
 {
     public static class FFBA_Purchase_Extension
     {
-        public static FAPurchase[] ToFAPurchase(this IEnumerable<FFBA_Purchase> entities)
+        public static FAPurchase[] ToFAPurchases(this IEnumerable<FFBA_Purchase> entities)
         {
             return entities.Select(d => d.ToFAPurchase()).ToArray();
         }

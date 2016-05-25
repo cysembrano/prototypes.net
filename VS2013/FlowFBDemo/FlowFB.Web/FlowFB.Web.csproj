@@ -212,6 +212,7 @@
     <Compile Include="Infrastructure\HtmlExtensions\MVCHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ProjectsModel.cs" />
+    <Compile Include="Models\PurchaseModel.cs" />
     <Compile Include="Models\PurchasesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -383,6 +384,7 @@
     <Content Include="Views\Shared\_SubNavPartial.cshtml" />
     <Content Include="Views\Home\Projects.cshtml" />
     <Content Include="Views\Journal\Purchases.cshtml" />
+    <Content Include="Views\Journal\Purchase.cshtml" />
     <None Include="Views\Shared\_PublicLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>

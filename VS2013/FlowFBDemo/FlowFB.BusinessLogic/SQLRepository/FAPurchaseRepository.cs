@@ -13,25 +13,66 @@ namespace FlowFB.BusinessLogic.SQLRepository
 {
     public class FAPurchaseRepository : IFAPurchaseRepository
     {
-        public IEnumerable<FAPurchase> SearchFAPurchase(FAPurchaseFilter filter)
+        public IEnumerable<FAPurchase> SearchFAPurchases(FAPurchaseFilter filter)
         {
             FAPurchase[] faPurchase = new FAPurchase[] { };
             using (FlowFBEntities context = new FlowFBEntities())
             {
                 if (filter == null)
                 {
-                    faPurchase =  context.FFBA_Purchase.Where(g=> g.Status != 0).AsQueryable().ToFAPurchase();  
+                    faPurchase =  context.FFBA_Purchase.Where(g=> g.Status != 0).AsQueryable().ToFAPurchases();  
                 }                    
                 else
                 {
-                    faPurchase = context.FFBA_Purchase.Where(g => g.Status != 0 && (g.ProjectID == filter.ProjectID ||
-                                                                  g.PurchaseInvoiceNumber == filter.PurchaseInvoiceNumber))
-                                                                  .AsQueryable()
-                                                                  .ToFAPurchase();
+                    var result = context.FFBA_Purchase.Where(g => g.Status != 0 && (g.ProjectID == filter.ProjectID ||
+                                                                  g.PurchaseInvoiceNumber == filter.PurchaseInvoiceNumber
+                                                                  ));
+                    if(filter.Status.HasValue)
+                    {
+                        faPurchase = result.Where(t => t.Status == filter.Status.Value).AsEnumerable().ToFAPurchases();
+                    }
+                    else
+                    {
+                        faPurchase = result.AsEnumerable().ToFAPurchases();
+                    }
                 }
             }
 
             return faPurchase;
+        }
+
+
+        public FAPurchase SearchFAPurchase(int purchaseId)
+        {
+            FAPurchase faPurchase = new FAPurchase();
+            using (FlowFBEntities context = new FlowFBEntities())
+            {
+
+                    var result = context.FFBA_Purchase.Where(g => g.Status != 0 && g.PurchaseID == purchaseId)
+                                                      .FirstOrDefault();
+                    if(result != null)
+                        faPurchase = result.ToFAPurchase();
+
+            }
+
+            return faPurchase;
+        }
+
+
+        public void SaveFAPurchaseComment(int PurchaseId, string Comment)
+        {
+            using (FlowFBEntities context = new FlowFBEntities())
+            {
+
+                var result = context.FFBA_Purchase.Where(g => g.PurchaseID == PurchaseId)
+                                                  .FirstOrDefault();
+                if (result != null)
+                {
+                    result.Comment = Comment;
+                    context.SaveChanges();
+                }                   
+
+            }
         }
     }
 }

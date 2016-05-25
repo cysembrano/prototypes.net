@@ -10,6 +10,10 @@ namespace FlowFB.Repository
 {
     public interface IFAPurchaseRepository
     {
-        IEnumerable<FAPurchase> SearchFAPurchase(FAPurchaseFilter filter);
+        IEnumerable<FAPurchase> SearchFAPurchases(FAPurchaseFilter filter);
+
+        FAPurchase SearchFAPurchase(int purchaseId);
+
+        void SaveFAPurchaseComment(int PurchaseId, string Comment);
     }
 }
