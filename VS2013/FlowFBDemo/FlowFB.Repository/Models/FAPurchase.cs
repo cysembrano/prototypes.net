@@ -20,5 +20,8 @@ namespace FlowFB.Repository.Models
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> DateStarted { get; set; }
         public string Comments { get; set; }
+        public string ContactName { get; set; }
+        public string ContactAddress { get; set; }
+        public string PurchaseStatus { get; set; }
     }
 }

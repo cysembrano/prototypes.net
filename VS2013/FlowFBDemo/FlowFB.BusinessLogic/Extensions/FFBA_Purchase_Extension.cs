@@ -30,7 +30,10 @@ namespace FlowFB.BusinessLogic.Extensions
                 PurchaseInvoiceNumber = entity.PurchaseInvoiceNumber,
                 PurchaseInvoiceTotal = entity.PurchaseInvoiceTotal,
                 Status = entity.Status,
-                Comments = entity.Comment
+                Comments = entity.Comment,
+                ContactAddress = entity.ContactAddress,
+                ContactName = entity.ContactName,
+                PurchaseStatus = entity.PurchaseStatus
             };        
 
             return purchase;

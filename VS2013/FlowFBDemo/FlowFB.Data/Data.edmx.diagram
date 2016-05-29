@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a528c606271441e78adeb5c783c1fb37" Name="Diagram1" ZoomLevel="71" >
+      <Diagram DiagramId="a528c606271441e78adeb5c783c1fb37" Name="Diagram1" ZoomLevel="38" >
         <EntityTypeShape EntityType="FlowFBAccountingModel.FFBA_Projects" Width="1.5" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="FlowFBAccountingModel.FFBA_Purchase" Width="1.5" PointX="2.75" PointY="5.75" FillColor="Lime" />
         <AssociationConnector Association="FlowFBAccountingModel.FK_FFBA_Purchase_FFBA_Projects" />

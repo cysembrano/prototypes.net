@@ -4,8 +4,11 @@
     <div class="subnavbar-inner">
         <div class="container">
             <ul class="mainnav">
-                <li class="@Html.IsSelected(actions: "Index", controllers: "Home")"><a href="~/Home/Index"><i class="icon-home"></i><span>Index</span> </a> </li>
-                <li class="@Html.IsSelected(actions: "Projects", controllers: "Home")"><a href="~/Home/Projects"><i class="icon-archive"></i><span>Projects</span> </a> </li>                
+                <li class="@Html.IsSelected(actions: "Index", controllers: "Home")"><a href="~/Home/Index"><i class="icon-dollar"></i><span>Sales</span> </a> </li>
+                <li class="@Html.IsSelected(actions: "Projects", controllers: "Home")"><a href="~/Home/Projects"><i class="icon-archive"></i><span>Projects</span> </a> </li>
+                <li class="@Html.IsSelected(actions: "Purchases", controllers: "Journal")"><a href="~/Journal/Purchases?projectId=1&statusId=1"><i class="icon-file"></i><span>Purchases</span> </a> </li>                
+                <li class="@Html.IsSelected(actions: "Contacts", controllers: "Journal")"><a href="~/Journal/Contacts?projectId=1"><i class="icon-group"></i><span>Contacts</span> </a> </li>     
+                <li class="@Html.IsSelected(actions: "GL", controllers: "Journal")"><a href="~/Journal/GL"><i class="icon-list"></i><span>GL</span> </a> </li>    
             </ul>
         </div>
         <!-- /container -->

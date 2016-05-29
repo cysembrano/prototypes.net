@@ -23,7 +23,7 @@ namespace FlowFB.Web.Controllers
             this._repoPurchase = repoPurchase;
         }
         
-        public ActionResult Purchases(int? projectId, int? statusId)
+        public ActionResult Purchases(int? projectId, int? statusId, string tNA)
         {
             FAPurchaseFilter filter = null;
             if(projectId.HasValue)
@@ -31,6 +31,7 @@ namespace FlowFB.Web.Controllers
                 filter = new FAPurchaseFilter();
                 filter.ProjectID = projectId.Value;
                 filter.Status = statusId;
+                filter.TrimmedNameAddress = tNA;
             }
             var result = this._repoPurchase.SearchFAPurchases(filter);
 
@@ -68,6 +69,22 @@ namespace FlowFB.Web.Controllers
 
             return View(model);
         }
+
+        public ActionResult Contacts(int? projectId)
+        {
+            var result = _repoPurchase.GetAllFAContacts(projectId.HasValue ? projectId.Value : 1);
+
+            ContactsModel model = new ContactsModel();
+            model.Contacts = result;
+            return View(model);
+        }
+
+
+        public ActionResult GL()
+        {
+            return View();
+        }
+
 
 
     }

@@ -15,5 +15,7 @@ namespace FlowFB.Repository
         FAPurchase SearchFAPurchase(int purchaseId);
 
         void SaveFAPurchaseComment(int PurchaseId, string Comment);
+
+        IEnumerable<FAContact> GetAllFAContacts(int projectId);
     }
 }

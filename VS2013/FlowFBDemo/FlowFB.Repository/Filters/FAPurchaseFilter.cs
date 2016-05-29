@@ -11,5 +11,6 @@ namespace FlowFB.Repository.Filters
         public string PurchaseInvoiceNumber { get; set; }
         public int ProjectID { get; set; }
         public int? Status { get; set; }
+        public string TrimmedNameAddress { get; set; }
     }
 }

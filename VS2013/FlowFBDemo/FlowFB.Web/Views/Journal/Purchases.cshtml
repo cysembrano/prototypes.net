@@ -56,6 +56,7 @@
                             <th> Invoice No</th>
                             <th> Invoice Description</th>
                             <th> Purchase Invoice Total</th>
+                            <th> Status</th>
                             <th> Comment</th>
                             <th class="td-actions"> </th>
                         </tr>
@@ -65,14 +66,15 @@
                         {
                             if (result.Status == 7)
                             {
-                                <tr class="alert alert-danger">
-                                    <td>@result.DateChanged.GetValueOrDefault().ToShortDateString()</td>
-                                    <td>@result.PurchaseInvoiceNumber</td>
-                                    <td>@result.PurchaseInvoiceDescription</td>
-                                    <td>@result.PurchaseInvoiceTotal.GetValueOrDefault().ToString("C")</td>
-                                    <td>@result.Comments</td>
+                                <tr>
+                                    <td><p class="alert alert-danger">@result.DateChanged.GetValueOrDefault().ToShortDateString()</p></td>
+                                    <td><p class="alert alert-danger">@result.PurchaseInvoiceNumber</p></td>
+                                    <td><p class="alert alert-danger">@result.PurchaseInvoiceDescription</p></td>
+                                    <td><p class="alert alert-danger">@result.PurchaseInvoiceTotal.GetValueOrDefault().ToString("C")</p></td>
+                                    <td><p class="alert alert-danger">@result.PurchaseStatus</p></td>
+                                    <td><p class="alert alert-danger">@result.Comments</p></td>
                                     <td class="td-actions">
-                                        <a href="~/Journal/Purchase?purchaseId=@result.PurchaseID" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a>
+                                        <a href="~/Journal/Purchase?purchaseId=@result.PurchaseID" class="btn btn-small btn-danger"><i class="btn-icon-only icon-ok"> </i></a>
                                     </td>
                                 </tr>
                             }
@@ -83,6 +85,7 @@
                                     <td>@result.PurchaseInvoiceNumber</td>
                                     <td>@result.PurchaseInvoiceDescription</td>
                                     <td>@result.PurchaseInvoiceTotal.GetValueOrDefault().ToString("C")</td>
+                                    <td>@result.PurchaseStatus</td>
                                     <td>@result.Comments</td>
                                     <td class="td-actions">
                                         <a href="~/Journal/Purchase?purchaseId=@result.PurchaseID" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a>

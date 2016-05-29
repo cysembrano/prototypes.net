@@ -31,6 +31,9 @@ namespace FlowFB.Data
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> DateStarted { get; set; }
         public string Comment { get; set; }
+        public string ContactName { get; set; }
+        public string ContactAddress { get; set; }
+        public string PurchaseStatus { get; set; }
     
         public virtual FFBA_Projects FFBA_Projects { get; set; }
         public virtual ICollection<FFBA_Purchase_Proof> FFBA_Purchase_Proof { get; set; }

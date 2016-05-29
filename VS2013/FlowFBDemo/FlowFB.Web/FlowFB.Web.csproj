@@ -211,6 +211,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Infrastructure\HtmlExtensions\MVCHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ContactsModel.cs" />
     <Compile Include="Models\ProjectsModel.cs" />
     <Compile Include="Models\PurchaseModel.cs" />
     <Compile Include="Models\PurchasesModel.cs" />
@@ -385,6 +386,8 @@
     <Content Include="Views\Home\Projects.cshtml" />
     <Content Include="Views\Journal\Purchases.cshtml" />
     <Content Include="Views\Journal\Purchase.cshtml" />
+    <Content Include="Views\Journal\Contacts.cshtml" />
+    <Content Include="Views\Journal\GL.cshtml" />
     <None Include="Views\Shared\_PublicLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>

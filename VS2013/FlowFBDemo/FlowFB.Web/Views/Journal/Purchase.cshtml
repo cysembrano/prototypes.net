@@ -10,6 +10,18 @@
 {
     <fieldset>
         <div class="control-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Purchase.ContactName, htmlAttributes: new { @class = "span6 disabled", id = "name", disabled = "disabled" })
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="address">Address</label>
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Purchase.ContactAddress, htmlAttributes: new { @class = "span6 disabled", id = "address", disabled = "disabled" })
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
             <label class="control-label" for="description">Description</label>
             <div class="controls">
                 @Html.TextBoxFor(model => model.Purchase.PurchaseInvoiceDescription, htmlAttributes: new { @class = "span6 disabled", id = "description", disabled = "disabled" })
@@ -43,6 +55,8 @@
             </div> <!-- /controls -->
         </div> <!-- /control-group -->
         <br />
+        @Html.HiddenFor(model => model.Purchase.ContactAddress, htmlAttributes: null)
+        @Html.HiddenFor(model => model.Purchase.ContactName, htmlAttributes: null)
         @Html.HiddenFor(model => model.Purchase.PurchaseID,htmlAttributes: null)
         @Html.HiddenFor(model => model.Purchase.Notes, htmlAttributes: null)
         @Html.HiddenFor(model => model.Purchase.PurchaseInvoiceNumber, htmlAttributes: null)
@@ -51,7 +65,7 @@
         @Html.HiddenFor(model => model.Purchase.DateChanged, htmlAttributes: null)
         <div class="form-actions">
             <a href="#" class="btn btn-primary" onclick="$(this).closest('form').submit(); return false;">Save</a>
-            <a href="~/Journal/Purchases?projectId=@Model.Purchase.ProjectID" class="btn">Back</a>
+            <a href="~/Journal/Purchases?projectId=@Model.Purchase.ProjectID&statusId=1" class="btn">Back</a>
         </div> <!-- /form-actions -->
         <div class="alert alert-success">@ViewBag.Message</div>
     </fieldset>

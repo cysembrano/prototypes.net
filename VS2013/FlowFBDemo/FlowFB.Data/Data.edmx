@@ -90,6 +90,9 @@
           <Property Name="PurchaseInvoiceNumber" Type="varchar" MaxLength="255" />
           <Property Name="PurchaseInvoiceDescription" Type="varchar" MaxLength="255" />
           <Property Name="PurchaseInvoiceTotal" Type="money" />
+          <Property Name="ContactName" Type="varchar" MaxLength="255" />
+          <Property Name="ContactAddress" Type="varchar" MaxLength="255" />
+          <Property Name="PurchaseStatus" Type="varchar" MaxLength="255" />
           <Property Name="DateCreated" Type="smalldatetime" />
           <Property Name="DateStarted" Type="smalldatetime" />
           <Property Name="Comment" Type="nvarchar" MaxLength="1000" />
@@ -291,6 +294,9 @@
           <NavigationProperty Name="FFBA_Projects" Relationship="FlowFBAccountingModel.FK_FFBA_Purchase_FFBA_Projects" FromRole="FFBA_Purchase" ToRole="FFBA_Projects" />
           <NavigationProperty Name="FFBA_Purchase_Proof" Relationship="FlowFBAccountingModel.FK_FFBA_Purchase_Proof_FFBA_Purchase" FromRole="FFBA_Purchase" ToRole="FFBA_Purchase_Proof" />
           <Property Name="Comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ContactAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_FFBA_Purchase_FFBA_Projects">
           <End Type="FlowFBAccountingModel.FFBA_Projects" Role="FFBA_Projects" Multiplicity="0..1" />
@@ -444,6 +450,9 @@
           <EntitySetMapping Name="FFBA_Purchase">
             <EntityTypeMapping TypeName="FlowFBAccountingModel.FFBA_Purchase">
               <MappingFragment StoreEntitySet="FFBA_Purchase">
+                <ScalarProperty Name="PurchaseStatus" ColumnName="PurchaseStatus" />
+                <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="DateStarted" ColumnName="DateStarted" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />

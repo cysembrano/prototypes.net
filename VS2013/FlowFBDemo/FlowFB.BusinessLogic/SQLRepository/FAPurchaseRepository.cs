@@ -24,17 +24,18 @@ namespace FlowFB.BusinessLogic.SQLRepository
                 }                    
                 else
                 {
-                    var result = context.FFBA_Purchase.Where(g => g.Status != 0 && (g.ProjectID == filter.ProjectID ||
+                    IQueryable<FFBA_Purchase> result = context.FFBA_Purchase.Where(g => g.Status != 0 && (g.ProjectID == filter.ProjectID ||
                                                                   g.PurchaseInvoiceNumber == filter.PurchaseInvoiceNumber
                                                                   ));
                     if(filter.Status.HasValue)
                     {
-                        faPurchase = result.Where(t => t.Status == filter.Status.Value).AsEnumerable().ToFAPurchases();
+                        result = result.Where(t => t.Status == filter.Status.Value);
                     }
-                    else
+                    if(!String.IsNullOrWhiteSpace(filter.TrimmedNameAddress))
                     {
-                        faPurchase = result.AsEnumerable().ToFAPurchases();
+                        result = result.Where(t => t.ContactName.Trim() + t.ContactAddress.Trim() == filter.TrimmedNameAddress);
                     }
+                    faPurchase = result.AsEnumerable().ToFAPurchases();
                 }
             }
 
@@ -73,6 +74,29 @@ namespace FlowFB.BusinessLogic.SQLRepository
                 }                   
 
             }
+        }
+
+
+        public IEnumerable<FAContact> GetAllFAContacts(int ProjectId)
+        {
+            List<FAContact> faContact = new List<FAContact>();
+            using (FlowFBEntities context = new FlowFBEntities())
+            {
+
+                IQueryable<FFBA_Purchase> result = context.FFBA_Purchase.Where(h => h.ProjectID == ProjectId);
+                foreach(var res in result)
+                {
+                    string trimmed = res.ContactName.Trim() + res.ContactAddress.Trim();
+                    if(!String.IsNullOrWhiteSpace(trimmed))
+                        if (!faContact.Any(j => j.TrimmedNA == trimmed))
+                            faContact.Add(new FAContact() { Name = res.ContactName, Address = res.ContactAddress });
+
+
+                }
+
+            }
+
+            return faContact;
         }
     }
 }
