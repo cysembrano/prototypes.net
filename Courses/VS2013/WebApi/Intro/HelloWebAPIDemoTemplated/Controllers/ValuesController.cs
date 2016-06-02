@@ -26,15 +26,22 @@ namespace HelloWebAPIDemoTemplated.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            return data[id];
+            if (data.Count > id)
+                return Request.CreateResponse<string>(HttpStatusCode.OK, data[id]);
+            else
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Item not found");
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]string value)
         {
             data.Add(value);
+            var msg = Request.CreateResponse(HttpStatusCode.Created);
+            var id = data.Count - 1;
+            msg.Headers.Location = new Uri(Request.RequestUri + "/" + id.ToString());
+            return msg;
         }
 
         // DELETE api/values/5
