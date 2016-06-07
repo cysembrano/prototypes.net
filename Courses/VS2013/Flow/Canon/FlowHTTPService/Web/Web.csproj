@@ -82,8 +82,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ActionController.cs" />
-    <Compile Include="FlowCOM\FlowCOMObject.cs" />
-    <Compile Include="FlowCOM\IFlowInterface.cs" />
+    <Compile Include="Controllers\ActionInputController.cs" />
+    <Compile Include="FlowCOM\FlowAPIObject.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

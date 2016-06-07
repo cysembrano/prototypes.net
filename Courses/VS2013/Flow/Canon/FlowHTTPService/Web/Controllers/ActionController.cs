@@ -4,50 +4,95 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Web.FlowCOM;
+using Web.Logging;
 
 namespace Web.Controllers
 {
     public class ActionController : ApiController
     {
-        static List<string> data = initList();
-
-        private static List<string> initList()
-        {
-            var ret = new List<string>();
-            ret.Add("val1");
-            ret.Add("val2");
-            return ret;
-        }
-
         // GET api/values
-        public IEnumerable<string> Get()
+        public HttpResponseMessage Get()
         {
-            return data;
+            return Request.CreateResponse<string>(HttpStatusCode.OK, @"Usage: ~/Action/{GUID} | Output: GUID logID");
         }
 
         // GET api/values/5
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(string id)
         {
-            if (data.Count > id)
-                return Request.CreateResponse<string>(HttpStatusCode.OK, data[id]);
+            if (!String.IsNullOrWhiteSpace(id))
+            {
+                string output;
+                bool result = FlowAPIObject.ExecuteActionSyncWithParams(id,null,out output);
+                if (!result)
+                {
+                    Log4NetManager.Instance.Error(this.GetType(), String.Format("Flow Action {0} was not called.", id));
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Flow Action was not called.");
+                }
+                    
+
+                return Request.CreateResponse<string>(HttpStatusCode.OK, output);
+
+                
+            }                
             else
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Item not found");
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Action not found");
+            }
+                
         }
+
+        // GET api/values/5
+        public HttpResponseMessage Get(string id, string input)
+        {
+            if (!String.IsNullOrWhiteSpace(id))
+            {
+                string output;
+                bool result = FlowAPIObject.ExecuteActionSyncWithParams(id, input, out output);
+                if (!result)
+                {
+                    Log4NetManager.Instance.Error(this.GetType(), String.Format("Flow Action {0} was not called.", id));
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Flow Action was not called.");
+                }
+
+
+                return Request.CreateResponse<string>(HttpStatusCode.OK, output);
+
+
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Action not found");
+            }
+
+        }
+
 
         // POST api/values
-        public HttpResponseMessage Post([FromBody]string value)
+        public HttpResponseMessage Post(string id, [FromBody]string value)
         {
-            data.Add(value);
-            var msg = Request.CreateResponse(HttpStatusCode.Created);
-            var id = data.Count - 1;
-            msg.Headers.Location = new Uri(Request.RequestUri + "/" + id.ToString());
-            return msg;
+
+            if (!String.IsNullOrWhiteSpace(id))
+            {
+                string output;
+                bool result = FlowAPIObject.ExecuteActionSyncWithParams(id, value, out output);
+                if (!result)
+                {
+                    Log4NetManager.Instance.Error(this.GetType(), String.Format("Flow Action {0} was not called.", id));
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Flow Action was not called.");
+                }
+
+
+                return Request.CreateResponse<string>(HttpStatusCode.OK, output);
+
+
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Action not found");
+            }
+
         }
 
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-            data.RemoveAt(id);
-        }
     }
 }

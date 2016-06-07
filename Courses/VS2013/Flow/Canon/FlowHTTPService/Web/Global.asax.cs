@@ -20,7 +20,7 @@ namespace Web
             var route = new HttpRoute(routeTemplate: "{controller}/{id}", defaults: new HttpRouteValueDictionary { { "id", RouteParameter.Optional }});
             GlobalConfiguration.Configuration.Routes.Add("default", route);
 
-            FlowCOMObject.Application_Start(sender, e);
+            FlowAPIObject.Application_Start(sender, e);
 
 
         }
@@ -52,7 +52,7 @@ namespace Web
 
         protected void Application_End(object sender, EventArgs e)
         {
-
+            FlowAPIObject.Application_End(sender, e);
         }
     }
 }
