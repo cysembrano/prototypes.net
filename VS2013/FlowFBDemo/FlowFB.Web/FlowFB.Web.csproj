@@ -205,6 +205,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CodesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JournalController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -284,6 +285,7 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\Custom\Codes\GL.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -332,6 +334,7 @@
     <Content Include="Templates\js\charts\donut.js" />
     <Content Include="Templates\js\charts\line.js" />
     <Content Include="Templates\js\charts\pie.js" />
+    <Content Include="Templates\js\edit-table\edit-table.js" />
     <Content Include="Templates\js\excanvas.min.js" />
     <Content Include="Templates\js\faq.js" />
     <Content Include="Templates\js\full-calendar\fullcalendar.css" />
@@ -390,10 +393,10 @@
     <Content Include="Views\Journal\Purchases.cshtml" />
     <Content Include="Views\Journal\Purchase.cshtml" />
     <Content Include="Views\Journal\Contacts.cshtml" />
-    <Content Include="Views\Journal\GL.cshtml" />
     <Content Include="Views\Shared\_PublicLayout.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Codes\GL.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

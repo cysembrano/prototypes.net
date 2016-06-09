@@ -31,8 +31,11 @@ namespace FlowFB.Web
         {
             AddDefaultIgnorePatterns(bundles.IgnoreList);
 
+            //bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+            //            "~/Scripts/jquery-{version}.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Templates/js/jquery-{version}.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
@@ -69,7 +72,7 @@ namespace FlowFB.Web
                         "~/Templates/css/font-awesome.min.css",
                         "~/Templates/css/style.css"));
 
-            bundles.Add(new StyleBundle("~/Templates/js/scripts").Include(
+            bundles.Add(new ScriptBundle("~/Templates/js/scripts").Include(
                         "~/Templates/js/bootstrap.js"));
 
 

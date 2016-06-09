@@ -80,11 +80,6 @@ namespace FlowFB.Web.Controllers
         }
 
 
-        public ActionResult GL()
-        {
-            return View();
-        }
-
 
 
     }

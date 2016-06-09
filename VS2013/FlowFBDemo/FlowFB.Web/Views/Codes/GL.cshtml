@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "GL";
+}
+
+<h2>GL</h2>
+
+
+<div class="span12">
+    <div class="widget">
+        <div class="widget widget-table action-table">
+            <div class="widget-header">
+                <i class="icon-th-list"></i>
+                <h3>GL Codes</h3>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+                <table class="table table-striped" style="cursor: pointer;" id="GLTable" >
+                    <thead>
+                        <tr>
+                            <th> Code </th>
+                            <th> Description </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data</td>
+                            <td>Data</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> <!-- /widget-content -->
+        </div>
+    </div> <!-- /widget-content -->
+</div> <!-- /widget -->
+@section scripts
+{
+    <script src="~/Templates/js/edit-table/edit-table.js" type="text/javascript"></script>
+    <script src="~/Scripts/Custom/Codes/GL.js" type="text/javascript"></script>
+}
