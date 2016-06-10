@@ -20,6 +20,9 @@ namespace Web
             var route = new HttpRoute(routeTemplate: "{controller}/{id}", defaults: new HttpRouteValueDictionary { { "id", RouteParameter.Optional }});
             GlobalConfiguration.Configuration.Routes.Add("default", route);
 
+            //GlobalConfiguration.Configuration.Formatters.Insert(0,new TextMediaTypeFormatter);
+
+
             FlowAPIObject.Application_Start(sender, e);
 
 

@@ -14,18 +14,18 @@ namespace Web.Controllers
     public class ActionController : ApiController
     {
         // GET api/values
-        public HttpResponseMessage Get(string id, string value)
+        public HttpResponseMessage Get(string id, string value, bool jsplain = false)
         {
-            return ProcessAction("GET", id, value);
+            return ProcessAction("GET", id, value, jsplain);
         }
 
         // POST api/values
-        public HttpResponseMessage Post(string id, [FromBody]string value)
+        public HttpResponseMessage Post(string id, [FromBody]string value, bool jsplain = false)
         {
-            return ProcessAction("POST", id, value);
+            return ProcessAction("POST", id, value, jsplain);
         }
 
-        private HttpResponseMessage ProcessAction(string verb, string id, string inputvalue)
+        private HttpResponseMessage ProcessAction(string verb, string id, string inputvalue, bool jsplain)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("");
@@ -52,7 +52,15 @@ namespace Web.Controllers
                 }
                 sb.AppendLine(String.Format(@"{0} VERB ENDS [SUCCESS]: {1}\{2} {3}", verb, "Action", id, DateTime.Now));
                 Log4NetManager.Instance.Info(this.GetType(), sb);
-                return Request.CreateResponse<string>(HttpStatusCode.OK, modoutput);
+                if(jsplain)
+                {
+                    return GetPlain(modoutput);
+                }
+                else
+                {
+                    return Request.CreateResponse<string>(HttpStatusCode.OK, modoutput);
+                }
+
 
 
 
@@ -85,6 +93,21 @@ namespace Web.Controllers
             }
             
         }
+
+
+        private HttpResponseMessage GetPlain(string output)
+        {
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent(
+                    output,
+                    Encoding.UTF8,
+                    "application/json"
+                ),
+                StatusCode = HttpStatusCode.OK
+            };
+        }
+
 
     }
 }
