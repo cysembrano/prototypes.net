@@ -19,7 +19,7 @@ IF NOT EXISTS(
 BEGIN
 	PRINT 'Create Table FFBA_GLCodes'
 	CREATE TABLE [dbo].FFBA_GLCodes(
-		[GLCodeID] [int] NOT NULL,
+		[GLCodeID] [int] IDENTITY (1, 1) NOT NULL,
 		[GLCode] [int] NOT NULL,
 		[Description] [nvarchar] (255) NULL,
 		[Status] [int] NOT NULL DEFAULT(1),	 
@@ -38,7 +38,7 @@ IF NOT EXISTS(
 BEGIN
 	PRINT 'Create Table FFBA_CostCenter'
 	CREATE TABLE [dbo].FFBA_CostCenter(
-		[CostCenterID] [int] NOT NULL,
+		[CostCenterID] [int] IDENTITY (1, 1) NOT NULL,
 		[CostCenterCode] [int] NOT NULL,
 		[Description] [nvarchar] (255) NULL,
 		[Status] [int] NOT NULL DEFAULT(1),	 
@@ -57,7 +57,7 @@ IF NOT EXISTS(
 BEGIN
 	PRINT 'Create Table FFBA_TaxCodes'
 	CREATE TABLE [dbo].FFBA_TaxCodes(
-		[TaxCodeID] [int] NOT NULL,
+		[TaxCodeID] [int] IDENTITY (1, 1) NOT NULL,
 		[TaxCode] [int] NOT NULL,
 		[Description] [nvarchar] (255) NULL,
 		[Status] [int] NOT NULL DEFAULT(1),	 
