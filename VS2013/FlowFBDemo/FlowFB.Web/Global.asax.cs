@@ -1,6 +1,8 @@
 ﻿using FlowFB.Logging;
+using FlowFB.Web.Infrastructure.Cache;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
@@ -30,7 +32,7 @@ namespace FlowFB.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
-
+            SetProjectDataCache();
         }
 
         private void LogStart()
@@ -40,6 +42,16 @@ namespace FlowFB.Web
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fvi.FileVersion;
             Log4NetManager.Instance.Info(this.GetType(), String.Format(StartInfoFormat, version));
+        }
+
+        private void SetProjectDataCache()
+        {
+            ProjectCache.ProjectData = new Dictionary<string, int>();
+            ProjectCache.ProjectData.Add("APIInvoice", int.Parse(ConfigurationManager.AppSettings["ProjectID.APInvoice"]));
+            ProjectCache.ProjectData.Add("CostCenter", int.Parse(ConfigurationManager.AppSettings["ProjectID.CostCenter"]));
+            ProjectCache.ProjectData.Add("GLCodes", int.Parse(ConfigurationManager.AppSettings["ProjectID.GLCodes"]));
+            ProjectCache.ProjectData.Add("TaxCodes", int.Parse(ConfigurationManager.AppSettings["ProjectID.TaxCodes"]));
+
         }
     }
 }

@@ -212,6 +212,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Cache\ProjectCache.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Infrastructure\HtmlExtensions\MVCHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="Models\ProjectsModel.cs" />
     <Compile Include="Models\PurchaseModel.cs" />
     <Compile Include="Models\PurchasesModel.cs" />
+    <Compile Include="Models\SetupModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -286,6 +288,7 @@
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\Custom\Codes\GL.js" />
+    <Content Include="Scripts\Custom\Setup\ProjectSetup.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -397,6 +400,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Codes\GL.cshtml" />
+    <Content Include="Views\Home\Setup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

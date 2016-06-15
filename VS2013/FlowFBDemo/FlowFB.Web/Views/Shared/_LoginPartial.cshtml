@@ -10,12 +10,16 @@
                     @Html.ActionLink("My Account", "Manage", "Account", routeValues: null, htmlAttributes: null);
                 </li>
                 <li>
+                    @Html.ActionLink(linkText: "Setup", actionName: "Setup", controllerName: "Home");
+                </li>
+                <li>
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                     {
                         @Html.AntiForgeryToken()
                         <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
                     }
                 </li>
+                
             </ul>
         </li>
     </text>
