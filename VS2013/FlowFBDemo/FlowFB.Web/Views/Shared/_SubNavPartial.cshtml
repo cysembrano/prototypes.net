@@ -1,4 +1,7 @@
-﻿@using FlowFB.Web.Infrastructure.HtmlExtensions
+﻿
+@using FlowFB.Web.Infrastructure.HtmlExtensions
+@using FlowFB.Repository.Cache
+
 @model FlowFB.Web.Models.BaseModel
 <div class="subnavbar">
     <div class="subnavbar-inner">
@@ -6,18 +9,16 @@
             <ul class="mainnav">
                 <li class="@Html.IsSelected(actions: "Index", controllers: "Home")"><a href="~/Home/Index"><i class="icon-dollar"></i><span>Sales</span> </a> </li>
                 <li class="@Html.IsSelected(actions: "Projects", controllers: "Home")"><a href="~/Home/Projects"><i class="icon-archive"></i><span>Projects</span> </a> </li>
-                <li class="@Html.IsSelected(actions: "Purchases", controllers: "Journal")"><a href="~/Journal/Purchases?projectId=1&statusId=1"><i class="icon-file"></i><span>Purchases</span> </a> </li>                
-                <li class="@Html.IsSelected(actions: "Contacts", controllers: "Journal")"><a href="~/Journal/Contacts?projectId=1"><i class="icon-group"></i><span>Contacts</span> </a> </li>     
-
+                <li class="@Html.IsSelected(actions: "Purchases", controllers: "Journal")"><a href="~/Journal/Purchases?projectId=@ProjectCache.ProjectData["APIInvoice"]&statusId=1"><i class="icon-file"></i><span>Purchases</span> </a> </li>                
+                <li class="@Html.IsSelected(actions: "Contacts", controllers: "Journal")"><a href="~/Journal/Contacts?projectId=@ProjectCache.ProjectData["APIInvoice"]"><i class="icon-group"></i><span>Contacts</span> </a> </li>     
                 <li class="dropdown subnavbar-open-right">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-star"></i><span>Codes</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li class="@Html.IsSelected(actions: "GL", controllers: "Codes")">@Html.ActionLink(linkText: "GL", actionName: "GL", controllerName: "Codes")</li>    
-                        <li><a href="#">Tax</a></li>
-                        <li><a href="#">Cost Center</a></li>
+                        <li class="@Html.IsSelected(actions: "Tax", controllers: "Codes")">@Html.ActionLink(linkText: "Tax", actionName: "Tax", controllerName: "Codes")</li>   
+                        <li class="@Html.IsSelected(actions: "CostCenter", controllers: "Codes")">@Html.ActionLink(linkText: "Cost Center", actionName: "CostCenter", controllerName: "Codes")</li>
                     </ul>
                 </li>
-                
             </ul>
         </div>
         <!-- /container -->

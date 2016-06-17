@@ -1,22 +1,22 @@
 ﻿@model FlowFB.Web.Models.CodesModel
 
 @{
-    ViewBag.Title = "GL";
+    ViewBag.Title = "Tax";
 }
 
-<h2>GL</h2>
+<h2>Tax</h2>
 <div class="span12">
     <div class="widget">
         <div class="widget widget-table action-table">
             <div class="widget-header">
                 <i class="icon-th-list"></i>
-                <h3>GL Codes</h3>
+                <h3>Tax Codes</h3>
                 <button class="btn btn-primary" id="btnSaveCodes">Save</button>
             </div>
             <!-- /widget-header -->
-            <input type="hidden" id="SaveCodesUrl" value='@Url.Action("SaveGLCodes", "Codes")' />
+            <input type="hidden" id="SaveCodesUrl" value='@Url.Action("SaveTaxCodes", "Codes")' />
             <div class="widget-content">
-                
+
                 <table class="table table-striped" style="cursor: pointer;" id="GLTable">
                     <thead>
                         <tr>

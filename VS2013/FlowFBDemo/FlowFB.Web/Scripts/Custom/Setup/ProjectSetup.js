@@ -17,9 +17,9 @@
                 contentType: "application/json; charset=utf-8",
                 data: {
                     AP: $('#tblSetup #APIInvoice').html(),
-                    GL: $('#tblSetup #CostCenter').html(),
-                    Tax: $('#tblSetup #GLCodes').html(),
-                    Cost: $('#tblSetup #TaxCodes').html()
+                    Cost: $('#tblSetup #CostCenter').html(),
+                    GL: $('#tblSetup #GLCodes').html(),
+                    Tax: $('#tblSetup #TaxCodes').html()
                 },
                 dataType: "json",
                 success: function (data, status) { },
@@ -32,7 +32,7 @@
     //Prevent changes from Key
     $('#tblSetup .kvkey').on('validate', function (evt, newValue) {
         if (true) {
-            return false; // mark cell as invalid 
+            return false; // mark cell as invalid
         }
     });
 

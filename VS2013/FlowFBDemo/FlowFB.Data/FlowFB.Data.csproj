@@ -63,6 +63,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FFBA_CostCenter.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FFBA_GLCodes.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="FFBA_Projects.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -73,6 +79,9 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="FFBA_Purchase_Proof.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FFBA_TaxCodes.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

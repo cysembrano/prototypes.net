@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace FlowFB.Web.Infrastructure.Cache
+namespace FlowFB.Repository.Cache
 {
     public static class ProjectCache
     {

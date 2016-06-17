@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\FFBA_Codes_Extension.cs" />
     <Compile Include="Extensions\FFBA_Projects_Extension.cs" />
     <Compile Include="Extensions\FFBA_Purchase_Extension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLRepository\FACodesRepository.cs" />
     <Compile Include="SQLRepository\FBProjectRepository.cs" />
     <Compile Include="SQLRepository\FAPurchaseRepository.cs" />
   </ItemGroup>

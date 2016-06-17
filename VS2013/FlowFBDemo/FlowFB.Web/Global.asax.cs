@@ -1,5 +1,5 @@
 ﻿using FlowFB.Logging;
-using FlowFB.Web.Infrastructure.Cache;
+using FlowFB.Repository.Cache;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

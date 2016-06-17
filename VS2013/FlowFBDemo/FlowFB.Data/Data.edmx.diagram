@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a528c606271441e78adeb5c783c1fb37" Name="Diagram1" ZoomLevel="38" >
+      <Diagram DiagramId="a528c606271441e78adeb5c783c1fb37" Name="Diagram1" ZoomLevel="32" >
         <EntityTypeShape EntityType="FlowFBAccountingModel.FFBA_Projects" Width="1.5" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="FlowFBAccountingModel.FFBA_Purchase" Width="1.5" PointX="2.75" PointY="5.75" FillColor="Lime" />
         <AssociationConnector Association="FlowFBAccountingModel.FK_FFBA_Purchase_FFBA_Projects" />
@@ -12,6 +12,9 @@
         <EntityTypeShape EntityType="FlowFBAccountingModel.FFBA_Purchase_Proof" Width="1.5" PointX="5" PointY="5.5" FillColor="Lime" />
         <AssociationConnector Association="FlowFBAccountingModel.FK_FFBA_Purchase_Proof_FFBA_Purchase" />
         <AssociationConnector Association="FlowFBAccountingModel.FK_FFBA_Purchase_History_FFBA_Purchase_Proof" />
+        <EntityTypeShape EntityType="FlowFBAccountingModel.FFBA_CostCenter" Width="1.5" PointX="3.375" PointY="0.75" FillColor="Red" />
+        <EntityTypeShape EntityType="FlowFBAccountingModel.FFBA_GLCodes" Width="1.5" PointX="5.375" PointY="0.75" FillColor="Red" />
+        <EntityTypeShape EntityType="FlowFBAccountingModel.FFBA_TaxCodes" Width="1.5" PointX="7.375" PointY="0.75" FillColor="Red" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

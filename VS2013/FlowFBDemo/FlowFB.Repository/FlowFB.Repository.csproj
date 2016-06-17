@@ -39,10 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\ProjectCache.cs" />
+    <Compile Include="Filters\FACodeFilters.cs" />
     <Compile Include="Filters\FAPurchaseFilter.cs" />
     <Compile Include="Filters\FBProjectFilter.cs" />
+    <Compile Include="IFACodesRespository.cs" />
     <Compile Include="IFAPurchaseRepository.cs" />
     <Compile Include="IFBProjectRepository.cs" />
+    <Compile Include="Models\FACodes.cs" />
     <Compile Include="Models\FAContact.cs" />
     <Compile Include="Models\FAPurchase.cs" />
     <Compile Include="Models\FBProject.cs" />

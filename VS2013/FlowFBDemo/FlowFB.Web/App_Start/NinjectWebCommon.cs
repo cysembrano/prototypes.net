@@ -65,6 +65,7 @@ namespace FlowFB.Web.App_Start
         {
             kernel.Bind<IFBProjectRepository>().To<FBProjectRepository>();
             kernel.Bind<IFAPurchaseRepository>().To<FAPurchaseRepository>();
+            kernel.Bind<IFACodesRepository>().To<FACodesRepository>();
         }        
     }
 }

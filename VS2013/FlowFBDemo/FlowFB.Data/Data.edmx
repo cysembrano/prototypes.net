@@ -5,6 +5,26 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="FlowFBAccountingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FFBA_CostCenter">
+          <Key>
+            <PropertyRef Name="CostCenterID" />
+          </Key>
+          <Property Name="CostCenterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CostCenterCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="FBProjectId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FFBA_GLCodes">
+          <Key>
+            <PropertyRef Name="GLCodeID" />
+          </Key>
+          <Property Name="GLCodeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GLCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="FBProjectId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="FFBA_Projects">
           <Key>
             <PropertyRef Name="ProjectID" />
@@ -128,6 +148,16 @@
           <Property Name="FileSize" Type="int" />
           <Property Name="LastView" Type="smalldatetime" />
         </EntityType>
+        <EntityType Name="FFBA_TaxCodes">
+          <Key>
+            <PropertyRef Name="TaxCodeID" />
+          </Key>
+          <Property Name="TaxCodeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaxCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="FBProjectId" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK_FFBA_Purchase_FFBA_Projects">
           <End Role="FFBA_Projects" Type="Self.FFBA_Projects" Multiplicity="0..1" />
           <End Role="FFBA_Purchase" Type="Self.FFBA_Purchase" Multiplicity="*" />
@@ -165,10 +195,13 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="FlowFBAccountingModelStoreContainer">
+          <EntitySet Name="FFBA_CostCenter" EntityType="Self.FFBA_CostCenter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FFBA_GLCodes" EntityType="Self.FFBA_GLCodes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FFBA_Projects" EntityType="Self.FFBA_Projects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FFBA_Purchase" EntityType="Self.FFBA_Purchase" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FFBA_Purchase_History" EntityType="Self.FFBA_Purchase_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FFBA_Purchase_Proof" EntityType="Self.FFBA_Purchase_Proof" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FFBA_TaxCodes" EntityType="Self.FFBA_TaxCodes" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_FFBA_Purchase_FFBA_Projects" Association="Self.FK_FFBA_Purchase_FFBA_Projects">
             <End Role="FFBA_Projects" EntitySet="FFBA_Projects" />
             <End Role="FFBA_Purchase" EntitySet="FFBA_Purchase" />
@@ -203,6 +236,9 @@
             <End Role="FFBA_Purchase_Proof" EntitySet="FFBA_Purchase_Proof" />
             <End Role="FFBA_Purchase_History" EntitySet="FFBA_Purchase_History" />
           </AssociationSet>
+          <EntitySet Name="FFBA_CostCenter" EntityType="FlowFBAccountingModel.FFBA_CostCenter" />
+          <EntitySet Name="FFBA_GLCodes" EntityType="FlowFBAccountingModel.FFBA_GLCodes" />
+          <EntitySet Name="FFBA_TaxCodes" EntityType="FlowFBAccountingModel.FFBA_TaxCodes" />
         </EntityContainer>
         <EntityType Name="FFBA_Projects">
           <Key>
@@ -368,6 +404,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="FFBA_CostCenter">
+          <Key>
+            <PropertyRef Name="CostCenterID" />
+          </Key>
+          <Property Name="CostCenterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CostCenterCode" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="FBProjectId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FFBA_GLCodes">
+          <Key>
+            <PropertyRef Name="GLCodeID" />
+          </Key>
+          <Property Name="GLCodeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GLCode" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="FBProjectId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FFBA_TaxCodes">
+          <Key>
+            <PropertyRef Name="TaxCodeID" />
+          </Key>
+          <Property Name="TaxCodeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaxCode" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="FBProjectId" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -498,6 +564,39 @@
                 <ScalarProperty Name="DividerName" ColumnName="DividerName" />
                 <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
                 <ScalarProperty Name="PurchaseProofID" ColumnName="PurchaseProofID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FFBA_CostCenter">
+            <EntityTypeMapping TypeName="FlowFBAccountingModel.FFBA_CostCenter">
+              <MappingFragment StoreEntitySet="FFBA_CostCenter">
+                <ScalarProperty Name="FBProjectId" ColumnName="FBProjectId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CostCenterCode" ColumnName="CostCenterCode" />
+                <ScalarProperty Name="CostCenterID" ColumnName="CostCenterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FFBA_GLCodes">
+            <EntityTypeMapping TypeName="FlowFBAccountingModel.FFBA_GLCodes">
+              <MappingFragment StoreEntitySet="FFBA_GLCodes">
+                <ScalarProperty Name="FBProjectId" ColumnName="FBProjectId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="GLCode" ColumnName="GLCode" />
+                <ScalarProperty Name="GLCodeID" ColumnName="GLCodeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FFBA_TaxCodes">
+            <EntityTypeMapping TypeName="FlowFBAccountingModel.FFBA_TaxCodes">
+              <MappingFragment StoreEntitySet="FFBA_TaxCodes">
+                <ScalarProperty Name="FBProjectId" ColumnName="FBProjectId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="TaxCodeID" ColumnName="TaxCodeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
