@@ -20,9 +20,10 @@ BEGIN
 	PRINT 'Create Table FFBA_GLCodes'
 	CREATE TABLE [dbo].FFBA_GLCodes(
 		[GLCodeID] [int] IDENTITY (1, 1) NOT NULL,
-		[GLCode] [int] NOT NULL,
+		[GLCode] [nvarchar] (255) NOT NULL,
 		[Description] [nvarchar] (255) NULL,
-		[Status] [int] NOT NULL DEFAULT(1),	 
+		[Status] [int] NOT NULL DEFAULT(1),
+		[FBProjectId] [int] NOT NULL,
 		CONSTRAINT [PK_FFBA_GLCodes] PRIMARY KEY CLUSTERED ([GLCodeID] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 	) ON [PRIMARY]
 END
@@ -39,9 +40,10 @@ BEGIN
 	PRINT 'Create Table FFBA_CostCenter'
 	CREATE TABLE [dbo].FFBA_CostCenter(
 		[CostCenterID] [int] IDENTITY (1, 1) NOT NULL,
-		[CostCenterCode] [int] NOT NULL,
+		[CostCenterCode] [nvarchar] (255) NOT NULL,
 		[Description] [nvarchar] (255) NULL,
 		[Status] [int] NOT NULL DEFAULT(1),	 
+		[FBProjectId] [int] NOT NULL,
 		CONSTRAINT [PK_FFBA_CostCenter] PRIMARY KEY CLUSTERED ([CostCenterID] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 	) ON [PRIMARY]
 END
@@ -58,9 +60,10 @@ BEGIN
 	PRINT 'Create Table FFBA_TaxCodes'
 	CREATE TABLE [dbo].FFBA_TaxCodes(
 		[TaxCodeID] [int] IDENTITY (1, 1) NOT NULL,
-		[TaxCode] [int] NOT NULL,
+		[TaxCode] [nvarchar] (255) NOT NULL,
 		[Description] [nvarchar] (255) NULL,
 		[Status] [int] NOT NULL DEFAULT(1),	 
+		[FBProjectId] [int] NOT NULL,
 		CONSTRAINT [PK_FFBA_TaxCodes] PRIMARY KEY CLUSTERED ([TaxCodeID] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 	) ON [PRIMARY]
 END
