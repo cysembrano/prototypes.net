@@ -1,0 +1,137 @@
+==================================================================================
+REQUEST GETAGENTS()
+==================================================================================
+
+POST https://serviceapi.realbaselive.com/Service.svc/soapService HTTP/1.1
+Content-Type: application/soap+xml; charset=utf-8
+Host: serviceapi.realbaselive.com
+Content-Length: 1867
+Expect: 100-continue
+Accept-Encoding: gzip, deflate
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+	
+		<a:Action s:mustUnderstand="1">http://tempuri.org/IService/GetAgents</a:Action>
+		<a:MessageID>urn:uuid:194fbb9d-1bc6-4b9d-84d7-62f64d084d53</a:MessageID>
+		<a:ReplyTo>
+			<a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+		</a:ReplyTo>
+		<a:To s:mustUnderstand="1">https://serviceapi.realbaselive.com/Service.svc/soapService</a:To>
+		
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2016-06-14T22:56:10.896Z</u:Created>
+				<u:Expires>2016-06-14T23:01:10.896Z</u:Expires>
+			</u:Timestamp>
+			<c:SecurityContextToken u:Id="uuid-84597df5-e2a5-4a36-a367-97b717ee9a27-195" xmlns:c="http://schemas.xmlsoap.org/ws/2005/02/sc">
+				<c:Identifier>urn:uuid:edbacb5b-f078-4c80-9be0-909b4ef5f2d4</c:Identifier>
+			</c:SecurityContextToken>
+			<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+				<SignedInfo>
+					<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+					<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#hmac-sha1"/>
+					<Reference URI="#_0">
+						<Transforms>
+							<Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+						</Transforms>
+						<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+						<DigestValue>JCMdwz5g8iq05Lj6tjfDOxKqT4k=</DigestValue>
+					</Reference>
+				</SignedInfo>
+				<SignatureValue>kykmlowWIW4TXRcCi46OfZPUBKQ=</SignatureValue>
+				<KeyInfo>
+					<o:SecurityTokenReference>
+						<o:Reference ValueType="http://schemas.xmlsoap.org/ws/2005/02/sc/sct" URI="#uuid-84597df5-e2a5-4a36-a367-97b717ee9a27-195"/>
+					</o:SecurityTokenReference>
+				</KeyInfo>
+			</Signature>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<GetAgents xmlns="http://tempuri.org/"/>
+	</s:Body>
+</s:Envelope>
+
+
+==================================================================================
+RESPONSE GETAGENTS()
+==================================================================================
+
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Length: 2364
+Content-Type: application/soap+xml; charset=utf-8
+Server: Microsoft-IIS/7.5
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 14 Jun 2016 22:52:53 GMT
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://tempuri.org/IService/GetAgentsResponse</a:Action>
+		<a:RelatesTo>urn:uuid:194fbb9d-1bc6-4b9d-84d7-62f64d084d53</a:RelatesTo>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2016-06-14T22:52:54.125Z</u:Created>
+				<u:Expires>2016-06-14T22:57:54.125Z</u:Expires>
+			</u:Timestamp>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<GetAgentsResponse xmlns="http://tempuri.org/">
+			<GetAgentsResult xmlns:b="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<b:Agent>
+					<b:AgentCode>RBAG000028</b:AgentCode>
+					<b:AgentFullName>Allan Vaifale</b:AgentFullName>
+					<b:AgentUserName>Allan</b:AgentUserName>
+				</b:Agent>
+				<b:Agent>
+					<b:AgentCode>RBAG000013</b:AgentCode>
+					<b:AgentFullName>Craig Lyons</b:AgentFullName>
+					<b:AgentUserName>Craig Lyons</b:AgentUserName>
+				</b:Agent>
+				<b:Agent>
+					<b:AgentCode>RBAG000023</b:AgentCode>
+					<b:AgentFullName>David Faulkner</b:AgentFullName>
+					<b:AgentUserName>David</b:AgentUserName>
+				</b:Agent>
+				<b:Agent>
+					<b:AgentCode>RBAG000010</b:AgentCode>
+					<b:AgentFullName>Georgina Dwyer</b:AgentFullName>
+					<b:AgentUserName>Georgina Dwyer</b:AgentUserName>
+				</b:Agent>
+				<b:Agent>
+					<b:AgentCode>RBAG000027</b:AgentCode>
+					<b:AgentFullName>Hayley Test</b:AgentFullName>
+					<b:AgentUserName>Hayley</b:AgentUserName>
+				</b:Agent>
+				<b:Agent>
+					<b:AgentCode>RBAG000024</b:AgentCode>
+					<b:AgentFullName>JonnySouth Banks</b:AgentFullName>
+					<b:AgentUserName>JonnySouth</b:AgentUserName>
+				</b:Agent>
+				<b:Agent>
+					<b:AgentCode>RBAG000025</b:AgentCode>
+					<b:AgentFullName>Kelly Choi</b:AgentFullName>
+					<b:AgentUserName>Kelly</b:AgentUserName>
+				</b:Agent>
+				<b:Agent>
+					<b:AgentCode>RBAG000020</b:AgentCode>
+					<b:AgentFullName>Rosie Mountain</b:AgentFullName>
+					<b:AgentUserName>Rosie</b:AgentUserName>
+				</b:Agent>
+				<b:Agent>
+					<b:AgentCode>RBAG000001</b:AgentCode>
+					<b:AgentFullName>System</b:AgentFullName>
+					<b:AgentUserName>System</b:AgentUserName>
+				</b:Agent>
+				<b:Agent>
+					<b:AgentCode>RBAG000026</b:AgentCode>
+					<b:AgentFullName>Vanessa Steenson</b:AgentFullName>
+					<b:AgentUserName>Vanessa</b:AgentUserName>
+				</b:Agent>
+			</GetAgentsResult>
+		</GetAgentsResponse>
+	</s:Body>
+</s:Envelope>

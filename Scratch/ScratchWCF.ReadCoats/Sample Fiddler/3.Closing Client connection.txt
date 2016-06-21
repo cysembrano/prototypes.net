@@ -1,0 +1,93 @@
+==================================================================================
+REQUEST closing client
+==================================================================================
+POST https://serviceapi.realbaselive.com/Service.svc/soapService HTTP/1.1
+Content-Type: application/soap+xml; charset=utf-8
+Host: serviceapi.realbaselive.com
+Content-Length: 2346
+Expect: 100-continue
+Accept-Encoding: gzip, deflate
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+	
+		<a:Action s:mustUnderstand="1">http://schemas.xmlsoap.org/ws/2005/02/trust/RST/SCT/Cancel</a:Action>
+		<a:MessageID>urn:uuid:108a545a-0a87-47cb-8761-5066607908ec</a:MessageID>
+		<a:ReplyTo>
+			<a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+		</a:ReplyTo>
+		<a:To s:mustUnderstand="1">https://serviceapi.realbaselive.com/Service.svc/soapService</a:To>
+		
+		
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2016-06-14T22:56:11.318Z</u:Created>
+				<u:Expires>2016-06-14T23:01:11.318Z</u:Expires>
+			</u:Timestamp>
+			<c:SecurityContextToken u:Id="uuid-84597df5-e2a5-4a36-a367-97b717ee9a27-195" xmlns:c="http://schemas.xmlsoap.org/ws/2005/02/sc">
+				<c:Identifier>urn:uuid:edbacb5b-f078-4c80-9be0-909b4ef5f2d4</c:Identifier>
+			</c:SecurityContextToken>
+			<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+				<SignedInfo>
+					<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+					<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#hmac-sha1"/>
+					<Reference URI="#_0">
+						<Transforms>
+							<Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+						</Transforms>
+						<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+						<DigestValue>YmpIZ89qjk6epLrFQGIgscz4XBc=</DigestValue>
+					</Reference>
+				</SignedInfo>
+				<SignatureValue>tfcqMiuRFqHiVLxN3bbW8CE6ppY=</SignatureValue>
+				<KeyInfo>
+					<o:SecurityTokenReference>
+						<o:Reference ValueType="http://schemas.xmlsoap.org/ws/2005/02/sc/sct" URI="#uuid-84597df5-e2a5-4a36-a367-97b717ee9a27-195"/>
+					</o:SecurityTokenReference>
+				</KeyInfo>
+			</Signature>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<t:RequestSecurityToken xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+			<t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Cancel</t:RequestType>
+			<t:CancelTarget>
+				<o:SecurityTokenReference xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+					<o:Reference URI="urn:uuid:edbacb5b-f078-4c80-9be0-909b4ef5f2d4" ValueType="http://schemas.xmlsoap.org/ws/2005/02/sc/sct"/>
+				</o:SecurityTokenReference>
+			</t:CancelTarget>
+		</t:RequestSecurityToken>
+	</s:Body>
+</s:Envelope>
+
+
+
+==================================================================================
+RESPONSE
+==================================================================================
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Length: 869
+Content-Type: application/soap+xml; charset=utf-8
+Server: Microsoft-IIS/7.5
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 14 Jun 2016 22:52:53 GMT
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://schemas.xmlsoap.org/ws/2005/02/trust/RSTR/SCT/Cancel</a:Action>
+		<a:RelatesTo>urn:uuid:108a545a-0a87-47cb-8761-5066607908ec</a:RelatesTo>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2016-06-14T22:52:54.515Z</u:Created>
+				<u:Expires>2016-06-14T22:57:54.515Z</u:Expires>
+			</u:Timestamp>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<t:RequestSecurityTokenResponse xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+			<t:RequestedTokenCancelled/>
+		</t:RequestSecurityTokenResponse>
+	</s:Body>
+</s:Envelope>

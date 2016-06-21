@@ -1,0 +1,101 @@
+==================================================================================
+REQUEST for authentication token
+==================================================================================
+
+POST https://serviceapi.realbaselive.com/Service.svc/soapService HTTP/1.1
+Content-Type: application/soap+xml; charset=utf-8
+Host: serviceapi.realbaselive.com
+Content-Length: 1647
+Expect: 100-continue
+Accept-Encoding: gzip, deflate
+Connection: Keep-Alive
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://schemas.xmlsoap.org/ws/2005/02/trust/RST/SCT</a:Action>
+		<a:MessageID>urn:uuid:d263504b-224c-4e80-aa79-5948a7050ccb</a:MessageID>
+		<a:ReplyTo>
+			<a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+		</a:ReplyTo>
+		<a:To s:mustUnderstand="1">https://serviceapi.realbaselive.com/Service.svc/soapService</a:To>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2016-06-14T22:56:10.333Z</u:Created>
+				<u:Expires>2016-06-14T23:01:10.333Z</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-dce97250-1e91-457d-9533-123ca264600d-1">
+				<o:Username>development@flowsoftware.co.nz</o:Username>
+				<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">GT56Di7fs30sw2GjkH</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<t:RequestSecurityToken xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+			<t:TokenType>http://schemas.xmlsoap.org/ws/2005/02/sc/sct</t:TokenType>
+			<t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
+			<t:Entropy>
+				<t:BinarySecret u:Id="uuid-3fdbb12e-4296-4a3e-8234-c03029c39d44-1" Type="http://schemas.xmlsoap.org/ws/2005/02/trust/Nonce">vPRo4Q7YdDujRFAjVEs6pYS4MXgWZCVWziNqVpzw2D0=</t:BinarySecret>
+			</t:Entropy>
+			<t:KeySize>256</t:KeySize>
+		</t:RequestSecurityToken>
+	</s:Body>
+</s:Envelope>
+
+
+
+==================================================================================
+RESPONSE
+==================================================================================
+
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Length: 2332
+Content-Type: application/soap+xml; charset=utf-8
+Server: Microsoft-IIS/7.5
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 14 Jun 2016 22:52:53 GMT
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://schemas.xmlsoap.org/ws/2005/02/trust/RSTR/SCT</a:Action>
+		<a:RelatesTo>urn:uuid:d263504b-224c-4e80-aa79-5948a7050ccb</a:RelatesTo>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2016-06-14T22:52:53.657Z</u:Created>
+				<u:Expires>2016-06-14T22:57:53.657Z</u:Expires>
+			</u:Timestamp>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<t:RequestSecurityTokenResponse xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+			<t:TokenType>http://schemas.xmlsoap.org/ws/2005/02/sc/sct</t:TokenType>
+			<t:RequestedSecurityToken>
+				<c:SecurityContextToken u:Id="uuid-84597df5-e2a5-4a36-a367-97b717ee9a27-195" xmlns:c="http://schemas.xmlsoap.org/ws/2005/02/sc">
+					<c:Identifier>urn:uuid:edbacb5b-f078-4c80-9be0-909b4ef5f2d4</c:Identifier>
+				</c:SecurityContextToken>
+			</t:RequestedSecurityToken>
+			<t:RequestedAttachedReference>
+				<o:SecurityTokenReference xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+					<o:Reference ValueType="http://schemas.xmlsoap.org/ws/2005/02/sc/sct" URI="#uuid-84597df5-e2a5-4a36-a367-97b717ee9a27-195"/>
+				</o:SecurityTokenReference>
+			</t:RequestedAttachedReference>
+			<t:RequestedUnattachedReference>
+				<o:SecurityTokenReference xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+					<o:Reference URI="urn:uuid:edbacb5b-f078-4c80-9be0-909b4ef5f2d4" ValueType="http://schemas.xmlsoap.org/ws/2005/02/sc/sct"/>
+				</o:SecurityTokenReference>
+			</t:RequestedUnattachedReference>
+			<t:RequestedProofToken>
+				<t:ComputedKey>http://schemas.xmlsoap.org/ws/2005/02/trust/CK/PSHA1</t:ComputedKey>
+			</t:RequestedProofToken>
+			<t:Entropy>
+				<t:BinarySecret u:Id="uuid-84597df5-e2a5-4a36-a367-97b717ee9a27-196" Type="http://schemas.xmlsoap.org/ws/2005/02/trust/Nonce">1Y5hArBN4wP3c/rmK5d+YGqFrSS5yGMjhwhKuKT+bPc=</t:BinarySecret>
+			</t:Entropy>
+			<t:Lifetime>
+				<u:Created>2016-06-14T22:52:53.657Z</u:Created>
+				<u:Expires>2016-06-15T13:52:53.657Z</u:Expires>
+			</t:Lifetime>
+			<t:KeySize>256</t:KeySize>
+		</t:RequestSecurityTokenResponse>
+	</s:Body>
+</s:Envelope>
