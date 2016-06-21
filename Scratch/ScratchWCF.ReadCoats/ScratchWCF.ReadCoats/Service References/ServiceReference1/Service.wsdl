@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:BootstrapPolicy>
+                  <wsp:Policy>
+                    <sp:SignedParts>
+                      <sp:Body />
+                      <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                    </sp:SignedParts>
+                    <sp:EncryptedParts>
+                      <sp:Body />
+                    </sp:EncryptedParts>
+                    <sp:TransportBinding>
+                      <wsp:Policy>
+                        <sp:TransportToken>
+                          <wsp:Policy>
+                            <sp:HttpsToken RequireClientCertificate="false" />
+                          </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                          <wsp:Policy>
+                            <sp:Basic256 />
+                          </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                          <wsp:Policy>
+                            <sp:Strict />
+                          </wsp:Policy>
+                        </sp:Layout>
+                        <sp:IncludeTimestamp />
+                      </wsp:Policy>
+                    </sp:TransportBinding>
+                    <sp:SignedSupportingTokens>
+                      <wsp:Policy>
+                        <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                          <wsp:Policy>
+                            <sp:WssUsernameToken10 />
+                          </wsp:Policy>
+                        </sp:UsernameToken>
+                      </wsp:Policy>
+                    </sp:SignedSupportingTokens>
+                    <sp:Wss11>
+                      <wsp:Policy />
+                    </sp:Wss11>
+                    <sp:Trust10>
+                      <wsp:Policy>
+                        <sp:MustSupportIssuedTokens />
+                        <sp:RequireClientEntropy />
+                        <sp:RequireServerEntropy />
+                      </wsp:Policy>
+                    </sp:Trust10>
+                  </wsp:Policy>
+                </sp:BootstrapPolicy>
+              </wsp:Policy>
+            </sp:SecureConversationToken>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://serviceapi.realbaselive.com/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://serviceapi.realbaselive.com/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://serviceapi.realbaselive.com/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_TestServiceConnectionReturnUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestServiceConnectionReturnUserName" />
+  </wsdl:message>
+  <wsdl:message name="IService_TestServiceConnectionReturnUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestServiceConnectionReturnUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RESTTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:RESTTest" />
+  </wsdl:message>
+  <wsdl:message name="IService_RESTTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RESTTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAgents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgents" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAgents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDiaryGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiaryGroups" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDiaryGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiaryGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedAgent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedAgent" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedAgent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedAgentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedOwner" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedSupplier" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedProperty" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedTenancy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedTenancy" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedTenancy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedTenancyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedInspection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedInspection" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedInspection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedInspectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedWorksOrderAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedWorksOrderAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllDetailedWorksOrderAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllDetailedWorksOrderAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateWorksOrderAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorksOrderAction" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateWorksOrderAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorksOrderActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllProperty" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllExpense_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllExpense" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllExpense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllExpenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllSupplier" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllWorksOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllWorksOrders" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetViewAllWorksOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViewAllWorksOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyOwnerSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyOwnerSearch" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyOwnerSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyOwnerSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyOwnerSearchArchived_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyOwnerSearchArchived" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyOwnerSearchArchived_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyOwnerSearchArchivedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertySearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertySearch" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertySearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertySearchArchived_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertySearchArchived" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertySearchArchived_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertySearchArchivedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyTenancySearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyTenancySearch" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyTenancySearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyTenancySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyTenancySearchArchived_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyTenancySearchArchived" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyTenancySearchArchived_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyTenancySearchArchivedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSupplierSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSearch" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSupplierSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSupplierSearchArchived_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSearchArchived" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSupplierSearchArchived_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierSearchArchivedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyWorksOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyWorksOrders" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyWorksOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyWorksOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyWorksOrderTenancies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyWorksOrderTenancies" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyWorksOrderTenancies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyWorksOrderTenanciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDiaryInvoiceFilesLegacy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiaryInvoiceFilesLegacy" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDiaryInvoiceFilesLegacy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiaryInvoiceFilesLegacyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteDiaryInvoiceFileLegacy_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDiaryInvoiceFileLegacy" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteDiaryInvoiceFileLegacy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDiaryInvoiceFileLegacyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessOwnerDiaryExternalFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessOwnerDiaryExternalFile" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessOwnerDiaryExternalFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessOwnerDiaryExternalFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessPropertyDiaryExternalFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPropertyDiaryExternalFile" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessPropertyDiaryExternalFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPropertyDiaryExternalFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessTenancyDiaryExternalFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessTenancyDiaryExternalFile" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessTenancyDiaryExternalFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessTenancyDiaryExternalFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessSupplierDiaryExternalFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessSupplierDiaryExternalFile" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessSupplierDiaryExternalFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessSupplierDiaryExternalFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessPropertyDiaryInvoiceFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPropertyDiaryInvoiceFile" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessPropertyDiaryInvoiceFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPropertyDiaryInvoiceFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessPropertyDiaryInvoiceFileValidated_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPropertyDiaryInvoiceFileValidated" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessPropertyDiaryInvoiceFileValidated_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPropertyDiaryInvoiceFileValidatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessPropertyWorksOrderInvoiceCharge_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPropertyWorksOrderInvoiceCharge" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProcessPropertyWorksOrderInvoiceCharge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPropertyWorksOrderInvoiceChargeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllAvailableProperties_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAvailableProperties" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllAvailableProperties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAvailablePropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAvailablePropertyImages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailablePropertyImages" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAvailablePropertyImages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailablePropertyImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPreviousAvailableProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreviousAvailableProperty" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPreviousAvailableProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreviousAvailablePropertyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="TestServiceConnectionReturnUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/TestServiceConnectionReturnUserName" message="tns:IService_TestServiceConnectionReturnUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/TestServiceConnectionReturnUserNameResponse" message="tns:IService_TestServiceConnectionReturnUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RESTTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RESTTest" message="tns:IService_RESTTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RESTTestResponse" message="tns:IService_RESTTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAgents" message="tns:IService_GetAgents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAgentsResponse" message="tns:IService_GetAgents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiaryGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetDiaryGroups" message="tns:IService_GetDiaryGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetDiaryGroupsResponse" message="tns:IService_GetDiaryGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedAgent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedAgent" message="tns:IService_GetViewAllDetailedAgent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedAgentResponse" message="tns:IService_GetViewAllDetailedAgent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedOwner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedOwner" message="tns:IService_GetViewAllDetailedOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedOwnerResponse" message="tns:IService_GetViewAllDetailedOwner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedSupplier" message="tns:IService_GetViewAllDetailedSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedSupplierResponse" message="tns:IService_GetViewAllDetailedSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedProperty" message="tns:IService_GetViewAllDetailedProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedPropertyResponse" message="tns:IService_GetViewAllDetailedProperty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedTenancy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedTenancy" message="tns:IService_GetViewAllDetailedTenancy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedTenancyResponse" message="tns:IService_GetViewAllDetailedTenancy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedInspection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedInspection" message="tns:IService_GetViewAllDetailedInspection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedInspectionResponse" message="tns:IService_GetViewAllDetailedInspection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedWorksOrderAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedWorksOrderAvailable" message="tns:IService_GetViewAllDetailedWorksOrderAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllDetailedWorksOrderAvailableResponse" message="tns:IService_GetViewAllDetailedWorksOrderAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorksOrderAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateWorksOrderAction" message="tns:IService_UpdateWorksOrderAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateWorksOrderActionResponse" message="tns:IService_UpdateWorksOrderAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllProperty" message="tns:IService_GetViewAllProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllPropertyResponse" message="tns:IService_GetViewAllProperty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllExpense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllExpense" message="tns:IService_GetViewAllExpense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllExpenseResponse" message="tns:IService_GetViewAllExpense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllSupplier" message="tns:IService_GetViewAllSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllSupplierResponse" message="tns:IService_GetViewAllSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllWorksOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetViewAllWorksOrders" message="tns:IService_GetViewAllWorksOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetViewAllWorksOrdersResponse" message="tns:IService_GetViewAllWorksOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyOwnerSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPropertyOwnerSearch" message="tns:IService_GetPropertyOwnerSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertyOwnerSearchResponse" message="tns:IService_GetPropertyOwnerSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyOwnerSearchArchived">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPropertyOwnerSearchArchived" message="tns:IService_GetPropertyOwnerSearchArchived_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertyOwnerSearchArchivedResponse" message="tns:IService_GetPropertyOwnerSearchArchived_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertySearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPropertySearch" message="tns:IService_GetPropertySearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertySearchResponse" message="tns:IService_GetPropertySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertySearchArchived">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPropertySearchArchived" message="tns:IService_GetPropertySearchArchived_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertySearchArchivedResponse" message="tns:IService_GetPropertySearchArchived_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyTenancySearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPropertyTenancySearch" message="tns:IService_GetPropertyTenancySearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertyTenancySearchResponse" message="tns:IService_GetPropertyTenancySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyTenancySearchArchived">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPropertyTenancySearchArchived" message="tns:IService_GetPropertyTenancySearchArchived_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertyTenancySearchArchivedResponse" message="tns:IService_GetPropertyTenancySearchArchived_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetSupplierSearch" message="tns:IService_GetSupplierSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetSupplierSearchResponse" message="tns:IService_GetSupplierSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSearchArchived">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetSupplierSearchArchived" message="tns:IService_GetSupplierSearchArchived_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetSupplierSearchArchivedResponse" message="tns:IService_GetSupplierSearchArchived_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyWorksOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPropertyWorksOrders" message="tns:IService_GetPropertyWorksOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertyWorksOrdersResponse" message="tns:IService_GetPropertyWorksOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyWorksOrderTenancies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPropertyWorksOrderTenancies" message="tns:IService_GetPropertyWorksOrderTenancies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertyWorksOrderTenanciesResponse" message="tns:IService_GetPropertyWorksOrderTenancies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiaryInvoiceFilesLegacy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetDiaryInvoiceFilesLegacy" message="tns:IService_GetDiaryInvoiceFilesLegacy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetDiaryInvoiceFilesLegacyResponse" message="tns:IService_GetDiaryInvoiceFilesLegacy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDiaryInvoiceFileLegacy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteDiaryInvoiceFileLegacy" message="tns:IService_DeleteDiaryInvoiceFileLegacy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteDiaryInvoiceFileLegacyResponse" message="tns:IService_DeleteDiaryInvoiceFileLegacy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOwnerDiaryExternalFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProcessOwnerDiaryExternalFile" message="tns:IService_ProcessOwnerDiaryExternalFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProcessOwnerDiaryExternalFileResponse" message="tns:IService_ProcessOwnerDiaryExternalFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPropertyDiaryExternalFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProcessPropertyDiaryExternalFile" message="tns:IService_ProcessPropertyDiaryExternalFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProcessPropertyDiaryExternalFileResponse" message="tns:IService_ProcessPropertyDiaryExternalFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTenancyDiaryExternalFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProcessTenancyDiaryExternalFile" message="tns:IService_ProcessTenancyDiaryExternalFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProcessTenancyDiaryExternalFileResponse" message="tns:IService_ProcessTenancyDiaryExternalFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSupplierDiaryExternalFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProcessSupplierDiaryExternalFile" message="tns:IService_ProcessSupplierDiaryExternalFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProcessSupplierDiaryExternalFileResponse" message="tns:IService_ProcessSupplierDiaryExternalFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPropertyDiaryInvoiceFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProcessPropertyDiaryInvoiceFile" message="tns:IService_ProcessPropertyDiaryInvoiceFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProcessPropertyDiaryInvoiceFileResponse" message="tns:IService_ProcessPropertyDiaryInvoiceFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPropertyDiaryInvoiceFileValidated">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProcessPropertyDiaryInvoiceFileValidated" message="tns:IService_ProcessPropertyDiaryInvoiceFileValidated_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProcessPropertyDiaryInvoiceFileValidatedResponse" message="tns:IService_ProcessPropertyDiaryInvoiceFileValidated_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPropertyWorksOrderInvoiceCharge">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProcessPropertyWorksOrderInvoiceCharge" message="tns:IService_ProcessPropertyWorksOrderInvoiceCharge_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProcessPropertyWorksOrderInvoiceChargeResponse" message="tns:IService_ProcessPropertyWorksOrderInvoiceCharge_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAvailableProperties">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllAvailableProperties" message="tns:IService_GetAllAvailableProperties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllAvailablePropertiesResponse" message="tns:IService_GetAllAvailableProperties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailablePropertyImages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAvailablePropertyImages" message="tns:IService_GetAvailablePropertyImages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAvailablePropertyImagesResponse" message="tns:IService_GetAvailablePropertyImages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviousAvailableProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPreviousAvailableProperty" message="tns:IService_GetPreviousAvailableProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPreviousAvailablePropertyResponse" message="tns:IService_GetPreviousAvailableProperty_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IService" type="tns:IService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestServiceConnectionReturnUserName">
+      <soap12:operation soapAction="http://tempuri.org/IService/TestServiceConnectionReturnUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RESTTest">
+      <soap12:operation soapAction="http://tempuri.org/IService/RESTTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgents">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAgents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiaryGroups">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetDiaryGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedAgent">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllDetailedAgent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedOwner">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllDetailedOwner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedSupplier">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllDetailedSupplier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedProperty">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllDetailedProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedTenancy">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllDetailedTenancy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedInspection">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllDetailedInspection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllDetailedWorksOrderAvailable">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllDetailedWorksOrderAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorksOrderAction">
+      <soap12:operation soapAction="http://tempuri.org/IService/UpdateWorksOrderAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllProperty">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllExpense">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllExpense" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllSupplier">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllSupplier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAllWorksOrders">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetViewAllWorksOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyOwnerSearch">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPropertyOwnerSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyOwnerSearchArchived">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPropertyOwnerSearchArchived" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertySearch">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPropertySearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertySearchArchived">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPropertySearchArchived" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyTenancySearch">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPropertyTenancySearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyTenancySearchArchived">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPropertyTenancySearchArchived" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSearch">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetSupplierSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierSearchArchived">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetSupplierSearchArchived" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyWorksOrders">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPropertyWorksOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyWorksOrderTenancies">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPropertyWorksOrderTenancies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiaryInvoiceFilesLegacy">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetDiaryInvoiceFilesLegacy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDiaryInvoiceFileLegacy">
+      <soap12:operation soapAction="http://tempuri.org/IService/DeleteDiaryInvoiceFileLegacy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOwnerDiaryExternalFile">
+      <soap12:operation soapAction="http://tempuri.org/IService/ProcessOwnerDiaryExternalFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPropertyDiaryExternalFile">
+      <soap12:operation soapAction="http://tempuri.org/IService/ProcessPropertyDiaryExternalFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTenancyDiaryExternalFile">
+      <soap12:operation soapAction="http://tempuri.org/IService/ProcessTenancyDiaryExternalFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSupplierDiaryExternalFile">
+      <soap12:operation soapAction="http://tempuri.org/IService/ProcessSupplierDiaryExternalFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPropertyDiaryInvoiceFile">
+      <soap12:operation soapAction="http://tempuri.org/IService/ProcessPropertyDiaryInvoiceFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPropertyDiaryInvoiceFileValidated">
+      <soap12:operation soapAction="http://tempuri.org/IService/ProcessPropertyDiaryInvoiceFileValidated" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPropertyWorksOrderInvoiceCharge">
+      <soap12:operation soapAction="http://tempuri.org/IService/ProcessPropertyWorksOrderInvoiceCharge" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAvailableProperties">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllAvailableProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailablePropertyImages">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAvailablePropertyImages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviousAvailableProperty">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPreviousAvailableProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="WSHttpBinding_IService" binding="tns:WSHttpBinding_IService">
+      <soap12:address location="https://serviceapi.realbaselive.com/Service.svc/soapService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://serviceapi.realbaselive.com/Service.svc/soapService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

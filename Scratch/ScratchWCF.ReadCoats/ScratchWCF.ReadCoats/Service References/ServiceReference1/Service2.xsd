@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfAgent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Agent" nillable="true" type="tns:Agent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAgent" nillable="true" type="tns:ArrayOfAgent" />
+  <xs:complexType name="Agent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentUserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Agent" nillable="true" type="tns:Agent" />
+  <xs:complexType name="ArrayOfDiaryGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DiaryGroup" nillable="true" type="tns:DiaryGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDiaryGroup" nillable="true" type="tns:ArrayOfDiaryGroup" />
+  <xs:complexType name="DiaryGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiaryGroupCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryGroupDescription" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiaryGroup" nillable="true" type="tns:DiaryGroup" />
+  <xs:complexType name="ArrayOfViewAllDetailedAgent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllDetailedAgent" nillable="true" type="tns:ViewAllDetailedAgent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllDetailedAgent" nillable="true" type="tns:ArrayOfViewAllDetailedAgent" />
+  <xs:complexType name="ViewAllDetailedAgent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgentAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentArchived" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AgentChangeCode" type="xs:long" />
+      <xs:element minOccurs="0" name="AgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentDateStarted" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentEmail1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentEmail2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentPaymentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentPhoneHome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentPhoneWork" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentPosition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllDetailedAgent" nillable="true" type="tns:ViewAllDetailedAgent" />
+  <xs:complexType name="ArrayOfViewAllDetailedOwner">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllDetailedOwner" nillable="true" type="tns:ViewAllDetailedOwner" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllDetailedOwner" nillable="true" type="tns:ArrayOfViewAllDetailedOwner" />
+  <xs:complexType name="ViewAllDetailedOwner">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OwnerAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerArchived" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OwnerChangeCode" type="xs:long" />
+      <xs:element minOccurs="0" name="OwnerCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerCurrentBalance" type="xs:double" />
+      <xs:element minOccurs="0" name="OwnerEmail1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerEmail2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerEndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerIncludeAlternateStatement" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OwnerInsuranceCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerInsuranceExcess" type="xs:double" />
+      <xs:element minOccurs="0" name="OwnerLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerLastTransactionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerOpeningBalance" type="xs:double" />
+      <xs:element minOccurs="0" name="OwnerOurCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerPaymentFrequency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerPaymentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerPhoneHome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerPhoneWork" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerPrimaryAgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerServiceAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerSortCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerStatementMedia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerStatementType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllDetailedOwner" nillable="true" type="tns:ViewAllDetailedOwner" />
+  <xs:complexType name="ArrayOfViewAllDetailedSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllDetailedSupplier" nillable="true" type="tns:ViewAllDetailedSupplier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllDetailedSupplier" nillable="true" type="tns:ArrayOfViewAllDetailedSupplier" />
+  <xs:complexType name="ViewAllDetailedSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SupplierAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierArchived" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SupplierChangeCode" type="xs:long" />
+      <xs:element minOccurs="0" name="SupplierCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierCompanyDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierCompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierContactFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierContactLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierCurrentBalance" type="xs:double" />
+      <xs:element minOccurs="0" name="SupplierDefaultExpenseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierDefaultExpenseDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierEmail1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierEmail2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierGSTorABN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierInsuranceExpiry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierIsCompany" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SupplierLastTransactionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierOpeningBalance" type="xs:double" />
+      <xs:element minOccurs="0" name="SupplierOurCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierPaymentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierPhoneHome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierPhoneWork" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierServiceAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierSortCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierStatementMedia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllDetailedSupplier" nillable="true" type="tns:ViewAllDetailedSupplier" />
+  <xs:complexType name="ArrayOfViewAllDetailedProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllDetailedProperty" nillable="true" type="tns:ViewAllDetailedProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllDetailedProperty" nillable="true" type="tns:ArrayOfViewAllDetailedProperty" />
+  <xs:complexType name="ViewAllDetailedProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentEmail1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentEmail2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyArchived" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PropertyChangeCode" type="xs:long" />
+      <xs:element minOccurs="0" name="PropertyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCommissionPercent" type="xs:double" />
+      <xs:element minOccurs="0" name="PropertyCurrentBalance" type="xs:double" />
+      <xs:element minOccurs="0" name="PropertyDateAvailable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyDisbursementsLimited" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PropertyDisbursementsMax" type="xs:double" />
+      <xs:element minOccurs="0" name="PropertyGrid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyKeyAccess" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyKeyNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyMaintenanceFeePercent" type="xs:double" />
+      <xs:element minOccurs="0" name="PropertyManagementType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyOpeningBalance" type="xs:double" />
+      <xs:element minOccurs="0" name="PropertyOurCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyOwnerCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyPostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyRentAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="PropertyRentalPeriod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertySortCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyStartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyUnit" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllDetailedProperty" nillable="true" type="tns:ViewAllDetailedProperty" />
+  <xs:complexType name="ArrayOfViewAllDetailedTenancy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllDetailedTenancy" nillable="true" type="tns:ViewAllDetailedTenancy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllDetailedTenancy" nillable="true" type="tns:ArrayOfViewAllDetailedTenancy" />
+  <xs:complexType name="ViewAllDetailedTenancy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyArchived" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TenancyChangeCode" type="xs:long" />
+      <xs:element minOccurs="0" name="TenancyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyContactAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyContactFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyContactPhone1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyContactPhone2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyCurrentRent" type="xs:double" />
+      <xs:element minOccurs="0" name="TenancyDateEnded" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyDateStarted" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyLastPaymentDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyLeaseDateEnded" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyNote" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyOtherOwing" type="xs:double" />
+      <xs:element minOccurs="0" name="TenancyRentOwing" type="xs:double" />
+      <xs:element minOccurs="0" name="TenancyRentPaidToDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyRentPaidToLastMonth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyRentPartPayment" type="xs:double" />
+      <xs:element minOccurs="0" name="TenancyRentalPeriod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancySortCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyTenants" nillable="true" type="tns:ArrayOfDetailedTenant" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllDetailedTenancy" nillable="true" type="tns:ViewAllDetailedTenancy" />
+  <xs:complexType name="ArrayOfDetailedTenant">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetailedTenant" nillable="true" type="tns:DetailedTenant" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetailedTenant" nillable="true" type="tns:ArrayOfDetailedTenant" />
+  <xs:complexType name="DetailedTenant">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TenantAddressPostal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantAddressService" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantHead" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TenantLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantPhoneHome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantPhoneMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantPhoneWork" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetailedTenant" nillable="true" type="tns:DetailedTenant" />
+  <xs:complexType name="ArrayOfViewAllDetailedInspection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllDetailedInspection" nillable="true" type="tns:ViewAllDetailedInspection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllDetailedInspection" nillable="true" type="tns:ArrayOfViewAllDetailedInspection" />
+  <xs:complexType name="ViewAllDetailedInspection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InspectionChargeAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="InspectionCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InspectionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InspectionFrequencyNo" type="xs:long" />
+      <xs:element minOccurs="0" name="InspectionFrequencyPeriod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InspectionManagementType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllDetailedInspection" nillable="true" type="tns:ViewAllDetailedInspection" />
+  <xs:complexType name="ArrayOfViewAllDetailedWorksOrderAvailable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllDetailedWorksOrderAvailable" nillable="true" type="tns:ViewAllDetailedWorksOrderAvailable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllDetailedWorksOrderAvailable" nillable="true" type="tns:ArrayOfViewAllDetailedWorksOrderAvailable" />
+  <xs:complexType name="ViewAllDetailedWorksOrderAvailable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpenseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpenseDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderAgentUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderChangeCode" type="xs:long" />
+      <xs:element minOccurs="0" name="WorksOrderCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderCreatedViaApp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WorksOrderDateEntered" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderDateScheduled" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderEstimatedAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="WorksOrderJobAction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderJobNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderOwnerFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderPropertyAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderSentViaEmail" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WorksOrderSupplierFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderSupplierInvoiceAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="WorksOrderSupplierInvoiceDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderSupplierInvoiceDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderSupplierInvoiceDueDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderSupplierInvoiceExcludeFees" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WorksOrderSupplierInvoicePriority" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderSupplierInvoiceReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderTenancyChargeAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="WorksOrderTenancyChargeTracking" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WorksOrderTenancyInvoiceDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderTenancyInvoiceDueDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderTenancyName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllDetailedWorksOrderAvailable" nillable="true" type="tns:ViewAllDetailedWorksOrderAvailable" />
+  <xs:complexType name="ArrayOfViewAllProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllProperty" nillable="true" type="tns:ViewAllProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllProperty" nillable="true" type="tns:ArrayOfViewAllProperty" />
+  <xs:complexType name="ViewAllProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentEmail1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentEmail2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCurrentBalance" type="xs:double" />
+      <xs:element minOccurs="0" name="PropertyManagementType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyPostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertySortCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyStartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyUnit" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllProperty" nillable="true" type="tns:ViewAllProperty" />
+  <xs:complexType name="ArrayOfViewAllExpenses">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllExpenses" nillable="true" type="tns:ViewAllExpenses" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllExpenses" nillable="true" type="tns:ArrayOfViewAllExpenses" />
+  <xs:complexType name="ViewAllExpenses">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExpenseAccountType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpenseActive" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpenseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpenseDefaultText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpenseDescription" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllExpenses" nillable="true" type="tns:ViewAllExpenses" />
+  <xs:complexType name="ArrayOfViewAllSuppliers">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllSuppliers" nillable="true" type="tns:ViewAllSuppliers" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllSuppliers" nillable="true" type="tns:ArrayOfViewAllSuppliers" />
+  <xs:complexType name="ViewAllSuppliers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExpenseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierGSTABN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllSuppliers" nillable="true" type="tns:ViewAllSuppliers" />
+  <xs:complexType name="ArrayOfViewAllWorksOrders">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewAllWorksOrders" nillable="true" type="tns:ViewAllWorksOrders" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewAllWorksOrders" nillable="true" type="tns:ArrayOfViewAllWorksOrders" />
+  <xs:complexType name="ViewAllWorksOrders">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExpenseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="WorksOrderDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderInvoiceDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderJobNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewAllWorksOrders" nillable="true" type="tns:ViewAllWorksOrders" />
+  <xs:complexType name="ArrayOfOwner">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Owner" nillable="true" type="tns:Owner" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOwner" nillable="true" type="tns:ArrayOfOwner" />
+  <xs:complexType name="Owner">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OwnerCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerSortCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Owner" nillable="true" type="tns:Owner" />
+  <xs:complexType name="ArrayOfProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Property" nillable="true" type="tns:Property" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProperty" nillable="true" type="tns:ArrayOfProperty" />
+  <xs:complexType name="Property">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyOwnerDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyUnit" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Property" nillable="true" type="tns:Property" />
+  <xs:complexType name="ArrayOfTenancy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tenancy" nillable="true" type="tns:Tenancy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTenancy" nillable="true" type="tns:ArrayOfTenancy" />
+  <xs:complexType name="Tenancy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TenancyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyEndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyOtherAmountsOwing" type="xs:double" />
+      <xs:element minOccurs="0" name="TenancySortCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenancyStartDate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tenancy" nillable="true" type="tns:Tenancy" />
+  <xs:complexType name="ArrayOfSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Supplier" nillable="true" type="tns:Supplier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplier" nillable="true" type="tns:ArrayOfSupplier" />
+  <xs:complexType name="Supplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SupplierCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierSortCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Supplier" nillable="true" type="tns:Supplier" />
+  <xs:complexType name="ArrayOfPropertyWorksOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertyWorksOrder" nillable="true" type="tns:PropertyWorksOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPropertyWorksOrder" nillable="true" type="tns:ArrayOfPropertyWorksOrder" />
+  <xs:complexType name="PropertyWorksOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="WorksOrderAgentDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderChargeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderCreditorDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderEstimatedAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="WorksOrderInvoiceDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderJobNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyWorksOrder" nillable="true" type="tns:PropertyWorksOrder" />
+  <xs:complexType name="ArrayOfPropertyDiaryInvoiceFileLegacy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertyDiaryInvoiceFileLegacy" nillable="true" type="tns:PropertyDiaryInvoiceFileLegacy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPropertyDiaryInvoiceFileLegacy" nillable="true" type="tns:ArrayOfPropertyDiaryInvoiceFileLegacy" />
+  <xs:complexType name="PropertyDiaryInvoiceFileLegacy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiaryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryEntryDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="DiaryMetaData" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyDiaryInvoiceFileLegacy" nillable="true" type="tns:PropertyDiaryInvoiceFileLegacy" />
+  <xs:complexType name="OwnerDiaryExternalFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiaryAgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryGroupCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="DiaryOnline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryOwnerCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OwnerDiaryExternalFile" nillable="true" type="tns:OwnerDiaryExternalFile" />
+  <xs:complexType name="PropertyDiaryExternalFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiaryAgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryGroupCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="DiaryOnline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryPropertyCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyDiaryExternalFile" nillable="true" type="tns:PropertyDiaryExternalFile" />
+  <xs:complexType name="TenancyDiaryExternalFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiaryAgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryGroupCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="DiaryOnline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryTenancyCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TenancyDiaryExternalFile" nillable="true" type="tns:TenancyDiaryExternalFile" />
+  <xs:complexType name="SupplierDiaryExternalFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiaryAgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryGroupCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="DiaryOnline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiarySupplierCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplierDiaryExternalFile" nillable="true" type="tns:SupplierDiaryExternalFile" />
+  <xs:complexType name="PropertyDiaryInvoiceFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiaryInvoiceAccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomDescription01" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomDescription02" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomDescription03" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomDescription04" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomDescription05" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomDescription06" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomDescription07" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomDescription08" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomDescription09" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomDescription10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomValue01" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomValue02" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomValue03" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomValue04" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomValue05" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomValue06" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomValue07" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomValue08" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomValue09" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceCustomValue10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="DiaryInvoiceLastMeterReading" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceLastMeterReadingDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoicePropertyAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceReferenceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceSupplierName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceSupplierTaxNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceThisMeterReading" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceThisMeterReadingDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceTotalAmountIncludingGST" type="xs:double" />
+      <xs:element minOccurs="0" name="DiaryInvoiceTotalGSTAmount" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyDiaryInvoiceFile" nillable="true" type="tns:PropertyDiaryInvoiceFile" />
+  <xs:complexType name="PropertyDiaryInvoiceFileException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiaryInvoiceFileExceptionMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiaryInvoiceFileExceptionNo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyDiaryInvoiceFileException" nillable="true" type="tns:PropertyDiaryInvoiceFileException" />
+  <xs:complexType name="PropertyWorksOrderInvoiceCharge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="WorksOrderChargeAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="WorksOrderChargeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderChargeReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderChargeTenancyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderInvoiceAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="WorksOrderInvoiceDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderInvoiceDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorksOrderInvoiceImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="WorksOrderInvoiceReference" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyWorksOrderInvoiceCharge" nillable="true" type="tns:PropertyWorksOrderInvoiceCharge" />
+  <xs:complexType name="ArrayOfAvailableProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AvailableProperty" nillable="true" type="tns:AvailableProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAvailableProperty" nillable="true" type="tns:ArrayOfAvailableProperty" />
+  <xs:complexType name="AvailableProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAddress4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgent" nillable="true" type="tns:AvailablePropertyAgent" />
+      <xs:element minOccurs="0" name="PropertyChangeCode" type="xs:long" />
+      <xs:element minOccurs="0" name="PropertyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCodeGlobal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCustomList" nillable="true" type="tns:ArrayOfAvailablePropertyCustom" />
+      <xs:element minOccurs="0" name="PropertyDateAvailable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyFeatures" nillable="true" type="tns:AvailablePropertyFeatures" />
+      <xs:element minOccurs="0" name="PropertyGrid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyManagementType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyOwnerCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyRentAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="PropertyRentalPeriod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertySortCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertySuburb" nillable="true" type="tns:ArrayOfAvailablePropertySuburbs" />
+      <xs:element minOccurs="0" name="PropertyUnit" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AvailableProperty" nillable="true" type="tns:AvailableProperty" />
+  <xs:complexType name="AvailablePropertyAgent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyAgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentEmail1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentEmail2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentPhoneMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentPhoneWork" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAgentTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyExternalCodes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AvailablePropertyAgent" nillable="true" type="tns:AvailablePropertyAgent" />
+  <xs:complexType name="ArrayOfAvailablePropertyCustom">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AvailablePropertyCustom" nillable="true" type="tns:AvailablePropertyCustom" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAvailablePropertyCustom" nillable="true" type="tns:ArrayOfAvailablePropertyCustom" />
+  <xs:complexType name="AvailablePropertyCustom">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyCustomName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCustomValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AvailablePropertyCustom" nillable="true" type="tns:AvailablePropertyCustom" />
+  <xs:complexType name="AvailablePropertyFeatures">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyAdvertText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyAmenities" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyBathroomsNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyBedroomsNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCarsNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyClass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyEnsuitesNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyFeatureDetails" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyFloorArea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyFurnishings" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyGeographicLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyHeader" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyLandAreaHectares" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyLandAreaMSquared" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyNewConstruction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyParking" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyPetsAllowed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyPostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyPublishAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyPublishEntry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertySmokersAllowed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyStories" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyVirtualTourURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyWebLinkURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyYearBuilt" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AvailablePropertyFeatures" nillable="true" type="tns:AvailablePropertyFeatures" />
+  <xs:complexType name="ArrayOfAvailablePropertySuburbs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AvailablePropertySuburbs" nillable="true" type="tns:AvailablePropertySuburbs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAvailablePropertySuburbs" nillable="true" type="tns:ArrayOfAvailablePropertySuburbs" />
+  <xs:complexType name="AvailablePropertySuburbs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertySuburbCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertySuburbDistrictOrPostcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertySuburbName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertySuburbRegionOrState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertySuburbType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AvailablePropertySuburbs" nillable="true" type="tns:AvailablePropertySuburbs" />
+  <xs:complexType name="ArrayOfAvailablePropertyImages">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AvailablePropertyImages" nillable="true" type="tns:AvailablePropertyImages" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAvailablePropertyImages" nillable="true" type="tns:ArrayOfAvailablePropertyImages" />
+  <xs:complexType name="AvailablePropertyImages">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyImageBase64" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyImageCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyImageCodeGlobal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyImageDescription" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AvailablePropertyImages" nillable="true" type="tns:AvailablePropertyImages" />
+  <xs:complexType name="PreviousAvailableProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PropertyCodeGlobal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyDateAvailableRemoved" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyDateAvailableRemovedReason" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PreviousAvailableProperty" nillable="true" type="tns:PreviousAvailableProperty" />
+</xs:schema>

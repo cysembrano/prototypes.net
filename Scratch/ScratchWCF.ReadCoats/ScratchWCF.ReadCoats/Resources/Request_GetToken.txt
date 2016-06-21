@@ -1,0 +1,30 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://schemas.xmlsoap.org/ws/2005/02/trust/RST/SCT</a:Action>
+		<a:MessageID>urn:uuid:d263504b-224c-4e80-aa79-5948a7050ccb</a:MessageID>
+		<a:ReplyTo>
+			<a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+		</a:ReplyTo>
+		<a:To s:mustUnderstand="1">https://serviceapi.realbaselive.com/Service.svc/soapService</a:To>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>{0}</u:Created>
+				<u:Expires>{1}</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-dce97250-1e91-457d-9533-123ca264600d-1">
+				<o:Username>{2}</o:Username>
+				<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">{3}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<t:RequestSecurityToken xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+			<t:TokenType>http://schemas.xmlsoap.org/ws/2005/02/sc/sct</t:TokenType>
+			<t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
+			<t:Entropy>
+				<t:BinarySecret u:Id="uuid-3fdbb12e-4296-4a3e-8234-c03029c39d44-1" Type="http://schemas.xmlsoap.org/ws/2005/02/trust/Nonce">{4}</t:BinarySecret>
+			</t:Entropy>
+			<t:KeySize>256</t:KeySize>
+		</t:RequestSecurityToken>
+	</s:Body>
+</s:Envelope>

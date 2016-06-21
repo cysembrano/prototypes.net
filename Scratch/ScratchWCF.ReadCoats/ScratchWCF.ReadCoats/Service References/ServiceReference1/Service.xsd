@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://serviceapi.realbaselive.com/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" />
+  <xs:element name="TestServiceConnectionReturnUserName">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestServiceConnectionReturnUserNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TestServiceConnectionReturnUserNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RESTTest">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RESTTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RESTTestResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgents">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetAgentsResult" nillable="true" type="q1:ArrayOfAgent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDiaryGroups">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDiaryGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetDiaryGroupsResult" nillable="true" type="q2:ArrayOfDiaryGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedAgent">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedAgentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllDetailedAgentResult" nillable="true" type="q3:ArrayOfViewAllDetailedAgent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedOwner">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedOwnerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllDetailedOwnerResult" nillable="true" type="q4:ArrayOfViewAllDetailedOwner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedSupplier">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedSupplierResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllDetailedSupplierResult" nillable="true" type="q5:ArrayOfViewAllDetailedSupplier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedProperty">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedPropertyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllDetailedPropertyResult" nillable="true" type="q6:ArrayOfViewAllDetailedProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedTenancy">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedTenancyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllDetailedTenancyResult" nillable="true" type="q7:ArrayOfViewAllDetailedTenancy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedInspection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strIncludeCasual" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedInspectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllDetailedInspectionResult" nillable="true" type="q8:ArrayOfViewAllDetailedInspection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedWorksOrderAvailable">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllDetailedWorksOrderAvailableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllDetailedWorksOrderAvailableResult" nillable="true" type="q9:ArrayOfViewAllDetailedWorksOrderAvailable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWorksOrderAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strDiaryCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDiaryJobAction" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWorksOrderActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateWorksOrderActionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllProperty">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllPropertyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllPropertyResult" nillable="true" type="q10:ArrayOfViewAllProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllExpense">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllExpenseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllExpenseResult" nillable="true" type="q11:ArrayOfViewAllExpenses" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllSupplier">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllSupplierResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllSupplierResult" nillable="true" type="q12:ArrayOfViewAllSuppliers" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllWorksOrders">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViewAllWorksOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetViewAllWorksOrdersResult" nillable="true" type="q13:ArrayOfViewAllWorksOrders" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyOwnerSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyOwnerSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetPropertyOwnerSearchResult" nillable="true" type="q14:ArrayOfOwner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyOwnerSearchArchived">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyOwnerSearchArchivedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetPropertyOwnerSearchArchivedResult" nillable="true" type="q15:ArrayOfOwner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetPropertySearchResult" nillable="true" type="q16:ArrayOfProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertySearchArchived">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertySearchArchivedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetPropertySearchArchivedResult" nillable="true" type="q17:ArrayOfProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyTenancySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyTenancySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetPropertyTenancySearchResult" nillable="true" type="q18:ArrayOfTenancy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyTenancySearchArchived">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyTenancySearchArchivedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetPropertyTenancySearchArchivedResult" nillable="true" type="q19:ArrayOfTenancy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetSupplierSearchResult" nillable="true" type="q20:ArrayOfSupplier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSearchArchived">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierSearchArchivedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetSupplierSearchArchivedResult" nillable="true" type="q21:ArrayOfSupplier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyWorksOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strPropertyCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyWorksOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetPropertyWorksOrdersResult" nillable="true" type="q22:ArrayOfPropertyWorksOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyWorksOrderTenancies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strPropertyCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyWorksOrderTenanciesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetPropertyWorksOrderTenanciesResult" nillable="true" type="q23:ArrayOfTenancy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDiaryInvoiceFilesLegacy">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDiaryInvoiceFilesLegacyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetDiaryInvoiceFilesLegacyResult" nillable="true" type="q24:ArrayOfPropertyDiaryInvoiceFileLegacy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDiaryInvoiceFileLegacy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strDiaryCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDiaryInvoiceFileLegacyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteDiaryInvoiceFileLegacyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessOwnerDiaryExternalFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="newOwnerDiaryExternalFile" nillable="true" type="q25:OwnerDiaryExternalFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessOwnerDiaryExternalFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessOwnerDiaryExternalFileResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPropertyDiaryExternalFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="newPropertyDiaryExternalFile" nillable="true" type="q26:PropertyDiaryExternalFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPropertyDiaryExternalFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessPropertyDiaryExternalFileResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessTenancyDiaryExternalFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="newTenancyDiaryExternalFile" nillable="true" type="q27:TenancyDiaryExternalFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessTenancyDiaryExternalFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessTenancyDiaryExternalFileResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessSupplierDiaryExternalFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="newSupplierDiaryExternalFile" nillable="true" type="q28:SupplierDiaryExternalFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessSupplierDiaryExternalFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessSupplierDiaryExternalFileResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPropertyDiaryInvoiceFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="newPropertyDiaryInvoiceFile" nillable="true" type="q29:PropertyDiaryInvoiceFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPropertyDiaryInvoiceFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessPropertyDiaryInvoiceFileResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPropertyDiaryInvoiceFileValidated">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="newPropertyDiaryInvoiceFile" nillable="true" type="q30:PropertyDiaryInvoiceFile" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="newPropertyDiaryInvoiceFileException" nillable="true" type="q31:PropertyDiaryInvoiceFileException" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPropertyDiaryInvoiceFileValidatedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessPropertyDiaryInvoiceFileValidatedResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPropertyWorksOrderInvoiceCharge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="NewPropertyWorksOrderInvoiceCharge" nillable="true" type="q32:PropertyWorksOrderInvoiceCharge" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPropertyWorksOrderInvoiceChargeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessPropertyWorksOrderInvoiceChargeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAvailableProperties">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAvailablePropertiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetAllAvailablePropertiesResult" nillable="true" type="q33:ArrayOfAvailableProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailablePropertyImages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strPropertyCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailablePropertyImagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetAvailablePropertyImagesResult" nillable="true" type="q34:ArrayOfAvailablePropertyImages" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreviousAvailableProperty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strPropertyCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreviousAvailablePropertyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/WCFServicePalaceAPI" minOccurs="0" name="GetPreviousAvailablePropertyResult" nillable="true" type="q35:PreviousAvailableProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
