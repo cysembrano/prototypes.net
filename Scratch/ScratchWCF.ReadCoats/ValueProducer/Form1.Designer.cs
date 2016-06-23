@@ -41,6 +41,11 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBinarySecretServer = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBinarySecretClient = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.hMACSHA1PSHAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hMACSHA1CryptoHelperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -69,14 +74,16 @@
             // timestampToolStripMenuItem
             // 
             this.timestampToolStripMenuItem.Name = "timestampToolStripMenuItem";
-            this.timestampToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.timestampToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.timestampToolStripMenuItem.Text = "&SHA1Hash";
             this.timestampToolStripMenuItem.Click += new System.EventHandler(this.timestampToolStripMenuItem_Click);
             // 
             // signatureToolStripMenuItem
             // 
             this.signatureToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.signatureInfoToolStripMenuItem});
+            this.signatureInfoToolStripMenuItem,
+            this.hMACSHA1PSHAToolStripMenuItem,
+            this.hMACSHA1CryptoHelperToolStripMenuItem});
             this.signatureToolStripMenuItem.Name = "signatureToolStripMenuItem";
             this.signatureToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.signatureToolStripMenuItem.Text = "&Signature";
@@ -84,7 +91,7 @@
             // signatureInfoToolStripMenuItem
             // 
             this.signatureInfoToolStripMenuItem.Name = "signatureInfoToolStripMenuItem";
-            this.signatureInfoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.signatureInfoToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.signatureInfoToolStripMenuItem.Text = "&HMACSHA1";
             this.signatureInfoToolStripMenuItem.Click += new System.EventHandler(this.signatureInfoToolStripMenuItem_Click);
             // 
@@ -111,6 +118,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtInput, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtOutput, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 27);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -140,13 +148,15 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.43929F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.56071F));
+            this.tableLayoutPanel2.Controls.Add(this.txtBinarySecretClient, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtBinarySecretServer, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(668, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.54839F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.45161F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(453, 62);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
@@ -155,9 +165,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(70, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Binary Secret";
+            this.label1.Text = "Binary Secret Server";
             // 
             // txtBinarySecretServer
             // 
@@ -165,6 +175,43 @@
             this.txtBinarySecretServer.Name = "txtBinarySecretServer";
             this.txtBinarySecretServer.Size = new System.Drawing.Size(369, 20);
             this.txtBinarySecretServer.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 26);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Binary Secret Client";
+            // 
+            // txtBinarySecretClient
+            // 
+            this.txtBinarySecretClient.Location = new System.Drawing.Point(81, 34);
+            this.txtBinarySecretClient.Name = "txtBinarySecretClient";
+            this.txtBinarySecretClient.Size = new System.Drawing.Size(369, 20);
+            this.txtBinarySecretClient.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(668, 229);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(450, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // hMACSHA1PSHAToolStripMenuItem
+            // 
+            this.hMACSHA1PSHAToolStripMenuItem.Name = "hMACSHA1PSHAToolStripMenuItem";
+            this.hMACSHA1PSHAToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.hMACSHA1PSHAToolStripMenuItem.Text = "HMACSHA1_PSHA";
+            this.hMACSHA1PSHAToolStripMenuItem.Click += new System.EventHandler(this.hMACSHA1PSHAToolStripMenuItem_Click);
+            // 
+            // hMACSHA1CryptoHelperToolStripMenuItem
+            // 
+            this.hMACSHA1CryptoHelperToolStripMenuItem.Name = "hMACSHA1CryptoHelperToolStripMenuItem";
+            this.hMACSHA1CryptoHelperToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.hMACSHA1CryptoHelperToolStripMenuItem.Text = "HMACSHA1_CryptoHelper";
+            this.hMACSHA1CryptoHelperToolStripMenuItem.Click += new System.EventHandler(this.hMACSHA1CryptoHelperToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -202,6 +249,11 @@
         private System.Windows.Forms.TextBox txtBinarySecretServer;
         private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem linarizeToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtBinarySecretClient;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripMenuItem hMACSHA1PSHAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hMACSHA1CryptoHelperToolStripMenuItem;
     }
 }
 

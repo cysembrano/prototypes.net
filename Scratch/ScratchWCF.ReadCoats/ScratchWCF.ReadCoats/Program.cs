@@ -19,8 +19,10 @@ namespace ScratchWCF.ReadCoats
     {
         static void Main(string[] args)
         {
-            DoWCF.CallRegular_WithInspect();
-            //DoWCF.CallRegular();
+            //DoWCF.CallRegular_WithInspect();
+
+            DoWCF.CallRegular();
+
             //var tokenStream = DoWCF.CallManual_GetToken();
             //DoWCF.CallManual_GetAgents(tokenStream);
 
@@ -29,6 +31,12 @@ namespace ScratchWCF.ReadCoats
 
     public static class DoWCF
     {
+        public static void CallRegular_Alt1()
+        {
+            ServiceReference1.ServiceClient client = new ServiceReference1.ServiceClient();
+
+        }
+
         public static void CallRegular()
         {
             ServiceReference1.ServiceClient client = new ServiceReference1.ServiceClient();
@@ -138,13 +146,13 @@ namespace ScratchWCF.ReadCoats
 
 
             SHA1CryptoServiceProvider sha1Hasher = new SHA1CryptoServiceProvider();
-            byte[] hashedDataBytes = sha1Hasher.ComputeHash(Encoding.UTF8.GetBytes(GetDigestValue_Timestamp(created, expires)));
+            byte[] hashedDataBytes = sha1Hasher.ComputeHash(Encoding.UTF8.GetBytes(CanonicalizeDsig(GetDigestValue_Timestamp(created, expires))));
             string digestValue = Convert.ToBase64String(hashedDataBytes);
 
             string binarySecret = x.GetElementsByTagName("t:BinarySecret")[0].InnerText;
             
 
-            byte[] signedInfoBytes = Encoding.UTF8.GetBytes(GetSignatureValue_SignedInfo(digestValue));
+            byte[] signedInfoBytes = Encoding.UTF8.GetBytes(GetSignatureValue_SignedInfo2(digestValue));
 
             HMACSHA1 hmac = new HMACSHA1();            
             byte[] binarySecretBytes = Convert.FromBase64String(binarySecret);
@@ -192,7 +200,7 @@ namespace ScratchWCF.ReadCoats
 
         static string GetDigestValue_Timestamp(string created, string expires)
         {
-            return "<u:Timestamp u:Id=\"_0\"><u:Created>" + created + "</u:Created><u:Expires>" + expires + "</u:Expires></u:Timestamp>";
+            return "<u:Timestamp u:Id=\"_0\" xmlns:u=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\"><u:Created>" + created + "</u:Created><u:Expires>" + expires + "</u:Expires></u:Timestamp>";
         }
 
         static string GetSignatureValue_SignedInfo(string digestValue)
@@ -209,6 +217,11 @@ namespace ScratchWCF.ReadCoats
             return strBuild.ToString();
         }
 
+        static string GetSignatureValue_SignedInfo2(string digestValue)
+        {
+            return "<SignedInfo xmlns=\"http://www.w3.org/2000/09/xmldsig#\"><CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"></CanonicalizationMethod><SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#hmac-sha1\"></SignatureMethod><Reference URI=\"#_0\"><Transforms><Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"></Transform></Transforms><DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\"></DigestMethod><DigestValue>" + digestValue + "</DigestValue></Reference></SignedInfo>";
+        }
+
         static void CallManual_GetAgentsWithSigning(Stream TokenRequest)
         {
             StreamReader reader = new StreamReader(TokenRequest);
@@ -218,6 +231,28 @@ namespace ScratchWCF.ReadCoats
             SignedXml signedXml = new SignedXml(x);
 
             signedXml.SigningKey = new RSACryptoServiceProvider();
+        }
+
+        private static string CanonicalizeDsig(string input)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.PreserveWhitespace = false;
+            try
+            {
+                doc.LoadXml(input);
+                XmlDsigC14NTransform trans = new XmlDsigC14NTransform();
+                trans.LoadInput(doc);
+                String c14NInput = new StreamReader((Stream)trans.GetOutput(typeof(Stream))).ReadToEnd();
+
+                return c14NInput;
+
+
+            }
+            catch (Exception ex)
+            {
+                return String.Empty;
+            }
+
         }
         
     }
