@@ -1,4 +1,5 @@
-﻿using ScratchWCF.ReadCoats.MessageInspector;
+﻿using Microsoft.IdentityModel;
+using ScratchWCF.ReadCoats.MessageInspector;
 using ScratchWCF.ReadCoats.Properties;
 using System;
 using System.Collections.Generic;
@@ -21,10 +22,10 @@ namespace ScratchWCF.ReadCoats
         {
             //DoWCF.CallRegular_WithInspect();
 
-            DoWCF.CallRegular();
+            //DoWCF.CallRegular();
 
-            //var tokenStream = DoWCF.CallManual_GetToken();
-            //DoWCF.CallManual_GetAgents(tokenStream);
+            var tokenStream = DoWCF.CallManual_GetToken();
+            DoWCF.CallManual_GetAgents(tokenStream);
 
         }
     }
@@ -149,15 +150,20 @@ namespace ScratchWCF.ReadCoats
             byte[] hashedDataBytes = sha1Hasher.ComputeHash(Encoding.UTF8.GetBytes(CanonicalizeDsig(GetDigestValue_Timestamp(created, expires))));
             string digestValue = Convert.ToBase64String(hashedDataBytes);
 
-            string binarySecret = x.GetElementsByTagName("t:BinarySecret")[0].InnerText;
-            
+            string binarySecretServer = x.GetElementsByTagName("t:BinarySecret")[0].InnerText;
+            string binarySecretClient = EncodeTo64("flowbinarysecret");
 
-            byte[] signedInfoBytes = Encoding.UTF8.GetBytes(GetSignatureValue_SignedInfo2(digestValue));
+            byte[] binarySecretBytesServer = Convert.FromBase64String(binarySecretServer);
+            byte[] binarySecretBytesClient = Convert.FromBase64String(binarySecretClient);
+
+
+            string c14NSignedInfo2 = GetSignatureValue_SignedInfo2(digestValue);
+            byte[] signedInfoBytes = Encoding.UTF8.GetBytes(c14NSignedInfo2);
+
+            byte[] key = KeyGenerator.ComputeCombinedKey(binarySecretBytesClient, binarySecretBytesServer, 256);
 
             HMACSHA1 hmac = new HMACSHA1();            
-            byte[] binarySecretBytes = Convert.FromBase64String(binarySecret);
-            
-            hmac.Key = binarySecretBytes;
+            hmac.Key = key;
             byte[] hmacHash = hmac.ComputeHash(signedInfoBytes);
             string signatureValue = Convert.ToBase64String(hmacHash);
 
@@ -248,12 +254,36 @@ namespace ScratchWCF.ReadCoats
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return String.Empty;
+                throw;
             }
 
         }
+
+
+        private static string CanonicalizeExc(string input)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.PreserveWhitespace = false;
+            try
+            {
+                doc.LoadXml(input);
+                XmlDsigExcC14NTransform trans = new XmlDsigExcC14NTransform();
+                trans.LoadInput(doc);
+                String c14NInput = new StreamReader((Stream)trans.GetOutput(typeof(Stream))).ReadToEnd();
+
+                return c14NInput;
+
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
         
     }
 
