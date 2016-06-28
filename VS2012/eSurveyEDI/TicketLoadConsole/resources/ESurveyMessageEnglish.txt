@@ -1,0 +1,59 @@
+<html> 
+	<head> 
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1"> 
+			<title>Untitled</title> 
+			<style> 
+				body.page{ 
+				font-family : Arial, Helvetica, sans-serif; 
+				font-size : 10pt; 
+				} 
+				div.divBody{ 
+				font-family : Arial, Helvetica, sans-serif; 
+				font-size : 8pt; 
+				} 
+				table.body{ 
+				font-family : Arial, Helvetica, sans-serif; 
+				font-size : 9pt; 
+				} 
+			</style> 
+		</head> 
+		<body text="#000000" bgcolor="#FFFFFF" leftmargin=10 topmargin=0 marginheight="0" marginwidth="0" class="page" style="font-family: Arial, Helvetica, sans-serif;"> 
+			<div align="left" class="divBody"> 
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" class="body"> 
+					<tr> 
+						<td> 
+							<br> 
+								<p>{CURRENTDATE}</p> 
+								<br> 
+									<p>Dear {CUSTFNAME} {CUSTLNAME} ,</p> 
+									<p>Thank you for using Thomson/Speedtouch’s Helpdesk on  {EMAILDATE}  regarding '<strong> {PRODUCTCODE} </strong>' (Case ID#  {CASEID} ).</p> 
+									<p>We continually strive to provide you with the highest quality support and service, and your comments and suggestions enable us to better serve your needs.</p> 
+									<p>Please take a moment to let us know what you think of the service you received by completing our on-line survey.  The Quality Service Management Team will keep your feedback confidential.</p> 
+									<p>To complete the survey:</p> 
+								</td> 
+							</tr> 
+							<tr> 
+								<td>1.&nbsp;Click the link below to launch the survey form, or copy and paste the URL into your web browser</td> 
+							</tr> 
+							<tr> 
+								<td>2.&nbsp;Complete the on-line survey</td> 
+							</tr>
+							<tr> 
+								<td>3.&nbsp;Click the Submit button</td> 
+							</tr> 
+							<tr> 
+								<td>
+									<br> 
+										<p>We appreciate your business.</p> 
+										<p>URL for Web Survey: <a href="{URL}{URLAPP}?id={DOCID}&em={CUSTEMAIL5}">{URL}{URLAPP}?id={DOCID}&em={CUSTEMAIL5}</a>
+										</p> 
+										<p>
+											<strong>Please do not respond to this email, as this email is automatically generated.</strong>
+										</p> 
+										<p>The Thomson/Speedtouch Quality team</p> 
+									</td> 
+								</tr> 
+							</table> 
+						</div> 
+					</body> 
+				</html>
