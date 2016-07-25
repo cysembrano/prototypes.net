@@ -165,8 +165,9 @@ namespace ScratchWCF.ReadCoats
             HMACSHA1 hmac = new HMACSHA1();            
             hmac.Key = key;
             byte[] hmacHash = hmac.ComputeHash(signedInfoBytes);
-            string signatureValue = Convert.ToBase64String(hmacHash);
+            //string signatureValue = Convert.ToBase64String(hmacHash);
 
+            string signatureValue = new Flow.Extensions.FlowSOAPSecurity().GetSignatureValueCombinedKey_UTF8(c14NSignedInfo2, binarySecretClient, binarySecretServer, 256);
 
             String SoapRequest = String.Format(Resources.Request_GetAgents,
                                                created,
