@@ -12,5 +12,10 @@ namespace HelloWebAPIDemo
         {
             return "Hello from API at " + DateTime.Now.ToString();
         }
+
+        public string Post()
+        {
+            return "Hello from API at " + DateTime.Now.ToString();
+        }
     }
 }
