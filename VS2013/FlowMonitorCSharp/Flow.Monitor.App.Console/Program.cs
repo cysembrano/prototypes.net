@@ -14,13 +14,17 @@ namespace Flow.Monitor.App
         static void Main(string[] args)
         {
             
+            //Discovery
+
+            //Get Services in your given address
             MonitorAdmin_Proxy IMonitorService = new MonitorAdmin_Proxy("tcp://localhost:35699/");
-            var servicesArray = IMonitorService.GetServices();
+            var servicesArray = IMonitorService.GetServices(); //Working
             FloBaseTypes.ServiceInfo firstService = servicesArray.ElementAtOrDefault(1);
             if(firstService != null)
             {
                 string Id = firstService.ServiceId;
-                var actionss = IMonitorService.GetScheduleActions(Id, aShowDisabled: true);
+                var actionss = IMonitorService.GetScheduleActions(Id, aShowDisabled: true); //Not working
+                bool result = IMonitorService.StartFlowServer(Id); // Working
                 
             }
 
