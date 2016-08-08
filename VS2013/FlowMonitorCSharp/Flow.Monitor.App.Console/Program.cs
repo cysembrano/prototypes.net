@@ -13,8 +13,6 @@ namespace Flow.Monitor.App
     {
         static void Main(string[] args)
         {
-            ZeroConfRegistration rego = new ZeroConfRegistration();
-
             
             MonitorAdmin_Proxy IMonitorService = new MonitorAdmin_Proxy("tcp://localhost:35699/");
             var servicesArray = IMonitorService.GetServices();
