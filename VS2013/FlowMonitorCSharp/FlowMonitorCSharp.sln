@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flow.Monitor.Service", "Flo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flow.Monitor.MonitorService", "Flow.Monitor.MonitorService\Flow.Monitor.MonitorService.csproj", "{E3171F15-ADA4-4A4B-AFAE-7BE1EFC4F271}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flow.Monitor.App.Console", "Flow.Monitor.App.Console\Flow.Monitor.App.Console.csproj", "{960D3B6C-F9B6-466F-8FB8-3E2D489E5315}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E3171F15-ADA4-4A4B-AFAE-7BE1EFC4F271}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3171F15-ADA4-4A4B-AFAE-7BE1EFC4F271}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3171F15-ADA4-4A4B-AFAE-7BE1EFC4F271}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960D3B6C-F9B6-466F-8FB8-3E2D489E5315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960D3B6C-F9B6-466F-8FB8-3E2D489E5315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960D3B6C-F9B6-466F-8FB8-3E2D489E5315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960D3B6C-F9B6-466F-8FB8-3E2D489E5315}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

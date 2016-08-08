@@ -17,7 +17,7 @@ namespace FlowMonitor {
     using RemObjects.SDK.Types;
     using RemObjects.SDK.Server;
     using RemObjects.SDK.Server.ClassFactories;
-    using FlowService;
+
     using FloBaseTypes;
     
     
@@ -47,106 +47,6 @@ namespace FlowMonitor {
             }
             base.Dispose(disposing);
         }
-        /*
-        public virtual bool SetActionStatus(string aServiceId, int aIndex, TFloScheduledType aActionType, TFloActionSettingType aStatus) {
-        }
-        
-        public virtual void AddTransformError(string aServiceId, string aID, string aURL, string aQuestion) {
-        }
-        
-        public virtual void HandleTransformError(string aServiceId, string aID) {
-        }
-        
-        public virtual void RemoveTransformError(string aServiceId, string aID) {
-        }
-        
-        public virtual bool IsServerStarted(string aServiceId) {
-        }
-        
-        public virtual bool IsMonitorStarted() {
-        }
-        
-        public virtual bool RefreshActions(string aServiceId) {
-        }
-        
-        public virtual bool StartFlowServer(string aServiceId) {
-        }
-        
-        public virtual bool StopFlowServer(string aServiceId) {
-        }
-        
-        public virtual bool StopFlowServerEx(string aServiceID, string aUserID) {
-        }
-        
-        public virtual bool KillFlowServer(string aServiceId) {
-        }
-        
-        public virtual string Login(string aUserId) {
-        }
-        
-        public virtual void Logout() {
-        }
-        
-        public virtual void ShowServerInfo(string aServiceId, string aMessage) {
-        }
-        
-        public virtual void ShowServerError(string aServiceId, string aMessage) {
-        }
-        
-        public virtual void ShowLicenseError(string aServiceId, string aMessage) {
-        }
-        
-        public virtual void SetServerMenuOptions(string aServiceId) {
-        }
-        
-        public virtual ScheduledListArray GetScheduleActions(string aServiceId, bool aShowDisabled) {
-        }
-        
-        public virtual ScheduledListArray GetMonitorActions(string aServiceId, bool aShowDisabled) {
-        }
-        
-        public virtual ScheduledListArray GetExecutingActions(string aServiceId, bool aShowDisabled) {
-        }
-        
-        public virtual ScheduledListArray GetTransportActions(string aServiceID, bool aShowDisabled) {
-        }
-        
-        public virtual ScheduledListArray GetPendingFiles(string aServiceID) {
-        }
-        
-        public virtual ServiceInfoList GetServices() {
-        }
-        
-        public virtual void RegisterService(string aServiceId, string aDisplayName, string aPort, ServiceConnection aCon, string aServiceUser, string aServiceUserPass) {
-        }
-        
-        public virtual bool UnRegisterService(string aServiceId) {
-        }
-        
-        public virtual void ChangeService(string aServiceId, string aDisplayName, string aPort, string aServiceUser, string aServiceUserPass) {
-        }
-        
-        public virtual void ChangeServiceUser(string aServiceId, string aDisplayName, string aPort, string aServiceUser, string aServiceUserPass) {
-        }
-        
-        public virtual void ChangeServiceConnection(string aServiceId, ServiceConnection aCon) {
-        }
-        
-        public virtual bool CheckServiceConnection(string aServiceId, ServiceConnection aCon) {
-        }
-        
-        public virtual bool CheckServiceUser(string aServiceId, string aServiceUser, string aServiceUserPass) {
-        }
-        
-        public virtual bool CheckServicePort(string aServiceId, string aPort) {
-        }
-        
-        public virtual bool CheckUserLogonServiceRight(string aServiceUser, string aServiceUserPass) {
-        }
-        
-        public virtual bool SetUserLogonServiceRight(string aServiceUser, string aServiceUserPass) {
-        }
-         * */
 
         public bool SetActionStatus(string aServiceId, int aIndex, TFloScheduledType aActionType, TFloActionSettingType aStatus)
         {
@@ -233,32 +133,32 @@ namespace FlowMonitor {
             throw new NotImplementedException();
         }
 
-        public ScheduledListArray GetScheduleActions(string aServiceId, bool aShowDisabled)
+        public string[][] GetScheduleActions(string aServiceId, bool aShowDisabled)
         {
             throw new NotImplementedException();
         }
 
-        public ScheduledListArray GetMonitorActions(string aServiceId, bool aShowDisabled)
+        public string[][] GetMonitorActions(string aServiceId, bool aShowDisabled)
         {
             throw new NotImplementedException();
         }
 
-        public ScheduledListArray GetExecutingActions(string aServiceId, bool aShowDisabled)
+        public string[][] GetExecutingActions(string aServiceId, bool aShowDisabled)
         {
             throw new NotImplementedException();
         }
 
-        public ScheduledListArray GetTransportActions(string aServiceID, bool aShowDisabled)
+        public string[][] GetTransportActions(string aServiceID, bool aShowDisabled)
         {
             throw new NotImplementedException();
         }
 
-        public ScheduledListArray GetPendingFiles(string aServiceID)
+        public string[][] GetPendingFiles(string aServiceID)
         {
             throw new NotImplementedException();
         }
 
-        public ServiceInfoList GetServices()
+        public FloBaseTypes.ServiceInfo[] GetServices()
         {
             throw new NotImplementedException();
         }

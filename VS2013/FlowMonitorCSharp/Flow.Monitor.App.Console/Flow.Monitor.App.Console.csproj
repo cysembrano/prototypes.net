@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E3171F15-ADA4-4A4B-AFAE-7BE1EFC4F271}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{960D3B6C-F9B6-466F-8FB8-3E2D489E5315}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Flow.Monitor.MonitorService</RootNamespace>
-    <AssemblyName>Flow.Monitor.MonitorService</AssemblyName>
+    <RootNamespace>Flow.Monitor.App.Console</RootNamespace>
+    <AssemblyName>Flow.Monitor.App.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,14 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RemObjects.InternetPack, Version=2.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
-    <Reference Include="RemObjects.InternetPack.VirtualFTP, Version=2.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
     <Reference Include="RemObjects.SDK, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
-    <Reference Include="RemObjects.SDK.Designtime, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
-    <Reference Include="RemObjects.SDK.Server, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
-    <Reference Include="RemObjects.SDK.Server.AWS, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
     <Reference Include="RemObjects.SDK.ZeroConf, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
-    <Reference Include="RemObjects.SDK.ZLib, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,26 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FlowMonitor_Intf.cs" />
-    <Compile Include="FlowMonitor_Invk.cs" />
-    <Compile Include="FlowMonitor_ServerAccess.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceName_Impl_MonitorService.cs">
-      <SubType>Component</SubType>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Flow.Monitor.BaseTypes\Flow.Monitor.BaseTypes.csproj">
       <Project>{6d4d3a39-6722-464c-8e4a-5699294b7c89}</Project>
       <Name>Flow.Monitor.BaseTypes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Flow.Monitor.MonitorService\Flow.Monitor.MonitorService.csproj">
+      <Project>{e3171f15-ada4-4a4b-afae-7be1efc4f271}</Project>
+      <Name>Flow.Monitor.MonitorService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Flow.Monitor.ServerActions\Flow.Monitor.ServerActions.csproj">
       <Project>{48eda9a9-5c59-499a-abc7-daaad2880215}</Project>
       <Name>Flow.Monitor.ServerActions</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Types\" />
+    <ProjectReference Include="..\Flow.Monitor.Service\Flow.Monitor.Service.csproj">
+      <Project>{3315ae1f-07dd-4f8f-8c95-a7005ec88637}</Project>
+      <Name>Flow.Monitor.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

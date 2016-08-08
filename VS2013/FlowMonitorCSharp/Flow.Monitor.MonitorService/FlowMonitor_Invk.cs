@@ -17,7 +17,8 @@ namespace FlowMonitor {
     using RemObjects.SDK.Types;
     using RemObjects.SDK.Server;
     using RemObjects.SDK.Server.ClassFactories;
-    using FlowService;
+    using FloBaseTypes;
+
     
     
     [RemObjects.SDK.Server.Invoker()]
@@ -205,11 +206,11 @@ namespace FlowMonitor {
             try {
                 string aServiceId = @__Message.ReadAnsiString("aServiceId");
                 bool aShowDisabled = @__Message.ReadBoolean("aShowDisabled");
-                ScheduledListArray Result;
+                string[][] Result;
                 Result = ((IMonitorAdmin)(@__Instance)).GetScheduleActions(aServiceId, aShowDisabled);
                 @__ObjectDisposer.Add(Result);
                 @__Message.InitializeResponseMessage(@__ServerChannelInfo, "FlowMonitor", "MonitorAdmin", "GetScheduleActionsResponse");
-                @__Message.Write("Result", Result, typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default);
+                @__Message.Write("Result", Result, typeof(string[][]), RemObjects.SDK.StreamingFormat.Default);
                 @__Message.FinalizeMessage();
                 @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
             }
@@ -223,11 +224,11 @@ namespace FlowMonitor {
             try {
                 string aServiceId = @__Message.ReadAnsiString("aServiceId");
                 bool aShowDisabled = @__Message.ReadBoolean("aShowDisabled");
-                ScheduledListArray Result;
+                string[][] Result;
                 Result = ((IMonitorAdmin)(@__Instance)).GetMonitorActions(aServiceId, aShowDisabled);
                 @__ObjectDisposer.Add(Result);
                 @__Message.InitializeResponseMessage(@__ServerChannelInfo, "FlowMonitor", "MonitorAdmin", "GetMonitorActionsResponse");
-                @__Message.Write("Result", Result, typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default);
+                @__Message.Write("Result", Result, typeof(string[][]), RemObjects.SDK.StreamingFormat.Default);
                 @__Message.FinalizeMessage();
                 @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
             }
@@ -241,11 +242,11 @@ namespace FlowMonitor {
             try {
                 string aServiceId = @__Message.ReadAnsiString("aServiceId");
                 bool aShowDisabled = @__Message.ReadBoolean("aShowDisabled");
-                ScheduledListArray Result;
+                string[][] Result;
                 Result = ((IMonitorAdmin)(@__Instance)).GetExecutingActions(aServiceId, aShowDisabled);
                 @__ObjectDisposer.Add(Result);
                 @__Message.InitializeResponseMessage(@__ServerChannelInfo, "FlowMonitor", "MonitorAdmin", "GetExecutingActionsResponse");
-                @__Message.Write("Result", Result, typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default);
+                @__Message.Write("Result", Result, typeof(string[][]), RemObjects.SDK.StreamingFormat.Default);
                 @__Message.FinalizeMessage();
                 @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
             }
@@ -259,11 +260,11 @@ namespace FlowMonitor {
             try {
                 string aServiceID = @__Message.ReadAnsiString("aServiceID");
                 bool aShowDisabled = @__Message.ReadBoolean("aShowDisabled");
-                ScheduledListArray Result;
+                string[][] Result;
                 Result = ((IMonitorAdmin)(@__Instance)).GetTransportActions(aServiceID, aShowDisabled);
                 @__ObjectDisposer.Add(Result);
                 @__Message.InitializeResponseMessage(@__ServerChannelInfo, "FlowMonitor", "MonitorAdmin", "GetTransportActionsResponse");
-                @__Message.Write("Result", Result, typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default);
+                @__Message.Write("Result", Result, typeof(string[][]), RemObjects.SDK.StreamingFormat.Default);
                 @__Message.FinalizeMessage();
                 @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
             }
@@ -276,11 +277,11 @@ namespace FlowMonitor {
             RemObjects.SDK.ObjectDisposer @__ObjectDisposer = new RemObjects.SDK.ObjectDisposer(1);
             try {
                 string aServiceID = @__Message.ReadAnsiString("aServiceID");
-                ScheduledListArray Result;
+                string[][] Result;
                 Result = ((IMonitorAdmin)(@__Instance)).GetPendingFiles(aServiceID);
                 @__ObjectDisposer.Add(Result);
                 @__Message.InitializeResponseMessage(@__ServerChannelInfo, "FlowMonitor", "MonitorAdmin", "GetPendingFilesResponse");
-                @__Message.Write("Result", Result, typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default);
+                @__Message.Write("Result", Result, typeof(string[][]), RemObjects.SDK.StreamingFormat.Default);
                 @__Message.FinalizeMessage();
                 @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
             }
@@ -292,11 +293,11 @@ namespace FlowMonitor {
         public static void Invoke_GetServices(RemObjects.SDK.IROService @__Instance, RemObjects.SDK.IMessage @__Message, RemObjects.SDK.Server.IServerChannelInfo @__ServerChannelInfo, out RemObjects.SDK.Server.ResponseOptions @__oResponseOptions) {
             RemObjects.SDK.ObjectDisposer @__ObjectDisposer = new RemObjects.SDK.ObjectDisposer(1);
             try {
-                ServiceInfoList Result;
+                FloBaseTypes.ServiceInfo[] Result;
                 Result = ((IMonitorAdmin)(@__Instance)).GetServices();
                 @__ObjectDisposer.Add(Result);
                 @__Message.InitializeResponseMessage(@__ServerChannelInfo, "FlowMonitor", "MonitorAdmin", "GetServicesResponse");
-                @__Message.Write("Result", Result, typeof(ServiceInfoList), RemObjects.SDK.StreamingFormat.Default);
+                @__Message.Write("Result", Result, typeof(FloBaseTypes.ServiceInfo[]), RemObjects.SDK.StreamingFormat.Default);
                 @__Message.FinalizeMessage();
                 @__oResponseOptions = RemObjects.SDK.Server.ResponseOptions.roDefault;
             }

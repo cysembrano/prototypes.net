@@ -15,7 +15,6 @@ namespace FlowMonitor {
     using System.Collections.Generic;
     using RemObjects.SDK;
     using RemObjects.SDK.Types;
-    using FlowService;
     using FloBaseTypes;
     
     
@@ -142,17 +141,17 @@ namespace FlowMonitor {
         
         void SetServerMenuOptions(string aServiceId);
         
-        ScheduledListArray GetScheduleActions(string aServiceId, bool aShowDisabled);
+        string[][] GetScheduleActions(string aServiceId, bool aShowDisabled);
         
-        ScheduledListArray GetMonitorActions(string aServiceId, bool aShowDisabled);
+        string[][] GetMonitorActions(string aServiceId, bool aShowDisabled);
         
-        ScheduledListArray GetExecutingActions(string aServiceId, bool aShowDisabled);
+        string[][] GetExecutingActions(string aServiceId, bool aShowDisabled);
         
-        ScheduledListArray GetTransportActions(string aServiceID, bool aShowDisabled);
+        string[][] GetTransportActions(string aServiceID, bool aShowDisabled);
         
-        ScheduledListArray GetPendingFiles(string aServiceID);
-        
-        ServiceInfoList GetServices();
+        string[][] GetPendingFiles(string aServiceID);
+
+        FloBaseTypes.ServiceInfo[] GetServices();
         
         void RegisterService(string aServiceId, string aDisplayName, string aPort, ServiceConnection aCon, string aServiceUser, string aServiceUserPass);
         
@@ -456,7 +455,7 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual ScheduledListArray GetScheduleActions(string aServiceId, bool aShowDisabled) {
+        public virtual string[][] GetScheduleActions(string aServiceId, bool aShowDisabled) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
             try {
                 @__LocalMessage.InitializeRequestMessage(ClientChannel, "FlowMonitor", ActiveInterfaceName, "GetScheduleActions");
@@ -464,7 +463,7 @@ namespace FlowMonitor {
                 @__LocalMessage.WriteBoolean("aShowDisabled", aShowDisabled);
                 @__LocalMessage.FinalizeMessage();
                 ClientChannel.Dispatch(@__LocalMessage);
-                ScheduledListArray _Result = ((ScheduledListArray)(@__LocalMessage.Read("Result", typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default)));
+                string[][] _Result = ((string[][])(@__LocalMessage.Read("Result", typeof(string[][]), RemObjects.SDK.StreamingFormat.Default)));
                 return _Result;
             }
             finally {
@@ -472,7 +471,7 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual ScheduledListArray GetMonitorActions(string aServiceId, bool aShowDisabled) {
+        public virtual string[][] GetMonitorActions(string aServiceId, bool aShowDisabled) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
             try {
                 @__LocalMessage.InitializeRequestMessage(ClientChannel, "FlowMonitor", ActiveInterfaceName, "GetMonitorActions");
@@ -480,7 +479,7 @@ namespace FlowMonitor {
                 @__LocalMessage.WriteBoolean("aShowDisabled", aShowDisabled);
                 @__LocalMessage.FinalizeMessage();
                 ClientChannel.Dispatch(@__LocalMessage);
-                ScheduledListArray _Result = ((ScheduledListArray)(@__LocalMessage.Read("Result", typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default)));
+                string[][] _Result = ((string[][])(@__LocalMessage.Read("Result", typeof(string[][]), RemObjects.SDK.StreamingFormat.Default)));
                 return _Result;
             }
             finally {
@@ -488,7 +487,7 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual ScheduledListArray GetExecutingActions(string aServiceId, bool aShowDisabled) {
+        public virtual string[][] GetExecutingActions(string aServiceId, bool aShowDisabled) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
             try {
                 @__LocalMessage.InitializeRequestMessage(ClientChannel, "FlowMonitor", ActiveInterfaceName, "GetExecutingActions");
@@ -496,7 +495,7 @@ namespace FlowMonitor {
                 @__LocalMessage.WriteBoolean("aShowDisabled", aShowDisabled);
                 @__LocalMessage.FinalizeMessage();
                 ClientChannel.Dispatch(@__LocalMessage);
-                ScheduledListArray _Result = ((ScheduledListArray)(@__LocalMessage.Read("Result", typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default)));
+                string[][] _Result = ((string[][])(@__LocalMessage.Read("Result", typeof(string[][]), RemObjects.SDK.StreamingFormat.Default)));
                 return _Result;
             }
             finally {
@@ -504,7 +503,7 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual ScheduledListArray GetTransportActions(string aServiceID, bool aShowDisabled) {
+        public virtual string[][] GetTransportActions(string aServiceID, bool aShowDisabled) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
             try {
                 @__LocalMessage.InitializeRequestMessage(ClientChannel, "FlowMonitor", ActiveInterfaceName, "GetTransportActions");
@@ -512,7 +511,7 @@ namespace FlowMonitor {
                 @__LocalMessage.WriteBoolean("aShowDisabled", aShowDisabled);
                 @__LocalMessage.FinalizeMessage();
                 ClientChannel.Dispatch(@__LocalMessage);
-                ScheduledListArray _Result = ((ScheduledListArray)(@__LocalMessage.Read("Result", typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default)));
+                string[][] _Result = ((string[][])(@__LocalMessage.Read("Result", typeof(string[][]), RemObjects.SDK.StreamingFormat.Default)));
                 return _Result;
             }
             finally {
@@ -520,28 +519,29 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual ScheduledListArray GetPendingFiles(string aServiceID) {
+        public virtual string[][] GetPendingFiles(string aServiceID) {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
             try {
                 @__LocalMessage.InitializeRequestMessage(ClientChannel, "FlowMonitor", ActiveInterfaceName, "GetPendingFiles");
                 @__LocalMessage.WriteAnsiString("aServiceID", aServiceID);
                 @__LocalMessage.FinalizeMessage();
                 ClientChannel.Dispatch(@__LocalMessage);
-                ScheduledListArray _Result = ((ScheduledListArray)(@__LocalMessage.Read("Result", typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default)));
+                string[][] _Result = ((string[][])(@__LocalMessage.Read("Result", typeof(string[][]), RemObjects.SDK.StreamingFormat.Default)));
                 return _Result;
             }
             finally {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
-        
-        public virtual ServiceInfoList GetServices() {
+
+        public virtual FloBaseTypes.ServiceInfo[] GetServices()
+        {
             RemObjects.SDK.IMessage @__LocalMessage = this.@__GetMessage();
             try {
                 @__LocalMessage.InitializeRequestMessage(ClientChannel, "FlowMonitor", ActiveInterfaceName, "GetServices");
                 @__LocalMessage.FinalizeMessage();
                 ClientChannel.Dispatch(@__LocalMessage);
-                ServiceInfoList _Result = ((ServiceInfoList)(@__LocalMessage.Read("Result", typeof(ServiceInfoList), RemObjects.SDK.StreamingFormat.Default)));
+                FloBaseTypes.ServiceInfo[] _Result = ((FloBaseTypes.ServiceInfo[])(@__LocalMessage.Read("Result", typeof(FloBaseTypes.ServiceInfo[]), RemObjects.SDK.StreamingFormat.Default)));
                 return _Result;
             }
             finally {
@@ -837,39 +837,39 @@ namespace FlowMonitor {
         
         System.IAsyncResult BeginGetScheduleActions(string aServiceId, bool aShowDisabled, System.AsyncCallback @__Callback, object @__UserData);
         
-        ScheduledListArray EndGetScheduleActions(System.IAsyncResult @__AsyncResult);
+        string[][] EndGetScheduleActions(System.IAsyncResult @__AsyncResult);
         
-        System.Threading.Tasks.Task<ScheduledListArray> GetScheduleActionsAsync(string aServiceId, bool aShowDisabled);
+        System.Threading.Tasks.Task<string[][]> GetScheduleActionsAsync(string aServiceId, bool aShowDisabled);
         
         System.IAsyncResult BeginGetMonitorActions(string aServiceId, bool aShowDisabled, System.AsyncCallback @__Callback, object @__UserData);
         
-        ScheduledListArray EndGetMonitorActions(System.IAsyncResult @__AsyncResult);
+        string[][] EndGetMonitorActions(System.IAsyncResult @__AsyncResult);
         
-        System.Threading.Tasks.Task<ScheduledListArray> GetMonitorActionsAsync(string aServiceId, bool aShowDisabled);
+        System.Threading.Tasks.Task<string[][]> GetMonitorActionsAsync(string aServiceId, bool aShowDisabled);
         
         System.IAsyncResult BeginGetExecutingActions(string aServiceId, bool aShowDisabled, System.AsyncCallback @__Callback, object @__UserData);
         
-        ScheduledListArray EndGetExecutingActions(System.IAsyncResult @__AsyncResult);
+        string[][] EndGetExecutingActions(System.IAsyncResult @__AsyncResult);
         
-        System.Threading.Tasks.Task<ScheduledListArray> GetExecutingActionsAsync(string aServiceId, bool aShowDisabled);
+        System.Threading.Tasks.Task<string[][]> GetExecutingActionsAsync(string aServiceId, bool aShowDisabled);
         
         System.IAsyncResult BeginGetTransportActions(string aServiceID, bool aShowDisabled, System.AsyncCallback @__Callback, object @__UserData);
         
-        ScheduledListArray EndGetTransportActions(System.IAsyncResult @__AsyncResult);
+        string[][] EndGetTransportActions(System.IAsyncResult @__AsyncResult);
         
-        System.Threading.Tasks.Task<ScheduledListArray> GetTransportActionsAsync(string aServiceID, bool aShowDisabled);
+        System.Threading.Tasks.Task<string[][]> GetTransportActionsAsync(string aServiceID, bool aShowDisabled);
         
         System.IAsyncResult BeginGetPendingFiles(string aServiceID, System.AsyncCallback @__Callback, object @__UserData);
         
-        ScheduledListArray EndGetPendingFiles(System.IAsyncResult @__AsyncResult);
+        string[][] EndGetPendingFiles(System.IAsyncResult @__AsyncResult);
         
-        System.Threading.Tasks.Task<ScheduledListArray> GetPendingFilesAsync(string aServiceID);
+        System.Threading.Tasks.Task<string[][]> GetPendingFilesAsync(string aServiceID);
         
         System.IAsyncResult BeginGetServices(System.AsyncCallback @__Callback, object @__UserData);
-        
-        ServiceInfoList EndGetServices(System.IAsyncResult @__AsyncResult);
-        
-        System.Threading.Tasks.Task<ServiceInfoList> GetServicesAsync();
+
+        FloBaseTypes.ServiceInfo[] EndGetServices(System.IAsyncResult @__AsyncResult);
+
+        System.Threading.Tasks.Task<FloBaseTypes.ServiceInfo[]> GetServicesAsync();
         
         System.IAsyncResult BeginRegisterService(string aServiceId, string aDisplayName, string aPort, ServiceConnection aCon, string aServiceUser, string aServiceUserPass, System.AsyncCallback @__Callback, object @__UserData);
         
@@ -1466,10 +1466,10 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual ScheduledListArray EndGetScheduleActions(System.IAsyncResult @__AsyncResult) {
+        public virtual string[][] EndGetScheduleActions(System.IAsyncResult @__AsyncResult) {
             RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
             try {
-                ScheduledListArray Result = ((ScheduledListArray)(@__LocalMessage.Read("Result", typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default)));
+                string[][] Result = ((string[][])(@__LocalMessage.Read("Result", typeof(string[][]), RemObjects.SDK.StreamingFormat.Default)));
                 return Result;
             }
             finally {
@@ -1477,8 +1477,8 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual System.Threading.Tasks.Task<ScheduledListArray> GetScheduleActionsAsync(string aServiceId, bool aShowDisabled) {
-            return System.Threading.Tasks.Task<ScheduledListArray>.Factory.FromAsync(this.BeginGetScheduleActions(aServiceId, aShowDisabled, null, null), new System.Func<System.IAsyncResult, ScheduledListArray>(this.EndGetScheduleActions));
+        public virtual System.Threading.Tasks.Task<string[][]> GetScheduleActionsAsync(string aServiceId, bool aShowDisabled) {
+            return System.Threading.Tasks.Task<string[][]>.Factory.FromAsync(this.BeginGetScheduleActions(aServiceId, aShowDisabled, null, null), new System.Func<System.IAsyncResult, string[][]>(this.EndGetScheduleActions));
         }
         
         public virtual System.IAsyncResult BeginGetMonitorActions(string aServiceId, bool aShowDisabled, System.AsyncCallback @__Callback, object @__UserData) {
@@ -1496,10 +1496,10 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual ScheduledListArray EndGetMonitorActions(System.IAsyncResult @__AsyncResult) {
+        public virtual string[][] EndGetMonitorActions(System.IAsyncResult @__AsyncResult) {
             RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
             try {
-                ScheduledListArray Result = ((ScheduledListArray)(@__LocalMessage.Read("Result", typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default)));
+                string[][] Result = ((string[][])(@__LocalMessage.Read("Result", typeof(string[][]), RemObjects.SDK.StreamingFormat.Default)));
                 return Result;
             }
             finally {
@@ -1507,8 +1507,8 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual System.Threading.Tasks.Task<ScheduledListArray> GetMonitorActionsAsync(string aServiceId, bool aShowDisabled) {
-            return System.Threading.Tasks.Task<ScheduledListArray>.Factory.FromAsync(this.BeginGetMonitorActions(aServiceId, aShowDisabled, null, null), new System.Func<System.IAsyncResult, ScheduledListArray>(this.EndGetMonitorActions));
+        public virtual System.Threading.Tasks.Task<string[][]> GetMonitorActionsAsync(string aServiceId, bool aShowDisabled) {
+            return System.Threading.Tasks.Task<string[][]>.Factory.FromAsync(this.BeginGetMonitorActions(aServiceId, aShowDisabled, null, null), new System.Func<System.IAsyncResult, string[][]>(this.EndGetMonitorActions));
         }
         
         public virtual System.IAsyncResult BeginGetExecutingActions(string aServiceId, bool aShowDisabled, System.AsyncCallback @__Callback, object @__UserData) {
@@ -1526,10 +1526,10 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual ScheduledListArray EndGetExecutingActions(System.IAsyncResult @__AsyncResult) {
+        public virtual string[][] EndGetExecutingActions(System.IAsyncResult @__AsyncResult) {
             RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
             try {
-                ScheduledListArray Result = ((ScheduledListArray)(@__LocalMessage.Read("Result", typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default)));
+                string[][] Result = ((string[][])(@__LocalMessage.Read("Result", typeof(string[][]), RemObjects.SDK.StreamingFormat.Default)));
                 return Result;
             }
             finally {
@@ -1537,8 +1537,8 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual System.Threading.Tasks.Task<ScheduledListArray> GetExecutingActionsAsync(string aServiceId, bool aShowDisabled) {
-            return System.Threading.Tasks.Task<ScheduledListArray>.Factory.FromAsync(this.BeginGetExecutingActions(aServiceId, aShowDisabled, null, null), new System.Func<System.IAsyncResult, ScheduledListArray>(this.EndGetExecutingActions));
+        public virtual System.Threading.Tasks.Task<string[][]> GetExecutingActionsAsync(string aServiceId, bool aShowDisabled) {
+            return System.Threading.Tasks.Task<string[][]>.Factory.FromAsync(this.BeginGetExecutingActions(aServiceId, aShowDisabled, null, null), new System.Func<System.IAsyncResult, string[][]>(this.EndGetExecutingActions));
         }
         
         public virtual System.IAsyncResult BeginGetTransportActions(string aServiceID, bool aShowDisabled, System.AsyncCallback @__Callback, object @__UserData) {
@@ -1556,10 +1556,10 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual ScheduledListArray EndGetTransportActions(System.IAsyncResult @__AsyncResult) {
+        public virtual string[][] EndGetTransportActions(System.IAsyncResult @__AsyncResult) {
             RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
             try {
-                ScheduledListArray Result = ((ScheduledListArray)(@__LocalMessage.Read("Result", typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default)));
+                string[][] Result = ((string[][])(@__LocalMessage.Read("Result", typeof(string[][]), RemObjects.SDK.StreamingFormat.Default)));
                 return Result;
             }
             finally {
@@ -1567,8 +1567,8 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual System.Threading.Tasks.Task<ScheduledListArray> GetTransportActionsAsync(string aServiceID, bool aShowDisabled) {
-            return System.Threading.Tasks.Task<ScheduledListArray>.Factory.FromAsync(this.BeginGetTransportActions(aServiceID, aShowDisabled, null, null), new System.Func<System.IAsyncResult, ScheduledListArray>(this.EndGetTransportActions));
+        public virtual System.Threading.Tasks.Task<string[][]> GetTransportActionsAsync(string aServiceID, bool aShowDisabled) {
+            return System.Threading.Tasks.Task<string[][]>.Factory.FromAsync(this.BeginGetTransportActions(aServiceID, aShowDisabled, null, null), new System.Func<System.IAsyncResult, string[][]>(this.EndGetTransportActions));
         }
         
         public virtual System.IAsyncResult BeginGetPendingFiles(string aServiceID, System.AsyncCallback @__Callback, object @__UserData) {
@@ -1585,10 +1585,10 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual ScheduledListArray EndGetPendingFiles(System.IAsyncResult @__AsyncResult) {
+        public virtual string[][] EndGetPendingFiles(System.IAsyncResult @__AsyncResult) {
             RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
             try {
-                ScheduledListArray Result = ((ScheduledListArray)(@__LocalMessage.Read("Result", typeof(ScheduledListArray), RemObjects.SDK.StreamingFormat.Default)));
+                string[][] Result = ((string[][])(@__LocalMessage.Read("Result", typeof(string[][]), RemObjects.SDK.StreamingFormat.Default)));
                 return Result;
             }
             finally {
@@ -1596,8 +1596,8 @@ namespace FlowMonitor {
             }
         }
         
-        public virtual System.Threading.Tasks.Task<ScheduledListArray> GetPendingFilesAsync(string aServiceID) {
-            return System.Threading.Tasks.Task<ScheduledListArray>.Factory.FromAsync(this.BeginGetPendingFiles(aServiceID, null, null), new System.Func<System.IAsyncResult, ScheduledListArray>(this.EndGetPendingFiles));
+        public virtual System.Threading.Tasks.Task<string[][]> GetPendingFilesAsync(string aServiceID) {
+            return System.Threading.Tasks.Task<string[][]>.Factory.FromAsync(this.BeginGetPendingFiles(aServiceID, null, null), new System.Func<System.IAsyncResult, string[][]>(this.EndGetPendingFiles));
         }
         
         public virtual System.IAsyncResult BeginGetServices(System.AsyncCallback @__Callback, object @__UserData) {
@@ -1612,20 +1612,22 @@ namespace FlowMonitor {
                 throw ex;
             }
         }
-        
-        public virtual ServiceInfoList EndGetServices(System.IAsyncResult @__AsyncResult) {
+
+        public virtual FloBaseTypes.ServiceInfo[] EndGetServices(System.IAsyncResult @__AsyncResult)
+        {
             RemObjects.SDK.IMessage @__LocalMessage = ((RemObjects.SDK.IClientAsyncResult)(@__AsyncResult)).Message;
             try {
-                ServiceInfoList Result = ((ServiceInfoList)(@__LocalMessage.Read("Result", typeof(ServiceInfoList), RemObjects.SDK.StreamingFormat.Default)));
+                FloBaseTypes.ServiceInfo[] Result = ((FloBaseTypes.ServiceInfo[])(@__LocalMessage.Read("Result", typeof(FloBaseTypes.ServiceInfo[]), RemObjects.SDK.StreamingFormat.Default)));
                 return Result;
             }
             finally {
                 this.@__ClearMessage(@__LocalMessage);
             }
         }
-        
-        public virtual System.Threading.Tasks.Task<ServiceInfoList> GetServicesAsync() {
-            return System.Threading.Tasks.Task<ServiceInfoList>.Factory.FromAsync(this.BeginGetServices(null, null), new System.Func<System.IAsyncResult, ServiceInfoList>(this.EndGetServices));
+
+        public virtual System.Threading.Tasks.Task<FloBaseTypes.ServiceInfo[]> GetServicesAsync()
+        {
+            return System.Threading.Tasks.Task<FloBaseTypes.ServiceInfo[]>.Factory.FromAsync(this.BeginGetServices(null, null), new System.Func<System.IAsyncResult, FloBaseTypes.ServiceInfo[]>(this.EndGetServices));
         }
         
         public virtual System.IAsyncResult BeginRegisterService(string aServiceId, string aDisplayName, string aPort, ServiceConnection aCon, string aServiceUser, string aServiceUserPass, System.AsyncCallback @__Callback, object @__UserData) {
