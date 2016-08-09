@@ -14,7 +14,11 @@ namespace Flow.Monitor.App
         static void Main(string[] args)
         {
             
-            //Discovery
+            //Get services in your given address = ASYNC
+            MonitorAdmin_AsyncProxy IMonitorServiceAsync = new MonitorAdmin_AsyncProxy("tcp://localhost:35699/");
+            var task = IMonitorServiceAsync.GetServicesAsync();
+            Console.Write("Awaiting");
+            var resultv = task.Result;
 
             //Get Services in your given address
             MonitorAdmin_Proxy IMonitorService = new MonitorAdmin_Proxy("tcp://localhost:35699/");
