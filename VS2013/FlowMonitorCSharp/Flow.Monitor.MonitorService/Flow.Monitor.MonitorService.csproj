@@ -33,11 +33,7 @@
     <Reference Include="RemObjects.InternetPack, Version=2.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
     <Reference Include="RemObjects.InternetPack.VirtualFTP, Version=2.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
     <Reference Include="RemObjects.SDK, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
-    <Reference Include="RemObjects.SDK.Designtime, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
     <Reference Include="RemObjects.SDK.Server, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
-    <Reference Include="RemObjects.SDK.Server.AWS, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
-    <Reference Include="RemObjects.SDK.ZeroConf, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
-    <Reference Include="RemObjects.SDK.ZLib, Version=9.0.97.1245, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

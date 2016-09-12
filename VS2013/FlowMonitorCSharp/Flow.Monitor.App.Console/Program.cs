@@ -13,9 +13,12 @@ namespace Flow.Monitor.App
     {
         static void Main(string[] args)
         {
+
+            string ip = "192.168.5.31";
+            string startport = "35699";
             
             //Get services in your given address = ASYNC
-            MonitorAdmin_AsyncProxy IMonitorServiceAsync = new MonitorAdmin_AsyncProxy("tcp://localhost:35699/");
+            MonitorAdmin_AsyncProxy IMonitorServiceAsync = new MonitorAdmin_AsyncProxy("tcp://" + ip + ":" + startport + "/");
             var task = IMonitorServiceAsync.GetServicesAsync();
             Console.Write("Awaiting");
             task.ContinueWith((antecedent) => {
@@ -25,22 +28,26 @@ namespace Flow.Monitor.App
 
 
             //Get Services in your given address
-            MonitorAdmin_Proxy IMonitorService = new MonitorAdmin_Proxy("tcp://localhost:35699/");
+            MonitorAdmin_Proxy IMonitorService = new MonitorAdmin_Proxy("tcp://" + ip + ":" + startport + "/");
             var servicesArray = IMonitorService.GetServices(); //Working
-            FloBaseTypes.ServiceInfo firstService = servicesArray.ElementAtOrDefault(1);
+            FloBaseTypes.ServiceInfo firstService = servicesArray.ElementAtOrDefault(0);
             if(firstService != null)
             {
                 string Id = firstService.ServiceId;
-                var actionss = IMonitorService.GetScheduleActions(Id, aShowDisabled: true); //Not working
-                bool result = IMonitorService.StartFlowServer(Id); // Working
+                //var actionss = IMonitorService.GetScheduleActions(Id, aShowDisabled: true); //Not working
+                bool result = IMonitorService.StartFlowServer(Id); // Working 
                 
+
+
+                //To Talk to Flow Service
+                Admin_Proxy IService = new Admin_Proxy("tcp://" + ip + ":" + firstService.ServicePort + "/");
+                var ping = IService.Ping();
+                var name = IService.GetComputerName();
+                var actions = IService.GetScheduleActions(false);
             }
 
-            //To Talk to Flow Service
-            Admin_Proxy IService = new Admin_Proxy("tcp://localhost:3569/");
-            var ping = IService.Ping();
-            var name = IService.GetComputerName();
-            var actions = IService.GetScheduleActions(false);
+
+
 
 
             
