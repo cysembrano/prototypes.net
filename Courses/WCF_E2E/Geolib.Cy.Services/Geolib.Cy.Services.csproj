@@ -39,8 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="GeoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Geolib.Cy.Contracts\Geolib.Cy.Contracts.csproj">
+      <Project>{7cda2a3e-7253-4414-b1c9-7704543638d0}</Project>
+      <Name>Geolib.Cy.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geolib.Cy.Core\Geolib.Cy.Core.csproj">
+      <Project>{fe35b211-a6a2-4914-94e4-736df6691c7f}</Project>
+      <Name>Geolib.Cy.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GeoLib.Cy.Data\GeoLib.Cy.Data.csproj">
+      <Project>{02f12a74-6fc4-4f27-ad70-db7b353b0d84}</Project>
+      <Name>GeoLib.Cy.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
