@@ -26,7 +26,7 @@ namespace WebAPISite.Controllers
             {
                 msg = Request.CreateResponse<Course>(HttpStatusCode.OK, ret);
             }
-            return ret;
+            return msg;
         }
 
         public HttpResponseMessage Post([FromBody]Course c)
