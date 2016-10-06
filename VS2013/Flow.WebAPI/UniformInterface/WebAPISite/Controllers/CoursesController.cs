@@ -14,16 +14,30 @@ namespace WebAPISite.Controllers
             return courses;
         }
 
-        public Course Get(int id)
+        public HttpResponseMessage Get(int id)
         {
+            HttpResponseMessage msg = null;
             var ret = (from c in courses where c.id == id select c).FirstOrDefault();
+            if(ret == null)
+            {
+                msg = Request.CreateErrorResponse(HttpStatusCode.NotFound, "Course not Found");
+            }
+            else
+            {
+                msg = Request.CreateResponse<Course>(HttpStatusCode.OK, ret);
+            }
             return ret;
         }
 
-        public void Post([FromBody]Course c)
+        public HttpResponseMessage Post([FromBody]Course c)
         {
             c.id = courses.Count;
             courses.Add(c);
+
+            var msg = Request.CreateResponse(statusCode: HttpStatusCode.Created);
+            msg.Headers.Location = new Uri(Request.RequestUri + c.id.ToString());
+
+            return msg;
 
         }
 
