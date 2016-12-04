@@ -25,7 +25,8 @@ namespace EmployeeService
         private string _gender;
         private DateTime _dateOfBirth;
 
-        [DataMember(Name = "ID", Order = 1)]
+        //Properties come out in alphabetical order, Use "Order" property to control order.
+        [DataMember(Name = "ID", Order = 1)] 
         public int Id
         {
             get { return _id; }

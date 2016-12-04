@@ -1,4 +1,4 @@
-set server=DESKTOP-QOS4LQB\SQLEXPRESS
+set server=.\SQLEXPR_x64_2014
 set database=COURSE_YT_WCF
 set uid=FlowSQL
 set password=Flowsq1!
