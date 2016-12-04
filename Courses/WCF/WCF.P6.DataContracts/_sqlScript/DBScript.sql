@@ -15,9 +15,6 @@ CREATE TABLE [dbo].[WCF_tblEmployee](
 
 GO
 
-INSERT INTO WCF_tblEmployee VALUES (1, 'Mark', 'Male', '1980-10-11')
-INSERT INTO WCF_tblEmployee VALUES (2, 'Mary', 'Female', '1981-08-20')
-INSERT INTO WCF_tblEmployee VALUES (3, 'John', 'Male', '1983-06-04')
 
 
 
@@ -42,3 +39,8 @@ Begin
 	values (@id, @name, @gender, @DateOfBirth)
 End
 GO
+
+
+INSERT INTO WCF_tblEmployee VALUES (1, 'Mark', 'Male', '1980-10-11')
+INSERT INTO WCF_tblEmployee VALUES (2, 'Mary', 'Female', '1981-08-20')
+INSERT INTO WCF_tblEmployee VALUES (3, 'John', 'Male', '1983-06-04')
