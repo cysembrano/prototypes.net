@@ -19,6 +19,23 @@ namespace EmployeeServiceWeb
             var client = new EmployeeService.EmployeeServiceClient("BasicHttpBinding_IEmployeeService");
             var emp = client.GetEmployee(Convert.ToInt32(txtID.Text));
 
+            if (emp.Type == EmployeeService.EmployeeType.FullTimeEmployee)
+            {
+                txtAnnualSalary.Text = ((EmployeeService.FullTimeEmployee)emp).AnnualSalary.ToString();
+                trAnnualSalary.Visible = true;
+                trHourlyPay.Visible = false;
+                trHoursWorked.Visible = false;
+            }
+            else
+            {
+                txtHourlyPay.Text = ((EmployeeService.PartTimeEmployee)emp).HourlyPay.ToString();
+                txtHoursWorked.Text = ((EmployeeService.PartTimeEmployee)emp).HoursWorked.ToString();
+                trAnnualSalary.Visible = false;
+                trHourlyPay.Visible = true;
+                trHoursWorked.Visible = true;
+            }
+            ddlEmployeeType.SelectedValue = ((int)emp.Type).ToString();
+
             txtID.Text = emp.ID.ToString();
             txtName.Text = emp.Name;
             txtGender.Text = emp.Gender;
@@ -31,16 +48,59 @@ namespace EmployeeServiceWeb
         protected void btnSave_Click(object sender, EventArgs e)
         {
             var client = new EmployeeService.EmployeeServiceClient("BasicHttpBinding_IEmployeeService");
-            var emp = new EmployeeService.Employee();
+            EmployeeService.Employee emp = null;
 
-            emp.ID = Convert.ToInt32(txtID.Text);
-            emp.Name = txtName.Text;
-            emp.Gender = txtGender.Text;
-            emp.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
+            if (((EmployeeService.EmployeeType)Convert.ToInt32(ddlEmployeeType.SelectedValue)) == EmployeeService.EmployeeType.FullTimeEmployee)
+            {
+                emp = new EmployeeService.FullTimeEmployee
+                {
+                    ID = Convert.ToInt32(txtID.Text),
+                    Name = txtName.Text,
+                    Gender = txtGender.Text,
+                    DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
+                    AnnualSalary = Convert.ToInt32(txtAnnualSalary.Text),
+                };
+                client.SaveEmployee(emp);
+                lblMessage.Text = "Employee Saved";
+            }
+            else if (((EmployeeService.EmployeeType)Convert.ToInt32(ddlEmployeeType.SelectedValue)) == EmployeeService.EmployeeType.PartTimeEmployee)
+            {
+                emp = new EmployeeService.PartTimeEmployee
+                {
+                    ID = Convert.ToInt32(txtID.Text),
+                    Name = txtName.Text,
+                    Gender = txtGender.Text,
+                    DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
+                    HourlyPay = Convert.ToInt32(txtHourlyPay.Text),
+                    HoursWorked = Convert.ToInt32(txtHoursWorked.Text),
+                };
+                client.SaveEmployee(emp);
+                lblMessage.Text = "Employee Saved";
+            }
 
-            client.SaveEmployee(emp);
 
-            lblMessage.Text = "Employee Saved";
+        }
+
+        protected void ddlEmployeeType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlEmployeeType.SelectedValue == "-1")
+            {
+                trAnnualSalary.Visible = false;
+                trHourlyPay.Visible = false;
+                trHoursWorked.Visible = false;
+            }
+            else if (ddlEmployeeType.SelectedValue == "1")
+            {
+                trAnnualSalary.Visible = true;
+                trHourlyPay.Visible = false;
+                trHoursWorked.Visible = false; ;
+            }
+            else
+            {
+                trAnnualSalary.Visible = false;
+                trHourlyPay.Visible = true;
+                trHoursWorked.Visible = true;
+            }
         }
     }
 }
