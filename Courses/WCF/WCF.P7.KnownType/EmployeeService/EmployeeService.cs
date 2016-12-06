@@ -96,6 +96,40 @@ namespace EmployeeService
                 };
                 cmd.Parameters.Add(parameterDOB);
 
+                SqlParameter parameterEmployeeType = new SqlParameter
+                {
+                    ParameterName = "@EmployeeType",
+                    Value = employee.Type
+                };
+                cmd.Parameters.Add(parameterEmployeeType);
+
+                if (employee.GetType() == typeof(FullTimeEmployee))
+                {
+                    SqlParameter parameterAnnualSalary = new SqlParameter
+                    {
+                        ParameterName = "@AnnualSalary",
+                        Value = ((FullTimeEmployee)employee).AnnualSalary
+                    };
+                    cmd.Parameters.Add(parameterAnnualSalary);
+                }
+                else
+                {
+                    SqlParameter parameterHourlyPay = new SqlParameter
+                    {
+                        ParameterName = "@HourlyPay",
+                        Value = ((PartTimeEmployee)employee).HourlyPay
+                    };
+                    cmd.Parameters.Add(parameterHourlyPay);
+
+                    SqlParameter parameterHoursWorked = new SqlParameter
+                    {
+                        ParameterName = "@HoursWorked",
+                        Value = ((PartTimeEmployee)employee).HoursWorked
+                    };
+                    cmd.Parameters.Add(parameterHoursWorked);
+                }
+
+
                 con.Open();
                 cmd.ExecuteNonQuery();
 
