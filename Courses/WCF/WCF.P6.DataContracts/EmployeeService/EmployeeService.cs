@@ -19,7 +19,7 @@ namespace EmployeeService
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
-                SqlCommand cmd = new SqlCommand("spGetEmployee", con);
+                SqlCommand cmd = new SqlCommand("spGetEmployee_6", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 SqlParameter parameterId = new SqlParameter("@Id", Id);
                 cmd.Parameters.Add(parameterId);
@@ -41,7 +41,7 @@ namespace EmployeeService
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
-                var cmd = new SqlCommand("spSaveEmployee", con);
+                var cmd = new SqlCommand("spSaveEmployee_6", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 SqlParameter parameterId = new SqlParameter
