@@ -61,7 +61,7 @@ namespace EmployeeService
             get { return _dateOfBirth; }
             set { _dateOfBirth = value; }
         }
-
+        [DataMember(Order = 5)]
         public EmployeeType Type { get; set; }
 
     }
