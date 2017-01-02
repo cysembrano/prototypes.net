@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://cymessageboards.com/2015/10/06/Employee" />
-  <xs:element name="GetEmployee">
+<xs:schema xmlns:tns="http://MyCompany.com/Employee" elementFormDefault="qualified" targetNamespace="http://MyCompany.com/Employee" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EmployeeService" />
+  <xs:element name="EmployeeRequestObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LicenseKey" nillable="true" type="xs:string" />
+  <xs:element name="EmployeeInfoObject">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="Id" type="xs:int" />
+        <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DOB" type="xs:dateTime" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EmployeeService" minOccurs="0" name="Type" type="q1:EmployeeType" />
+        <xs:element minOccurs="0" name="AnnualSalary" type="xs:int" />
+        <xs:element minOccurs="0" name="HourlyPay" type="xs:int" />
+        <xs:element minOccurs="0" name="HoursWorked" type="xs:int" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployeeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://cymessageboards.com/2015/10/06/Employee" minOccurs="0" name="GetEmployeeResult" nillable="true" type="q1:Employee" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveEmployee">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://cymessageboards.com/2015/10/06/Employee" minOccurs="0" name="employee" nillable="true" type="q2:Employee" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveEmployeeResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

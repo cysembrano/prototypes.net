@@ -55,15 +55,12 @@
   <ItemGroup>
     <Content Include="WebForm1.aspx" />
     <None Include="Service References\EmployeeService\EmployeeService.wsdl" />
-    <None Include="Service References\EmployeeService\EmployeeServiceWeb.EmployeeService.Employee.datasource">
+    <None Include="Service References\EmployeeService\EmployeeServiceWeb.EmployeeService.EmployeeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\EmployeeService\item.disco" />
     <None Include="Service References\EmployeeService\configuration91.svcinfo" />
     <None Include="Service References\EmployeeService\configuration.svcinfo" />
-    <None Include="Service References\EmployeeService\item3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\EmployeeService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

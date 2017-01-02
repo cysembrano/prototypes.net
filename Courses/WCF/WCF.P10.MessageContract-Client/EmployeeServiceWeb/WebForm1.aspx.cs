@@ -16,30 +16,31 @@ namespace EmployeeServiceWeb
 
         protected void btnGet_Click(object sender, EventArgs e)
         {
-            var client = new EmployeeService.EmployeeServiceClient("BasicHttpBinding_IEmployeeService");
-            var emp = client.GetEmployee(Convert.ToInt32(txtID.Text));
-
+            EmployeeService.IEmployeeService client = new EmployeeService.EmployeeServiceClient("BasicHttpBinding_IEmployeeService");
+            EmployeeService.EmployeeRequest request = new EmployeeService.EmployeeRequest("AXMO2349EIO", Convert.ToInt32(txtID.Text));
+            EmployeeService.EmployeeInfo emp = client.GetEmployee(request);
+            
             if (emp.Type == EmployeeService.EmployeeType.FullTimeEmployee)
             {
-                txtAnnualSalary.Text = ((EmployeeService.FullTimeEmployee)emp).AnnualSalary.ToString();
+                txtAnnualSalary.Text = emp.AnnualSalary.ToString();
                 trAnnualSalary.Visible = true;
                 trHourlyPay.Visible = false;
                 trHoursWorked.Visible = false;
             }
             else
             {
-                txtHourlyPay.Text = ((EmployeeService.PartTimeEmployee)emp).HourlyPay.ToString();
-                txtHoursWorked.Text = ((EmployeeService.PartTimeEmployee)emp).HoursWorked.ToString();
+                txtHourlyPay.Text = emp.HourlyPay.ToString();
+                txtHoursWorked.Text = emp.HoursWorked.ToString();
                 trAnnualSalary.Visible = false;
                 trHourlyPay.Visible = true;
                 trHoursWorked.Visible = true;
             }
             ddlEmployeeType.SelectedValue = ((int)emp.Type).ToString();
 
-            txtID.Text = emp.ID.ToString();
+            txtID.Text = emp.Id.ToString();
             txtName.Text = emp.Name;
             txtGender.Text = emp.Gender;
-            txtDateOfBirth.Text = emp.DateOfBirth.ToShortDateString();
+            txtDateOfBirth.Text = emp.DOB.ToShortDateString();
 
             lblMessage.Text = "Employee Retrieved";
 
@@ -47,17 +48,17 @@ namespace EmployeeServiceWeb
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            var client = new EmployeeService.EmployeeServiceClient("BasicHttpBinding_IEmployeeService");
-            EmployeeService.Employee emp = null;
+            EmployeeService.IEmployeeService client = new EmployeeService.EmployeeServiceClient("BasicHttpBinding_IEmployeeService");
+            EmployeeService.EmployeeInfo emp = null;
 
             if (((EmployeeService.EmployeeType)Convert.ToInt32(ddlEmployeeType.SelectedValue)) == EmployeeService.EmployeeType.FullTimeEmployee)
             {
-                emp = new EmployeeService.FullTimeEmployee
+                emp = new EmployeeService.EmployeeInfo
                 {
-                    ID = Convert.ToInt32(txtID.Text),
+                    Id = Convert.ToInt32(txtID.Text),
                     Name = txtName.Text,
                     Gender = txtGender.Text,
-                    DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
+                    DOB = Convert.ToDateTime(txtDateOfBirth.Text),
                     AnnualSalary = Convert.ToInt32(txtAnnualSalary.Text),
                 };
                 client.SaveEmployee(emp);
@@ -65,12 +66,12 @@ namespace EmployeeServiceWeb
             }
             else if (((EmployeeService.EmployeeType)Convert.ToInt32(ddlEmployeeType.SelectedValue)) == EmployeeService.EmployeeType.PartTimeEmployee)
             {
-                emp = new EmployeeService.PartTimeEmployee
+                emp = new EmployeeService.EmployeeInfo
                 {
-                    ID = Convert.ToInt32(txtID.Text),
+                    Id = Convert.ToInt32(txtID.Text),
                     Name = txtName.Text,
                     Gender = txtGender.Text,
-                    DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
+                    DOB = Convert.ToDateTime(txtDateOfBirth.Text),
                     HourlyPay = Convert.ToInt32(txtHourlyPay.Text),
                     HoursWorked = Convert.ToInt32(txtHoursWorked.Text),
                 };
