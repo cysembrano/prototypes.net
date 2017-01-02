@@ -12,8 +12,7 @@ namespace EmployeeService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "EmployeeService" in both code and config file together.
     public class EmployeeService : IEmployeeService
     {
-
-        public Employee GetEmployee(int Id)
+        public EmployeeInfo GetEmployee(EmployeeRequest request)
         {
             Employee employee = null;
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
@@ -21,7 +20,7 @@ namespace EmployeeService
             {
                 SqlCommand cmd = new SqlCommand("spGetEmployee_7", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                SqlParameter parameterId = new SqlParameter("@Id", Id);
+                SqlParameter parameterId = new SqlParameter("@Id", request.EmployeeId);
                 cmd.Parameters.Add(parameterId);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -57,10 +56,10 @@ namespace EmployeeService
 
                 }
             }
-            return employee;
+            return new EmployeeInfo(employee);
         }
 
-        public void SaveEmployee(Employee employee)
+        public void SaveEmployee(EmployeeInfo employee)
         {
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
@@ -92,7 +91,7 @@ namespace EmployeeService
                 SqlParameter parameterDOB = new SqlParameter
                 {
                     ParameterName = "@DateOfBirth",
-                    Value = employee.DateOfBirth
+                    Value = employee.DOB
                 };
                 cmd.Parameters.Add(parameterDOB);
 
@@ -103,12 +102,12 @@ namespace EmployeeService
                 };
                 cmd.Parameters.Add(parameterEmployeeType);
 
-                if (employee.GetType() == typeof(FullTimeEmployee))
+                if (employee.Type == EmployeeType.FullTimeEmployee)
                 {
                     SqlParameter parameterAnnualSalary = new SqlParameter
                     {
                         ParameterName = "@AnnualSalary",
-                        Value = ((FullTimeEmployee)employee).AnnualSalary
+                        Value = employee.AnnualSalary
                     };
                     cmd.Parameters.Add(parameterAnnualSalary);
                 }
@@ -117,14 +116,14 @@ namespace EmployeeService
                     SqlParameter parameterHourlyPay = new SqlParameter
                     {
                         ParameterName = "@HourlyPay",
-                        Value = ((PartTimeEmployee)employee).HourlyPay
+                        Value = employee.HourlyPay
                     };
                     cmd.Parameters.Add(parameterHourlyPay);
 
                     SqlParameter parameterHoursWorked = new SqlParameter
                     {
                         ParameterName = "@HoursWorked",
-                        Value = ((PartTimeEmployee)employee).HoursWorked
+                        Value = employee.HoursWorked
                     };
                     cmd.Parameters.Add(parameterHoursWorked);
                 }
