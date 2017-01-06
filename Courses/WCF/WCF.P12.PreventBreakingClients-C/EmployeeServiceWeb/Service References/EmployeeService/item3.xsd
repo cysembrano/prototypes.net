@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EmployeeService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EmployeeService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://cymessageboards.com/2015/10/06/Employee" />
+  <xs:simpleType name="EmployeeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FullTimeEmployee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PartTimeEmployee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EmployeeType" nillable="true" type="tns:EmployeeType" />
+  <xs:complexType name="FullTimeEmployee">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://cymessageboards.com/2015/10/06/Employee" base="q1:Employee">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AnnualSalary" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullTimeEmployee" nillable="true" type="tns:FullTimeEmployee" />
+  <xs:complexType name="PartTimeEmployee">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://cymessageboards.com/2015/10/06/Employee" base="q2:Employee">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HourlyPay" type="xs:int" />
+          <xs:element minOccurs="0" name="HoursWorked" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PartTimeEmployee" nillable="true" type="tns:PartTimeEmployee" />
+</xs:schema>
