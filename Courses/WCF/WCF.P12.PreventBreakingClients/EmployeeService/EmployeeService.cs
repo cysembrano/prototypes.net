@@ -36,6 +36,7 @@ namespace EmployeeService
                             Name = reader["Name"].ToString(),
                             Gender = reader["Gender"].ToString(),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
+                            City = reader["City"].ToString(),
                             Type = EmployeeType.FullTimeEmployee,
                             AnnualSalary = Convert.ToInt32(reader["AnnualSalary"])
                         };
@@ -95,6 +96,14 @@ namespace EmployeeService
                     Value = employee.DateOfBirth
                 };
                 cmd.Parameters.Add(parameterDOB);
+
+
+                SqlParameter parameterCity = new SqlParameter
+                {
+                    ParameterName = "@City",
+                    Value = employee.City
+                };
+                cmd.Parameters.Add(parameterCity);
 
                 SqlParameter parameterEmployeeType = new SqlParameter
                 {

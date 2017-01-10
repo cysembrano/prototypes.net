@@ -12,9 +12,12 @@ namespace EmployeeService
     public interface IEmployeeService
     {
         [OperationContract]
-        Employee GetEmployee(int Id);
+        Employee GetEmployee(int Id); //Adding/removing parameter/s will not affect existing clients.
 
         [OperationContract]
         void SaveEmployee(Employee employee);
+
+        //Adding operation/s will not affect clients
+        //Removing operations might affect clients
     }
 }
