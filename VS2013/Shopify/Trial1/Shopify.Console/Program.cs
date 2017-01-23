@@ -34,9 +34,13 @@ namespace Shopify.ConsoleApp
             //WebRequest request = WebRequest.Create("https://kookai-development.myshopify.com/admin/orders.xml");
 
             //Test
-            var _apiKey = "87f3086a74c3bb60ea7b9dbf5eff5a8a";
-            var _password = "a268ac5e175fdef73f8b6a7462c0b003";
-            WebRequest request = WebRequest.Create("https://dev-hobbs-global.myshopify.com/admin/orders.xml");
+            //var _apiKey = "87f3086a74c3bb60ea7b9dbf5eff5a8a";
+            //var _password = "a268ac5e175fdef73f8b6a7462c0b003";
+            //WebRequest request = WebRequest.Create("https://dev-hobbs-global.myshopify.com/admin/orders.xml");
+
+            var _apiKey = "david.masters@flowsoftware.co.nz";
+            var _password = "TNX_coda_123$";
+            WebRequest request = WebRequest.Create("https://api.tnx.co.nz/v2016.7/users/me");
             
             // Set the credentials.
 

@@ -1,6 +1,5 @@
 ﻿using FlowMonitor;
 using FlowService;
-using RemObjects.SDK.ZeroConf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +27,8 @@ namespace Flow.Monitor.App
 
 
             //Get Services in your given address
-            MonitorAdmin_Proxy IMonitorService = new MonitorAdmin_Proxy("tcp://" + ip + ":" + startport + "/");
+            Uri uri = new Uri("tcp://" + ip + ":" + startport + "/");
+            MonitorAdmin_Proxy IMonitorService = new MonitorAdmin_Proxy(uri);
             var servicesArray = IMonitorService.GetServices(); //Working
             FloBaseTypes.ServiceInfo firstService = servicesArray.ElementAtOrDefault(0);
             if(firstService != null)
