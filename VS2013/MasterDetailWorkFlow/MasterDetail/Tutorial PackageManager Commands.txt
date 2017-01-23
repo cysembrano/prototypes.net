@@ -1,0 +1,8 @@
+﻿Enable Migrations
+	{enable-migrations -contexttypename ApplicationDbContext}
+
+Generate Migration Script
+	{add-migration Initial}
+
+Create Database and Seed
+	{update-database -verbose}
