@@ -165,6 +165,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DataLayer\ApplicationDBContext.cs" />
+    <Compile Include="DataLayer\ApplicationUserConfiguration.cs" />
     <Compile Include="DataLayer\CategoryConfiguration.cs" />
     <Compile Include="DataLayer\CustomerConfiguration.cs" />
     <Compile Include="DataLayer\InventoryItemConfiguration.cs" />
@@ -179,11 +181,16 @@
     <Compile Include="Migrations\201701230342481_Initial.Designer.cs">
       <DependentUpon>201701230342481_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701240515353_Identity.cs" />
+    <Compile Include="Migrations\201701240515353_Identity.Designer.cs">
+      <DependentUpon>201701240515353_Identity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\InventoryItem.cs" />
     <Compile Include="Models\Labor.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -274,6 +281,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701230342481_Initial.resx">
       <DependentUpon>201701230342481_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701240515353_Identity.resx">
+      <DependentUpon>201701240515353_Identity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
