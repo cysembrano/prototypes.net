@@ -8,6 +8,7 @@ namespace MasterDetail.Controllers
 {
     public class HomeController : Controller
     {
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
@@ -19,7 +20,7 @@ namespace MasterDetail.Controllers
 
             return View();
         }
-
+        [Authorize(Roles="Admin")]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

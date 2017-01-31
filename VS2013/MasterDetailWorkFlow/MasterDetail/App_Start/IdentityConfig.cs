@@ -12,6 +12,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using MasterDetail.Models;
 using MasterDetail.DataLayer;
+using System.Net.Mail;
+using System.Net;
 
 namespace MasterDetail
 {
@@ -19,8 +21,22 @@ namespace MasterDetail
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            const string userName = "PluralsightSendGrid";
+            const string from = "admin@productivityenhancement.com";
+            const string password = "alwayscoding1";
+            const int port = 587;
+
+            var smtpClient = new SmtpClient("smtp.sendgrid.net", port);
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.EnableSsl = true;
+            smtpClient.Credentials = new NetworkCredential(userName, password);
+
+            var mailMessage = new MailMessage(from, message.Destination);
+            mailMessage.Subject = message.Subject;
+            mailMessage.Body = message.Body;
+
+            return smtpClient.SendMailAsync(mailMessage);
         }
     }
 
