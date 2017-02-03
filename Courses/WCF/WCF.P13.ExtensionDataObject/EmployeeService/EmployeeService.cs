@@ -9,10 +9,12 @@ using System.Data.SqlClient;
 
 namespace EmployeeService
 {
+    //Single instance will serve multiple clients
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "EmployeeService" in both code and config file together.
     public class EmployeeService : IEmployeeService
     {
-
+        private Employee _lastSavedEmployee;
         public Employee GetEmployee(int Id)
         {
             Employee employee = null;
@@ -34,7 +36,7 @@ namespace EmployeeService
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Name = reader["Name"].ToString(),
-                            Gender = reader["Gender"].ToString(),
+                            //Gender = reader["Gender"].ToString(),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                             City = reader["City"].ToString(),
                             Type = EmployeeType.FullTimeEmployee,
@@ -47,7 +49,7 @@ namespace EmployeeService
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Name = reader["Name"].ToString(),
-                            Gender = reader["Gender"].ToString(),
+                            //Gender = reader["Gender"].ToString(),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                             Type = EmployeeType.PartTimeEmployee,
                             HourlyPay = Convert.ToInt32(reader["HourlyPay"]),
@@ -58,11 +60,18 @@ namespace EmployeeService
 
                 }
             }
+
+            if (_lastSavedEmployee != null && Id == _lastSavedEmployee.Id)
+            {
+                employee.ExtensionData = _lastSavedEmployee.ExtensionData;
+            }
+
             return employee;
         }
 
         public void SaveEmployee(Employee employee)
         {
+            _lastSavedEmployee = employee;
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
@@ -83,12 +92,12 @@ namespace EmployeeService
                 };
                 cmd.Parameters.Add(parameterName);
 
-                SqlParameter parameterGender = new SqlParameter
-                {
-                    ParameterName = "@Gender",
-                    Value = employee.Gender
-                };
-                cmd.Parameters.Add(parameterGender);
+                //SqlParameter parameterGender = new SqlParameter
+                //{
+                //    ParameterName = "@Gender",
+                //    Value = employee.Gender
+                //};
+                //cmd.Parameters.Add(parameterGender);
 
                 SqlParameter parameterDOB = new SqlParameter
                 {

@@ -26,7 +26,7 @@ namespace EmployeeService
     [KnownType(typeof(FullTimeEmployee))]
     [KnownType(typeof(PartTimeEmployee))]
     [DataContract(Namespace = "http://cymessageboards.com/2015/10/06/Employee")]
-    public class Employee
+    public class Employee: IExtensibleDataObject
     {
         private int _id;
         private string _name;
@@ -48,12 +48,12 @@ namespace EmployeeService
             set { _name = value; }
         }
 
-        [DataMember(Order = 3)]
-        public string Gender
-        {
-            get { return _gender; }
-            set { _gender = value; }
-        }
+        //[DataMember(Order = 3)]
+        //public string Gender
+        //{
+        //    get { return _gender; }
+        //    set { _gender = value; }
+        //}
 
         [DataMember(Order = 4)]
         public DateTime DateOfBirth
@@ -64,8 +64,10 @@ namespace EmployeeService
         [DataMember(Order = 5)]
         public EmployeeType Type { get; set; }
 
-        [DataMember(Order = 6)]
+        [DataMember(Order = 6, IsRequired=false)]
         public string City { get; set; }
 
+
+        public ExtensionDataObject ExtensionData { get; set; }
     }
 }
