@@ -50,12 +50,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EmployeeService\EmployeeService.csproj">
-      <Project>{C74B9EDF-DB68-4C7C-A009-354EFD200276}</Project>
-      <Name>EmployeeService</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
