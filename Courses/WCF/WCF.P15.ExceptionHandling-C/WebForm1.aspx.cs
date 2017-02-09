@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.ServiceModel;
 
 namespace WCF.P15.ExceptionHandling_C
 {
@@ -19,7 +20,14 @@ namespace WCF.P15.ExceptionHandling_C
             int numerator = Convert.ToInt32(TextBox1.Text);
             int denominator = Convert.ToInt32(TextBox2.Text);
             CalculatorService.CalculatorServiceClient client = new CalculatorService.CalculatorServiceClient();
-            Label3.Text = client.Divide(numerator, denominator).ToString();
+            try
+            {
+                Label3.Text = client.Divide(numerator, denominator).ToString();
+            }
+            catch (FaultException fault)
+            {
+                Label3.Text = fault.Message;
+            }
         }
     }
 }
