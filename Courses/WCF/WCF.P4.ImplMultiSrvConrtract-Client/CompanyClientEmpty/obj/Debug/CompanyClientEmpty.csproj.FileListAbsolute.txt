@@ -1,0 +1,4 @@
+C:\SRC\_github.cysembrano_svn\prototypes.net.git\trunk\Courses\WCF\WCF.P4.ImplMultiSrvConrtract-Client\CompanyClientEmpty\bin\CompanyClientEmpty.dll
+C:\SRC\_github.cysembrano_svn\prototypes.net.git\trunk\Courses\WCF\WCF.P4.ImplMultiSrvConrtract-Client\CompanyClientEmpty\bin\CompanyClientEmpty.pdb
+C:\SRC\_github.cysembrano_svn\prototypes.net.git\trunk\Courses\WCF\WCF.P4.ImplMultiSrvConrtract-Client\CompanyClientEmpty\obj\Debug\CompanyClientEmpty.dll
+C:\SRC\_github.cysembrano_svn\prototypes.net.git\trunk\Courses\WCF\WCF.P4.ImplMultiSrvConrtract-Client\CompanyClientEmpty\obj\Debug\CompanyClientEmpty.pdb
