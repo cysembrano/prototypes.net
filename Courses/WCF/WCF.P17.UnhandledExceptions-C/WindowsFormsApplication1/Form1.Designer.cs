@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNumerator
@@ -76,21 +77,33 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Calculate";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(198, 96);
+            this.lblResult.Location = new System.Drawing.Point(132, 91);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(37, 13);
             this.lblResult.TabIndex = 5;
             this.lblResult.Text = "Result";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(32, 133);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(203, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Create new proxy";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(272, 126);
+            this.ClientSize = new System.Drawing.Size(272, 181);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -112,6 +125,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Button button2;
     }
 }
 
