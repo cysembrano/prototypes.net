@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService", "..\WCF.P17.UnhandledExceptions\CalculatorService\CalculatorService.csproj", "{FC601F47-6B42-47D4-99D1-FDC2A88E6E3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService", "CalculatorService\CalculatorService.csproj", "{FC601F47-6B42-47D4-99D1-FDC2A88E6E3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorServiceHost", "..\WCF.P17.UnhandledExceptions\CalculatorServiceHost\CalculatorServiceHost.csproj", "{ED2FB09F-A1F8-4FA4-A4A7-86AC61436FFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorServiceHost", "CalculatorServiceHost\CalculatorServiceHost.csproj", "{ED2FB09F-A1F8-4FA4-A4A7-86AC61436FFF}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
