@@ -22,7 +22,7 @@ namespace CalculatorService
 
             FaultException faultEx = new FaultException("A general service error occured");
             MessageFault messageFault = faultEx.CreateMessageFault();
-            fault = Message.CreateMessage(version, messageFault, null);
+            fault = Message.CreateMessage(version, messageFault, null); 
         }
     }
 }

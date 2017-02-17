@@ -45,6 +45,7 @@
     <Compile Include="CalculatorService.cs" />
     <Compile Include="DivideByZeroFault.cs" />
     <Compile Include="GlobalErrorHandler.cs" />
+    <Compile Include="GlobalErrorHandlerBehaviorAttribute.cs" />
     <Compile Include="ICalculatorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
