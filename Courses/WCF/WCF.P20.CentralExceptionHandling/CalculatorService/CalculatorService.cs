@@ -7,22 +7,23 @@ using System.ServiceModel;
 namespace CalculatorService
 {
     //[ServiceBehavior(IncludeExceptionDetailInFaults=true)] //Another option to include fault exception details.
+    [GlobalErrorHandlerBehavior(typeof(GlobalErrorHandler))]
     public class CalculatorService : ICalculatorService
     {
         public int Divide(int Numerator, int Denominator)
         {
-            try
-            {
+            //try
+            //{
                 return Numerator / Denominator;
-            }
-            catch (DivideByZeroException ex)
-            {
-                DivideByZeroFault d = new DivideByZeroFault();
-                d.Error = ex.Message;
-                d.Details = "Denominator cannot be zero";
+            //}
+            //catch (DivideByZeroException ex)
+            //{
+            //    DivideByZeroFault d = new DivideByZeroFault();
+            //    d.Error = ex.Message;
+            //    d.Details = "Denominator cannot be zero";
 
-                throw new FaultException<DivideByZeroFault>(d);
-            }
+            //    throw new FaultException<DivideByZeroFault>(d);
+            //}
         }
     }
 }
