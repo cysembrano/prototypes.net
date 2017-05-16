@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowClient.Swanson", "FlowClient.Swanson\FlowClient.Swanson.csproj", "{D3F76D77-C9A5-4694-AE24-BA827691AE32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowClient.Swanson.Forms", "FlowClient.Swanson.Forms\FlowClient.Swanson.Forms.csproj", "{24CCDAAD-F489-40F7-B90F-B7342062EA70}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3F76D77-C9A5-4694-AE24-BA827691AE32}.Debug|x86.ActiveCfg = Debug|x86
+		{D3F76D77-C9A5-4694-AE24-BA827691AE32}.Debug|x86.Build.0 = Debug|x86
+		{D3F76D77-C9A5-4694-AE24-BA827691AE32}.Release|x86.ActiveCfg = Release|x86
+		{D3F76D77-C9A5-4694-AE24-BA827691AE32}.Release|x86.Build.0 = Release|x86
+		{24CCDAAD-F489-40F7-B90F-B7342062EA70}.Debug|x86.ActiveCfg = Debug|x86
+		{24CCDAAD-F489-40F7-B90F-B7342062EA70}.Debug|x86.Build.0 = Debug|x86
+		{24CCDAAD-F489-40F7-B90F-B7342062EA70}.Release|x86.ActiveCfg = Release|x86
+		{24CCDAAD-F489-40F7-B90F-B7342062EA70}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
