@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FlowClient.Swanson.Forms.NavmanService;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace FlowClient.Swanson.Forms
 {
@@ -37,8 +39,6 @@ namespace FlowClient.Swanson.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             SessionInfo currentSession = null;
-
-
 
             NavmanService.ServiceSoapClient client = new NavmanService.ServiceSoapClient();
             NavmanService.DoLoginRequest request = new NavmanService.DoLoginRequest();
@@ -146,7 +146,15 @@ namespace FlowClient.Swanson.Forms
             DoSendFormsResponse DoSendFormsResponse = null;
 
 
-            DoSendFormsResponse = client.DoSendForms(doSendFormsRequest);
+            XmlSerializer xmlSerializer = new XmlSerializer(doSendFormsRequest.GetType());
+
+            using (StringWriter textWriter = new StringWriter())
+            {
+                xmlSerializer.Serialize(textWriter, doSendFormsRequest);
+                string s =  textWriter.ToString();
+            }
+
+            //DoSendFormsResponse = client.DoSendForms(doSendFormsRequest);
 
         }
     }
