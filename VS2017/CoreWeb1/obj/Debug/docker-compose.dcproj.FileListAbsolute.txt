@@ -1,0 +1,1 @@
+F:\_SCR\_github_cysembrano\prototypes.net.git\trunk\VS2017\CoreWeb1\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
