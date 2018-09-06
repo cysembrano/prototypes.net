@@ -18,7 +18,9 @@ namespace Flow.Monitor.App
             
             //Get services in your given address = ASYNC
             MonitorAdmin_AsyncProxy IMonitorServiceAsync = new MonitorAdmin_AsyncProxy("tcp://" + ip + ":" + startport + "/");
+            
             var task = IMonitorServiceAsync.GetServicesAsync();
+
             Console.Write("Awaiting");
             task.ContinueWith((antecedent) => {
                 var @new = antecedent.Result;
@@ -30,7 +32,7 @@ namespace Flow.Monitor.App
             Uri uri = new Uri("tcp://" + ip + ":" + startport + "/");
             MonitorAdmin_Proxy IMonitorService = new MonitorAdmin_Proxy(uri);
             var servicesArray = IMonitorService.GetServices(); //Working
-            FloBaseTypes.ServiceInfo firstService = servicesArray.ElementAtOrDefault(0);
+            FloBaseTypes.ServiceInfo firstService = servicesArray.ElementAtOrDefault(1);
             if(firstService != null)
             {
                 string Id = firstService.ServiceId;
